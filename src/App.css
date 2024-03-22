@@ -1,0 +1,125 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.root-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f6868692; /* Optional background color, for visualization */
+}
+
+ /* .containerr {
+  margin-top: 2%;
+  margin-left: 2%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: chocolate;
+  /* background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fblue-food-background-cooking-ingredients-top-view-free-space-your-text-image164720650&psig=AOvVaw2R5nFvvsa_GmbRQZ2kFcCz&ust=1677219255068000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJDzkeT-qv0CFQAAAAAdAAAAABAk); */
+  /* background-image: "images/bgimg.jpg"; */
+  /* background-image: image("images/bgimg.jpg"); */
+  /* background-image: (${"images/bgimg"});
+ /* } */
+
+ /* } */
+
+.container {
+  /* margin-top: 2%;
+  margin-left: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: left;
+  padding: 5px; */
+  
+  display: flex;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.button {
+  background-color: rgb(14, 25, 240);
+  color: rgb(246, 237, 238);
+  margin: 0 0.2em;
+}
+
+/* 
+.black {
+  backgroud
+}
+
+.white {
+  background-color: rgb(88, 69, 88);
+  color: blue;
+} */
+
+.title {
+  /* margin-left: 10%; */
+  color: #06279e;
+  font-size: larger;
+  text-align: center;
+  font-style: oblique;
+  font-family: cursive;
+  background-color: rgb(10, 249, 30);
+
+}
+
+/* .image {
+  height: 160px;
+  width: 240px;
+} */
+
+.nav {
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-weight: bolder;
+  margin-left: 20px; */
+  color: wheat;
+
+}
+
+.navLinks li {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: bold;
+  font-size: 40px;
+  display: inline-block;
+  margin-right: 30px; 
+}
