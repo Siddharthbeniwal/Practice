@@ -25,6 +25,10 @@ export default function LeetCodeQuestions() {
 // In this case, the max area of water (blue section) the container can contain is 49.
 
 
+// ________________________________________________________________
+// Solution:
+
+
 // var maxArea = function(height) {
 //     let start = 0;
 //     let end = height.length - 1;
@@ -61,6 +65,9 @@ export default function LeetCodeQuestions() {
 // 0 <= s.length <= 5 * 104
 // s consists of English letters, digits, symbols and spaces.
 
+
+// ________________________________________________________________
+// Solution:
 
 
 // let str = "xyzabczabxyzabcdefx";
@@ -118,6 +125,11 @@ export default function LeetCodeQuestions() {
 // 3 <= nums.length <= 3000
 // -105 <= nums[i] <= 105
 
+
+// ________________________________________________________________
+// Solution:
+
+
 // const nums = [-1, 0, 1, 2, -1, -4];
 
 // function threeSum(nums) {
@@ -157,4 +169,86 @@ export default function LeetCodeQuestions() {
 // }
 
 // console.log(threeSum(nums));
+
+
+// ***********************************************************************************************************************************************************
+
+// Q.4
+// https://leetcode.com/problems/4sum/description/
+
+// Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+// 0 <= a, b, c, d < n
+// a, b, c, and d are distinct.
+// nums[a] + nums[b] + nums[c] + nums[d] == target
+// You may return the answer in any order.
+ 
+
+// Example 1:
+
+// Input: nums = [1,0,-1,0,-2,2], target = 0
+// Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+// Example 2:
+
+// Input: nums = [2,2,2,2,2], target = 8
+// Output: [[2,2,2,2]]
+ 
+
+// Constraints:
+
+// 1 <= nums.length <= 200
+// -109 <= nums[i] <= 109
+// -109 <= target <= 109
+
+
+// ________________________________________________________________
+// Solution:
+
+
+// function fourSum(nums, target) {
+//   nums.sort((a, b) => a - b);
+
+//   let resultArr = [];
+
+//   function checkDuplicate(currArr) {
+//     for (const quadruplet of resultArr) {
+//       if (quadruplet.every((value, i) => value === currArr[i])) {
+//         return true;
+//       }
+//     }
+//     return false;
+//   }
+//   for (let i = 0; i < nums.length - 3; i++) {
+//     if (i > 0 && nums[i] === nums[i - 1]) continue;
+//     for (let j = i + 1; j < nums.length - 2; j++) {
+//       if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+//       let start = j + 1;
+//       let end = nums.length - 1;
+
+//       while (start < end) {
+//         let currSum = nums[i] + nums[j] + nums[start] + nums[end];
+//         let currArr = [nums[i], nums[j], nums[start], nums[end]];
+
+//         if (currSum === target) {
+//           isDuplicate = checkDuplicate(currArr);
+//           if (!isDuplicate) {
+//             resultArr.push(currArr);
+//           }
+//           start++;
+//           end--;
+//         } else if (currSum < target) {
+//           start++;
+//         } else {
+//           end--;
+//         }
+//       }
+//     }
+//   }
+
+//   return resultArr;
+// }
+
+// const nums = [1, 0, -1, 0, -2, 2];
+// const target = 0;
+// console.log(fourSum(nums, target));
 
