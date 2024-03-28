@@ -252,3 +252,61 @@ export default function LeetCodeQuestions() {
 // const target = 0;
 // console.log(fourSum(nums, target));
 
+
+// ***********************************************************************************************************************************************************
+
+// Q.5
+// https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+// Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+// The overall run time complexity should be O(log (m+n)).
+
+ 
+
+// Example 1:
+
+// Input: nums1 = [1,3], nums2 = [2]
+// Output: 2.00000
+// Explanation: merged array = [1,2,3] and median is 2.
+// Example 2:
+
+// Input: nums1 = [1,2], nums2 = [3,4]
+// Output: 2.50000
+// Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+ 
+
+// Constraints:
+
+// nums1.length == m
+// nums2.length == n
+// 0 <= m <= 1000
+// 0 <= n <= 1000
+// 1 <= m + n <= 2000
+// -106 <= nums1[i], nums2[i] <= 106
+
+
+// ________________________________________________________________
+// Solution:
+
+
+// function findMedian(nums1, nums2) {
+//     let result;
+//     let n;
+//     let nums = nums1.concat(nums2);
+//     nums = nums.sort((a, b) => a - b);
+//     if (nums.length % 2 !== 0) {
+//       n = (nums.length - 1) / 2;
+//       result = nums[n];
+//     } else {
+//       let n1 = nums.length / 2;
+//       let n2 = n1 - 1;
+//       result = (nums[n1] + nums[n2]) / 2;
+//     }
+//     return result;
+//   }
+
+//   const nums1 = [1, 2];
+//   const nums2 = [3, 4];
+  
+//   console.log(findMedian(nums1, nums2));
