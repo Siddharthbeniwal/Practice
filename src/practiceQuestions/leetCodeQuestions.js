@@ -3,7 +3,7 @@ import React from "react";
 export default function LeetCodeQuestions() {
   return (
     <div>
-      <h2 style={{ color: 'white'}}>Welcome to LeetCodeQuestions practice.</h2>
+      <h2>Welcome to LeetCodeQuestions practice.</h2>
     </div>
   );
 }

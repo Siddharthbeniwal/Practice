@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import PracticeQuestions from "../src/practiceQuestions/practiceQuestions";
 import AssessmentQuestions from "../src/practiceQuestions/assessmentQuestions";
 import LearningJavascript from "../src/practiceQuestions/learningJavascript";
@@ -17,23 +17,28 @@ const routes = [
   { path: "/leetcode-questions", label: "LeetCode Questions", component: LeetCodeQuestions },
 ];
 
+function NavigationButtons() {
+  const location = useLocation();
+  return (
+    <div className="button-container">
+      {routes.map(({ path, label }) => (
+        <Link key={path} to={path}>
+          <button className={`nav-button ${location.pathname === path ? 'selected' : ''}`}>
+            {label}
+          </button>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
       <div className="main-page">
         <h1 className="main-heading">Learning JavaScript</h1>
 
-        {/* Buttons for Navigation */}
-
-        <div className="button-container">
-          {routes.map(({ path, label }) => (
-            <Link key={path} to={path}>
-              <button className="nav-button">{label}</button>
-            </Link>
-          ))}
-        </div>
-
-        {/*Routes */}
+        <NavigationButtons />
 
         <Routes>
           {routes.map(({ path, component: Component }) => (
