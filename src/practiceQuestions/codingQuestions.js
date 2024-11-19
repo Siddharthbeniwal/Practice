@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function InterviewQuestions() {
+export default function CodingQuestions() {
   return (
     <div>
-      <h2>Welcome to interview practice session.</h2>
+      <h2>Welcome to DSA practice session.</h2>
     </div>
   );
 }

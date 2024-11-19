@@ -3,7 +3,7 @@ import React from "react";
 export default function LeetCodeQuestions() {
   return (
     <div>
-      <h2>Welcome to LeetCodeQuestions practice.</h2>
+      <h2 style={{ color: 'white'}}>Welcome to LeetCodeQuestions practice.</h2>
     </div>
   );
 }
@@ -310,3 +310,100 @@ export default function LeetCodeQuestions() {
 //   const nums2 = [3, 4];
   
 //   console.log(findMedian(nums1, nums2));
+
+
+// ***********************************************************************************************************************************************************
+
+// Q.6
+// https://leetcode.com/problems/longest-palindromic-substring/description/
+
+// Given a string s, return the longest palindromic substring in s.
+
+
+// Example 1:
+
+// Input: s = "babad"
+// Output: "bab"
+// Explanation: "aba" is also a valid answer.
+// Example 2:
+
+// Input: s = "cbbd"
+// Output: "bb"
+ 
+
+// Constraints:
+
+// 1 <= s.length <= 1000
+// s consist of only digits and English letters.
+
+
+
+// ________________________________________________________________
+// Solution:
+
+// let str = "babad"
+// let reversedStr = str.split('').reverse().join('')
+// console.log(reversedStr);
+// "dabab"
+
+
+// let longestLength = 0
+// let start = 0
+// let end = str.length-1
+
+
+// while(start<end) {
+//   let currLength = 0
+//   if(str[start] !== str[end]) {
+//     longestLength = Math.max(longestLength, currLength)
+//   } else {
+//     currLength++;
+//   }
+  
+
+// }
+
+
+
+
+
+
+function longestPalindromicSubstring(s) {
+  const n = s.length;
+  if (n < 2) return s;
+  
+  let start = 0;
+  let maxLength = 1;
+  const dp = Array.from({ length: n }, () => Array(n).fill(false));
+
+  for (let i = 0; i < n; i++) {
+      dp[i][i] = true;
+  }
+  
+  for (let i = 0; i < n - 1; i++) {
+      if (s[i] === s[i + 1]) {
+          dp[i][i + 1] = true;
+          start = i;
+          maxLength = 2;
+      }
+  }
+  
+  for (let length = 3; length <= n; length++) {
+      for (let i = 0; i < n - length + 1; i++) {
+          const j = i + length - 1;
+          if (s[i] === s[j] && dp[i + 1][j - 1]) {
+              dp[i][j] = true;
+              start = i;
+              maxLength = length;
+          }
+      }
+  }
+  
+  return s.substring(start, start + maxLength);
+}
+
+// Example usage:
+const s1 = "babad";
+console.log(longestPalindromicSubstring(s1)); // Output: "bab" or "aba"
+// const s2 = "abyyybsapq";
+// console.log(longestPalindromicSubstring(s2)); // Output: "bb"
