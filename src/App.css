@@ -80,6 +80,7 @@
 .main-page {
   background-color: darkgrey;
   height: 100vh;
+  padding: 16px;
 }
 
 .main-heading {
@@ -105,6 +106,10 @@
   text-transform: uppercase;
   transition: all 0.3s ease;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:first-child {
+  margin-left: 0;
 }
 
 .nav-button:hover {
