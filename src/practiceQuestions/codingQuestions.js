@@ -101,3 +101,35 @@ export default function CodingQuestions() {
 //     ? (newStr += String.fromCharCode(char.charCodeAt() - 32))
 //     : (newStr += char);
 // }
+
+
+// ***********************************************************************************************************************************************************
+// Q.11 In the given array, find the pattern and print the next 'n' numbers in that pattern.
+
+// eg 1- arr = [2,4,6,8,10]
+//       n = 2
+// Expected output = [12,14]
+
+// eg 2- arr = [3,6,9,12,15]
+//       n = 3
+// Expected output = [18,21,24]
+
+
+// const arr = [2,4,6,8,10];
+// let   n = 4;
+
+// function getNextNumbers (n) {
+//   const diff = arr[1] - arr[0];
+//   const lastNum = arr[arr.length - 1];
+
+//   return Array.from({length:n}, (curr, i) => lastNum + diff * (i+1))  
+// }
+
+// console.log('next n numbers are-', getNextNumbers(n));
+
+// Explaination:
+// The Array.from method is used to create a new array of a specified length and populate it with values. Its signature is:
+// Array.from({ length: n }, (callbackFn)); 
+// -The first parameter is an object with a length property, which defines how many elements the new array will have.
+// -The second parameter is a callback function that determines the value of each element. This function is called with two arguments for each index:
+
