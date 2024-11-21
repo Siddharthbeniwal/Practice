@@ -104,7 +104,7 @@ export default function CodingQuestions() {
 
 
 // ***********************************************************************************************************************************************************
-// Q.11 In the given array, find the pattern and print the next 'n' numbers in that pattern.
+// Q.11(A) In the given array, find the pattern and print the next 'n' numbers in that pattern.
 
 // eg 1- arr = [2,4,6,8,10]
 //       n = 2
@@ -133,3 +133,33 @@ export default function CodingQuestions() {
 // -The first parameter is an object with a length property, which defines how many elements the new array will have.
 // -The second parameter is a callback function that determines the value of each element. This function is called with two arguments for each index:
 
+
+// ***********************************************************************************************************************************************************
+// Q.11(B) In the given array, find the pattern and print the next 'n' numbers in that pattern.
+
+// eg 1- arr = [2,4,8,16,32]
+//       n = 2
+// Expected output = [64,128]
+
+// eg 2- arr = [3,9,27,81]
+//       n = 2
+// Expected output = [243,729]
+
+
+// const arr = [2,4,8,16,32];
+// let n = 3;
+
+// const getNextNumbers = (arr, n) => {
+//   const ratio = arr[1] / arr[0];
+//   const lastNum = arr[arr.length -1];
+
+
+//   return Array.from({length: n}, (_, i) => lastNum * ratio ** (i+1));
+
+//   // for understanding:
+//   // 32 * 2^1= 32 * 2= 64
+//   // 32 * 2^2= 32 * 4= 128
+//   // 32 * 2^3= 32 * 8= 256
+// }
+
+// console.log(getNextNumbers(arr, n));
