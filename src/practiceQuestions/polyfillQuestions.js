@@ -47,6 +47,14 @@ export default function PollyFill() {
 // let arr = [1, 2, 3, 4, 5];
 
 // function customizedMap(arr, callback) {
+//   if(arr === null || arr.length === 0) {
+//     throw new TypeError('cannot use customizedMap for undefined');
+//   }
+
+//   if(typeof callback !== 'function') {
+//     throw new TypeError(`${callback} is not a function`);
+//   }
+
 //   let outputArr = [];
 
 //   for (let i = 0; i < arr.length; i++) {
