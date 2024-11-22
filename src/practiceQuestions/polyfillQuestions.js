@@ -1,12 +1,17 @@
 import React from "react";
 
 export default function PollyFill() {
-    return (
-        <div>
-            <h2>Welcome to PllyFillQuestions practice.</h2>
-            <p>Polyfill JS provides functionality to the browser to support the methods and events which are not natively supported by them.In simple words, Polyfill JS is some script code that provides the ability to support modern functionality on older versions of the web browser.</p>
-        </div>
-    )
+  return (
+    <div>
+      <h2>Welcome to PllyFillQuestions practice.</h2>
+      <p>
+        Polyfill JS provides functionality to the browser to support the methods
+        and events which are not natively supported by them.In simple words,
+        Polyfill JS is some script code that provides the ability to support
+        modern functionality on older versions of the web browser.
+      </p>
+    </div>
+  );
 }
 
 // Tips:
@@ -35,3 +40,25 @@ export default function PollyFill() {
 
 // console.log('customizedFilter to filter even nos', customizedFilter(arr, isEven));
 // console.log('customizedFilter to filter mupltiple of 5', customizedFilter(arr, isMulitpleOf5));
+
+// ***********************************************************************************************************************************************************
+// Q.2 Implement a polyfill for the 'map' method.
+
+// let arr = [1, 2, 3, 4, 5];
+
+// function customizedMap(arr, callback) {
+//   let outputArr = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     // callback fn to perform some action on each element
+//     outputArr.push(callback(arr[i], i, arr));
+//   }
+
+//   return outputArr;
+// }
+
+// const double = (num) => num * 2;
+// const increment = (num) => num + 1;
+
+// console.log("customizedMap to double all elements", customizedMap(arr, double));
+// console.log("customizedMap to increment all elements", customizedMap(arr, increment));
