@@ -91,7 +91,7 @@ export default function CodingQuestions() {
 // console.log('arr', arr)
 
 // ***********************************************************************************************************************************************************
-// Q.10 Convert given string in all uppercase witout using inbuilt fn:
+// Q.10 Convert given string in all uppercase without using inbuilt fn:
 // let str = 'abcABCHeLlO WoRld'
 
 // let newStr = "";

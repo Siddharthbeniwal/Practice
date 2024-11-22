@@ -6,6 +6,7 @@ import LearningJavascript from "../src/practiceQuestions/learningJavascript";
 import CertificationQuestions from "../src/practiceQuestions/certificationQuestions";
 import CodingQuestions from "../src/practiceQuestions/codingQuestions";
 import LeetCodeQuestions from "../src/practiceQuestions/leetCodeQuestions";
+import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
 import './App.css';
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
   { path: "/learning-javascript", label: "Learning JavaScript", component: LearningJavascript },
   { path: "/certification-questions", label: "Certification Questions", component: CertificationQuestions },
   { path: "/leetcode-questions", label: "LeetCode Questions", component: LeetCodeQuestions },
+  { path: "/polyfill-questions", label: "Polyfill Questions", component: PolyFillQuestions },
 ];
 
 function NavigationButtons() {
