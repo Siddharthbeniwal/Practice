@@ -26,8 +26,6 @@ export default function CodingQuestions() {
 // console.log('output', output);
 // console.log('count', count);
 
-
-
 // ***********************************************************************************************************************************************************
 // Q.2 Find count of each character in a given string.
 
@@ -63,9 +61,6 @@ export default function CodingQuestions() {
 // arr.splice(missingIndex, 0, missingIndex + 1);
 // console.log(arr);
 
-
-
-
 // ***********************************************************************************************************************************************************
 // Q.6 Delete '5' from the array.
 // let arr = [1,2,3,5,6,7]
@@ -79,8 +74,6 @@ export default function CodingQuestions() {
 
 // arr.splice(2,1,4)
 // console.log('arr', arr)
-
-
 
 // ***********************************************************************************************************************************************************
 // Q.9 Remove '5,6,8' and insert '7,11' in its place the array.
@@ -102,7 +95,6 @@ export default function CodingQuestions() {
 //     : (newStr += char);
 // }
 
-
 // ***********************************************************************************************************************************************************
 // Q.11(A) In the given array, find the pattern and print the next 'n' numbers in that pattern.
 
@@ -114,7 +106,6 @@ export default function CodingQuestions() {
 //       n = 3
 // Expected output = [18,21,24]
 
-
 // const arr = [2,4,6,8,10];
 // let   n = 4;
 
@@ -122,17 +113,16 @@ export default function CodingQuestions() {
 //   const diff = arr[1] - arr[0];
 //   const lastNum = arr[arr.length - 1];
 
-//   return Array.from({length:n}, (curr, i) => lastNum + diff * (i+1))  
+//   return Array.from({length:n}, (curr, i) => lastNum + diff * (i+1))
 // }
 
 // console.log('next n numbers are-', getNextNumbers(n));
 
 // Explaination:
 // The Array.from method is used to create a new array of a specified length and populate it with values. Its signature is:
-// Array.from({ length: n }, (callbackFn)); 
+// Array.from({ length: n }, (callbackFn));
 // -The first parameter is an object with a length property, which defines how many elements the new array will have.
 // -The second parameter is a callback function that determines the value of each element. This function is called with two arguments for each index:
-
 
 // ***********************************************************************************************************************************************************
 // Q.11(B) In the given array, find the pattern and print the next 'n' numbers in that pattern.
@@ -145,14 +135,12 @@ export default function CodingQuestions() {
 //       n = 2
 // Expected output = [243,729]
 
-
 // const arr = [2,4,8,16,32];
 // let n = 3;
 
 // const getNextNumbers = (arr, n) => {
 //   const ratio = arr[1] / arr[0];
 //   const lastNum = arr[arr.length -1];
-
 
 //   return Array.from({length: n}, (_, i) => lastNum * ratio ** (i+1));
 
@@ -163,3 +151,25 @@ export default function CodingQuestions() {
 // }
 
 // console.log(getNextNumbers(arr, n));
+
+// ***********************************************************************************************************************************************************
+// Q.12
+// (A) Return only the name of students in Capitals.
+// (B) Return the details of those students only who scored more than 60.
+// (A) Return only the name of students who scored less than 40.
+
+// const students = [
+//   { name: "Jenny", rollNo: 101, marks: 80 },
+//   { name: "Alex", rollNo: 102, marks: 45 },
+//   { name: "David", rollNo: 103, marks: 62 },
+//   { name: "Sam", rollNo: 104, marks: 36 },
+// ];
+
+// const resultA = students.map((stu) => stu.name.toUpperCase());
+// console.log("resultA", resultA);
+
+// const resultB = students.filter((stu) => stu.marks > 60);
+// console.log("resultB", resultB);
+
+// const resultC = students.filter((stu) => stu.marks < 40).map((stu) => stu.name);
+// console.log("resultC", resultC);
