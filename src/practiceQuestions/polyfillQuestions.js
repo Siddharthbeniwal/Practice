@@ -118,7 +118,7 @@ export default function PollyFill() {
 // console.log('result', result);
 
 // ***********************************************************************************************************************************************************
-// Q.3 Implement a polyfill for the 'reduce' method.
+// Q.3(A) Implement a customized method for 'reduce'.
 
 // Points to remember for 'reduce':
 // 1- Initial value to be provided.
@@ -126,22 +126,40 @@ export default function PollyFill() {
 // 3- Logic of for loop.
 // 4- Always get a previous value on which next computation to be performed (accumulator).
 
-const arr = [1, 2, 3, 4, 5];
+// const arr = [1, 2, 3, 4, 5];
 
-Array.prototype.myReduce = function (callback, initialValue = null) {
-  let acc = initialValue;
+// function customizedReduce(arr, callback, initialValue=null) {
+//   let acc = initialValue;
 
-  for (let i = 0; i < this.length; i++) {
-    acc = callback(acc, this[i], i, this);
-    // acc,  curr, index, array
-  }
+//   for(let i=0; i<arr.length; i++) {
+//     acc = callback(acc, arr[i], i, arr);
+//   }
 
-  return acc;
-};
+//   return acc;
+// }
 
-const result = arr.myReduce((acc, curr) => {
-  acc += curr;
-  return acc;
-}, 0);
+// const sum = (acc, curr) => acc+=curr;
+// console.log('customizedReduce', customizedReduce(arr, sum, 0));
 
-console.log("result", result);
+// ***********************************************************************************************************************************************************
+// Q.3(B) Implement a polyfill for the 'reduce' method.
+
+// const arr = [1, 2, 3, 4, 5];
+
+// Array.prototype.myReduce = function (callback, initialValue = null) {
+//   let acc = initialValue;
+
+//   for (let i = 0; i < this.length; i++) {
+//     acc = callback(acc, this[i], i, this);
+//     // acc,  curr, index, array
+//   }
+
+//   return acc;
+// };
+
+// const result = arr.myReduce((acc, curr) => {
+//   acc += curr;
+//   return acc;
+// }, 0);
+
+// console.log("result", result);
