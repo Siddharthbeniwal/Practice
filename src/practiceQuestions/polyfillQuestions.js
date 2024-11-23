@@ -69,9 +69,9 @@ export default function PollyFill() {
 
 
 // ***********************************************************************************************************************************************************
-// Q.2 Implement a polyfill for the 'map' method.
+// Q.2(A) Implement a customized method for 'map'.
 
-// let arr = [1, 2, 3, 4, 5];
+// const arr = [1, 2, 3, 4, 5];
 
 // function customizedMap(arr, callback) {
 //   if(arr === null || arr.length === 0) {
@@ -97,3 +97,21 @@ export default function PollyFill() {
 
 // console.log("customizedMap to double all elements", customizedMap(arr, double));
 // console.log("customizedMap to increment all elements", customizedMap(arr, increment));
+
+
+// ***********************************************************************************************************************************************************
+// Q.2(B) Implement a polyfill for the 'map' method.
+
+// const arr = [1, 2, 3, 4, 5];
+
+// Array.prototype.myMap = function(callback) {
+//   let outputArr = [];
+
+//   for(let i=0; i<this.length; i++) {
+//       outputArr.push(callback(this[i], i, this));
+//   }
+//   return outputArr;
+// }
+
+// const result = arr.myMap((num) => num*2);
+// console.log('result', result);
