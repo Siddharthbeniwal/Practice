@@ -13,7 +13,7 @@ export default function PollyFill() {
     </div>
   );
 }
- 
+
 // Tips:
 // conventional order for callback-> (value, index, array)
 // if(callback(arr[i], i, arr))
@@ -46,7 +46,6 @@ export default function PollyFill() {
 // console.log('customizedFilter to filter even nos', customizedFilter(arr, isEven));
 // console.log('customizedFilter to filter mupltiple of 5', customizedFilter(arr, isMulitpleOf5));
 
-
 // ***********************************************************************************************************************************************************
 // Q.1(B) Implement a polyfill for the 'filter' method.
 
@@ -57,7 +56,7 @@ export default function PollyFill() {
 
 //   //'this' keyword will refer to the array on which 'myFilter' is applied to
 //   for (let i = 0; i < this.length; i++) {
-//     if(callback(this[i], i, this)) { 
+//     if(callback(this[i], i, this)) {
 //       outputArr.push(this[i]);
 //     }
 //   }
@@ -67,9 +66,12 @@ export default function PollyFill() {
 // const result = arr.myFilter((num) => num%2===0);
 // console.log('result', result);
 
-
 // ***********************************************************************************************************************************************************
 // Q.2(A) Implement a customized method for 'map'.
+
+// Points to remember for 'map':
+// 1- Always returns a new Array
+// 2- Logic of for loop
 
 // const arr = [1, 2, 3, 4, 5];
 
@@ -98,7 +100,6 @@ export default function PollyFill() {
 // console.log("customizedMap to double all elements", customizedMap(arr, double));
 // console.log("customizedMap to increment all elements", customizedMap(arr, increment));
 
-
 // ***********************************************************************************************************************************************************
 // Q.2(B) Implement a polyfill for the 'map' method.
 
@@ -115,3 +116,32 @@ export default function PollyFill() {
 
 // const result = arr.myMap((num) => num*2);
 // console.log('result', result);
+
+// ***********************************************************************************************************************************************************
+// Q.3 Implement a polyfill for the 'reduce' method.
+
+// Points to remember for 'reduce':
+// 1- Initial value to be provided.
+// 2- Reduce the value to a particular element at each step with result from previous steps.
+// 3- Logic of for loop.
+// 4- Always get a previous value on which next computation to be performed (accumulator).
+
+const arr = [1, 2, 3, 4, 5];
+
+Array.prototype.myReduce = function (callback, initialValue = null) {
+  let acc = initialValue;
+
+  for (let i = 0; i < this.length; i++) {
+    acc = callback(acc, this[i], i, this);
+    // acc,  curr, index, array
+  }
+
+  return acc;
+};
+
+const result = arr.myReduce((acc, curr) => {
+  acc += curr;
+  return acc;
+}, 0);
+
+console.log("result", result);
