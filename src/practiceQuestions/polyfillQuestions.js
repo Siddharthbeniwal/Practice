@@ -13,15 +13,20 @@ export default function PollyFill() {
     </div>
   );
 }
-
+ 
 // Tips:
 // conventional order for callback-> (value, index, array)
 // if(callback(arr[i], i, arr))
 
 // ***********************************************************************************************************************************************************
-// Q.1 Implement a polyfill for the 'filter' method.
+// Q.1(A) Implement a customized method for the 'filter'.
 
-// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+// Points to remember for 'filter':
+// 1- Always returns a new Array
+// 2- Logic of for loop
+// 3- Always check for conditon
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 10];
 
 // function customizedFilter(arr, callback) {
 //     let outputArr = [];
@@ -40,6 +45,28 @@ export default function PollyFill() {
 
 // console.log('customizedFilter to filter even nos', customizedFilter(arr, isEven));
 // console.log('customizedFilter to filter mupltiple of 5', customizedFilter(arr, isMulitpleOf5));
+
+
+// ***********************************************************************************************************************************************************
+// Q.1(B) Implement a polyfill for the 'filter' method.
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+
+// Array.prototype.myFilter = function(callback) {
+//   let outputArr=[];
+
+//   //'this' keyword will refer to the array on which 'myFilter' is applied to
+//   for (let i = 0; i < this.length; i++) {
+//     if(callback(this[i], i, this)) { 
+//       outputArr.push(this[i]);
+//     }
+//   }
+//   return outputArr;
+// }
+
+// const result = arr.myFilter((num) => num%2===0);
+// console.log('result', result);
+
 
 // ***********************************************************************************************************************************************************
 // Q.2 Implement a polyfill for the 'map' method.

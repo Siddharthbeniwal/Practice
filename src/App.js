@@ -10,6 +10,7 @@ import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
 import './App.css';
 
 const routes = [
+  { path: "/", label: "Coding Questions", component: CodingQuestions },
   { path: "/coding-questions", label: "Coding Questions", component: CodingQuestions },
   { path: "/practice-questions", label: "Practice Questions", component: PracticeQuestions },
   { path: "/assessment-questions", label: "Assessment Questions", component: AssessmentQuestions },
