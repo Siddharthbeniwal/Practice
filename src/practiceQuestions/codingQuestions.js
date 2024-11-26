@@ -173,3 +173,31 @@ export default function CodingQuestions() {
 
 // const resultC = students.filter((stu) => stu.marks < 40).map((stu) => stu.name);
 // console.log("resultC", resultC);
+
+
+// ***********************************************************************************************************************************************************
+// Q.13 Modify 'x' so that it satisfy the if condition (without modifying the condition)
+
+// let x;
+
+// if(x==1 && x==2 && x==3) {
+//   console.log('condition satisfied');
+// }
+
+// In JavaScript whenever we use loose equal to operator between a primitive data type & non-primitive data type(array, object etc.),
+// JavaScript will use .toString() method and try to convert non-primitive data type into primitive data type.
+
+// To satisfy the if condition, 'x' value should be 1 initially, and in the 2nd & 3rd comparisons it should increment to 2 & 3 respectively.
+// So Basically, value of 'x' should increment on every comparison
+// To achieve this we can implement a custom toString() method which overwrites the in-built implementation of toString() which JS uses.
+
+// let x = {
+//   flag: 1,
+//   toString: function() {
+//     return this.flag++
+//   }
+// }
+
+// if(x==1 && x==2 && x==3) {
+//   console.log('condition satisfied');
+// }
