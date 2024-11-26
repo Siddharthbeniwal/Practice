@@ -1,19 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import PracticeQuestions from "../src/practiceQuestions/practiceQuestions";
-import AssessmentQuestions from "../src/practiceQuestions/assessmentQuestions";
+import OutputBasedQuestions from "../src/practiceQuestions/outputBasedQuestions";
 import LearningJavascript from "../src/practiceQuestions/learningJavascript";
 import CertificationQuestions from "../src/practiceQuestions/certificationQuestions";
 import CodingQuestions from "../src/practiceQuestions/codingQuestions";
+import JavascriptQuestions from "./practiceQuestions/javascriptQuestions";
 import LeetCodeQuestions from "../src/practiceQuestions/leetCodeQuestions";
 import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
 import './App.css';
 
 const routes = [
   { path: "/", label: "Coding Questions", component: CodingQuestions },
-  { path: "/coding-questions", label: "Coding Questions", component: CodingQuestions },
+  { path: "/javascript-questions", label: "JavaScript Questions", component: JavascriptQuestions },
   { path: "/practice-questions", label: "Practice Questions", component: PracticeQuestions },
-  { path: "/assessment-questions", label: "Assessment Questions", component: AssessmentQuestions },
+  { path: "/assessment-questions", label: "Output Based Questions", component: OutputBasedQuestions },
   { path: "/learning-javascript", label: "Learning JavaScript", component: LearningJavascript },
   { path: "/certification-questions", label: "Certification Questions", component: CertificationQuestions },
   { path: "/leetcode-questions", label: "LeetCode Questions", component: LeetCodeQuestions },

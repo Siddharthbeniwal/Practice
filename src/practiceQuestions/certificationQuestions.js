@@ -4,7 +4,7 @@ import React from "react";
 // import React, { useState } from "react";
 // import { useParams } from "react-router";
 
-export default function certificationQuestions() {
+export default function CertificationQuestions() {
   return (
     <div>
       <h2>Welcome to certification questions.</h2>

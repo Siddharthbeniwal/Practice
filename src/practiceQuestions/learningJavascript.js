@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function learningJavascript() {
+export default function LearningJavascript() {
 
   const Q1 = "What is Hoisting in JavaScript?";
   const A1 = 

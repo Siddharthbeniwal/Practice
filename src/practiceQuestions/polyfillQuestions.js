@@ -3,7 +3,7 @@ import React from "react";
 export default function PollyFill() {
   return (
     <div>
-      <h2>Welcome to PllyFillQuestions practice.</h2>
+      <h2>Welcome to PolyFill Questions.</h2>
       <p>
         Polyfill JS provides functionality to the browser to support the methods
         and events which are not natively supported by them.In simple words,

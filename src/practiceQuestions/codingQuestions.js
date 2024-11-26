@@ -3,7 +3,7 @@ import React from "react";
 export default function CodingQuestions() {
   return (
     <div>
-      <h2>Welcome to DSA practice session.</h2>
+      <h2>Welcome to Coding questions.</h2>
     </div>
   );
 }
