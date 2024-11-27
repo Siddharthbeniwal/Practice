@@ -128,7 +128,7 @@ export default function outputBasedQuestions() {
 
 // function func1() {
 //   var a = 7;
-  
+
 //   function func2() {
 //     var a = 8;
 //     console.log(a);
@@ -159,7 +159,6 @@ export default function outputBasedQuestions() {
 // This means that: x[arr] = 'xyz';
 // is equivalent to: x['name'] = 'xyz';
 
-
 // 2. Resulting Object:
 
 // After x[arr] = 'xyz';, the object x now has a property 'name' with a value 'xyz'.
@@ -167,8 +166,7 @@ export default function outputBasedQuestions() {
 // { name: 'xyz' }
 
 // ***********************************************************************************************************************************************************
-// Q.10 
-
+// Q.10
 
 // ***********************************************************************************************************************************************************
 // Q.11
@@ -238,4 +236,81 @@ export default function outputBasedQuestions() {
 // 'for':
 // Behavior: A 'for' loop iterates over all indices, including empty slots.
 // For indices 0 through 3, the loop still executes, even though those slots are undefined.
+
+// ***********************************************************************************************************************************************************
+// Q.16
+
+// console.log(null == 0);
+// console.log(null === 0);
+
+// console.log(null > 0);
+// console.log(null < 0);
+
+// console.log(null >= 0);
+// console.log(null <= 0);
+
+// Explaination:
+
+// 1. null == 0
+
+// Result: false
+// Reason: null is loosely equal only to undefined but not to any other value, including 0. The equality comparison (==) does not perform numeric conversion in this case.
+
+// 2. null === 0
+
+// Result: false
+// Reason: Strict equality (===) checks both type and value. Since null is an object type and 0 is a number type, they are not strictly equal.
+
+// 3. null > 0
+
+// Result: false
+// Reason: When comparing null to a number, null is first converted to a number (+null results in 0). The comparison becomes 0 > 0, which is false.
+
+// 4. null < 0
+
+// console.log(null < 0);
+// Result: false
+// Reason: Similar to the previous case, null is converted to 0. The comparison becomes 0 < 0, which is false.
+
+// 5. null >= 0
+
+// Result: true
+// Reason: null is converted to 0, and the comparison becomes 0 >= 0, which is true.
+
+// 6. null <= 0
+
+// Result: true
+// Reason: Again, null is converted to 0, and the comparison becomes 0 <= 0, which is true.
+
+// Key Observations:
+// In loose equality (==), null is only equal to undefined, but not to 0.
+// Numeric comparisons (>, <, >=, <=) convert null to 0 before performing the comparison.
+
+// Q. If (null == 0) is false then Why (null >= 0) is true?
+// The difference between null == 0 and null >= 0 arises because equality and relational operators follow different rules for type coercion in JavaScript.
+
+// Equality (==): Does not coerce null to a number when comparing to 0. Instead, it has a specific rule that null is only equal to undefined.
+// Relational (>=, <=, etc.): Converts null to a number (0) and performs a numeric comparison.
+
+// 1. Behavior of null == 0
+// The loose equality operator (==) checks for equality with specific rules:
+
+// When null is compared using ==, it does not coerce types to numbers, except in specific cases.
+// Instead, there is a special rule in JavaScript:
+// null is only equal to undefined when using ==
+// Otherwise, it evaluates to false.
+// null == 0; // false (no type conversion is performed)
+// null == undefined; // true (special rule for `null` and `undefined`)
+
+// 2. Behavior of null >= 0
+// Relational operators (<, <=, >, >=) follow a different process:
+
+// -Type Coercion Happens:
+// null is first converted to a number for the purpose of comparison.
+// Number(null) evaluates to 0.
+
+// -Numeric Comparison:
+// After coercion, the comparison becomes:
+// 0 >= 0; // true
+// So, null >= 0 evaluates to true.
 
