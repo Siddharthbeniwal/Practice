@@ -314,3 +314,49 @@ export default function outputBasedQuestions() {
 // 0 >= 0; // true
 // So, null >= 0 evaluates to true.
 
+// ***********************************************************************************************************************************************************
+// Q.17
+
+// console.log(undefined == 0);
+// console.log(undefined === 0);
+
+// console.log(undefined > 0);
+// console.log(undefined < 0);
+
+// console.log(undefined >= 0);
+// console.log(undefined <= 0);
+
+// Key Takeaways:
+// undefined == 0 and undefined === 0 are false because undefined is not loosely or strictly equal to numbers.
+// Comparisons (>, <, >=, <=) with undefined result in false because undefined is coerced to NaN, and comparisons involving NaN are always false.
+
+// Why Does undefined <= 0 Still Return false?
+// This behavior happens because JavaScript does not treat <= as purely the logical negation of >. It has its own set of evaluation rules:
+
+// For undefined <= 0, the comparison is treated as a direct numeric comparison.
+// undefined is coerced to NaN.
+// Any comparison involving NaN directly returns false, so undefined <= 0 evaluates to false.
+
+// ***********************************************************************************************************************************************************
+// Q.18
+
+// console.log(typeof null);
+// console.log(typeof undefined);
+// console.log(typeof NaN);
+
+// Even though NaN means "Not-a-Number," it is still classified as a number type because it is part of the numeric system used in JavaScript.
+// NaN is the only value in JavaScript that is not equal to itself:
+
+// console.log(NaN === NaN);
+
+// console.log(0 / 0);
+// console.log(Math.sqrt(-1));
+// console.log(Number("abc"));
+
+// console.log(isNaN("hello"));        // true (coerced to NaN)
+// console.log(Number.isNaN("hello")); // false (no coercion)
+
+// Explanation:
+// isNaN("hello"): Performs type coercion. It tries to convert "hello" to a number, which results in NaN, so it returns true.
+// Number.isNaN("hello"): Does not perform type coercion. It checks whether "hello" is strictly NaN, which it isn't
+// (because "hello" is a string & NaN type is Number), so it returns false.
