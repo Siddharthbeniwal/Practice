@@ -360,3 +360,41 @@ export default function outputBasedQuestions() {
 // isNaN("hello"): Performs type coercion. It tries to convert "hello" to a number, which results in NaN, so it returns true.
 // Number.isNaN("hello"): Does not perform type coercion. It checks whether "hello" is strictly NaN, which it isn't
 // (because "hello" is a string & NaN type is Number), so it returns false.
+
+// ***********************************************************************************************************************************************************
+// Q.19
+
+// const name = 'Sidd';
+// age = 21;
+// console.log(delete name);
+// console.log(delete age);
+
+// ***********************************************************************************************************************************************************
+// Q.20
+
+// const a = {};
+// const b = { key: 'b'};
+// const c = { key: 'c'};
+
+// a[b] = 123;
+// a[c] = 456;
+
+// console.log(a[b]);
+
+// Explaination:
+// In JavaScript, when you use an object as a property key, it is automatically converted to a string (using the toString() method),
+// and all objects that have the same string representation ("[object Object]" in this case) will collide as keys, overwriting each other.
+// (By default, calling toString() on an object returns "[object Object]" (which is the default string representation of an object))
+
+
+// So, the assignment a[b] = 123 is effectively equivalent to a["[object Object]"] = 123
+// This means we're setting a property on 'a' with the key "[object Object]" and the value 123.
+
+// Similarly, c is also converted to the string "[object Object]" (the default string representation of an object).
+
+// This means we're overwriting the property "[object Object]" on 'a' with the value 456, since the key is the same ("[object Object]").
+
+// Since a[b] is equivalent to a["[object Object]"], the value of a[b] is 456 (the value that was last assigned to the "[object Object]" property).
+
+
+
