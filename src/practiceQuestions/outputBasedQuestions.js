@@ -216,3 +216,26 @@ export default function outputBasedQuestions() {
 
 // first();
 // second();
+
+// ***********************************************************************************************************************************************************
+// Q.15
+
+// const x = [];
+// x[4] = 1;
+
+// x.map((i) => console.log('inside map'));
+// x.forEach((i) => console.log('inside forEach'));
+
+// for (let i = 0; i < x.length; i++) {
+//   console.log('inside for');
+// }
+
+// Explaination:
+// 'map' & 'forEach':
+// Behavior: The 'map' & 'forEach' method skips empty slots in the array.
+// Since indices 0, 1, 2, and 3 are empty, the callback is only executed for index 4.
+
+// 'for':
+// Behavior: A 'for' loop iterates over all indices, including empty slots.
+// For indices 0 through 3, the loop still executes, even though those slots are undefined.
+
