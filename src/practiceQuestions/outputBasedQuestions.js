@@ -397,4 +397,49 @@ export default function outputBasedQuestions() {
 // Since a[b] is equivalent to a["[object Object]"], the value of a[b] is 456 (the value that was last assigned to the "[object Object]" property).
 
 
+// ***********************************************************************************************************************************************************
+// Q.21
+
+// console.log(a);
+// console.log(b);
+// var a = b = 5;
+
+// ***********************************************************************************************************************************************************
+// Q.22
+
+// var a = 5;
+// console.log(a++);
+// console.log(a);
+
+// ***********************************************************************************************************************************************************
+// Q.23
+
+// console.log(1 < 2 < 3);
+// console.log(3 > 2 > 1);
+
+// ***********************************************************************************************************************************************************
+// Q.24
+
+// const func1 = () => {
+//   console.log(this.name);
+// }
+
+// func1.call({ name: 'John'});
+
+// const func2 = function() {
+//   console.log(this.name);
+// }
+
+// func2.call({ name: 'John' });
+
+// call() method: This is a built-in JavaScript function that allows you to invoke a function with a specific value for this. The call() method takes the context (value of this) as the first argument, followed by any arguments that the function may take.
+// function.call(thisArg, arg1, arg2, ..., argN);
+// thisArg: The value that this should refer to inside the function.
+// arg1, arg2, ..., argN: Optional arguments that we want to pass to the function being called.
+
+// Arrow functions: Lexically bind this from the surrounding context (the scope in which the function is defined), so call() won't change this.
+// Regular functions: Use the this provided by call(), allowing you to bind this to a specific object.
+
+// ***********************************************************************************************************************************************************
+// Q.25 
 

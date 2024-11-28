@@ -201,3 +201,24 @@ export default function CodingQuestions() {
 // if(x==1 && x==2 && x==3) {
 //   console.log('condition satisfied');
 // }
+
+// ***********************************************************************************************************************************************************
+// Q.14 Make the 'id property freezed so that it cannot be changed.
+
+// const user = {
+//   id: 123,
+//   name: 'John',
+//   age: 28,
+//   address: {
+//     city: 'Mumbai',
+//     state: 'Maharashtra'
+//   },
+// }
+
+// Object.defineProperties(user, {
+//   id:{writable: false}
+// });
+
+// user.id = 98;
+
+// console.log(user);
