@@ -220,5 +220,6 @@ export default function CodingQuestions() {
 // });
 
 // user.id = 98;
+// This will fail silently in non-strict mode or throw an error in strict mode
 
 // console.log(user);
