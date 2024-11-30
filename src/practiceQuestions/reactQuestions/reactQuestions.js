@@ -32,7 +32,7 @@ function Counter() {
 // Q.2 Create a stopwatch.
 
 function Stopwatch() {
-  const [time, setTime] = useState({ hr: 0, min: 0, sec: 56 });
+  const [time, setTime] = useState({ hr: 0, min: 0, sec: 0 });
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   let intervalIdRef = useRef(null);
@@ -64,8 +64,13 @@ function Stopwatch() {
 
   const handlePauseTimer = () => {
     setIsTimerRunning(false);
-    console.log(intervalIdRef.current);
     clearInterval(intervalIdRef.current);
+  };
+  
+  const handleResetTimer = () => {
+    setIsTimerRunning(false);
+    clearInterval(intervalIdRef.current);
+    setTime({ hr: 0, min: 0, sec: 0 });
   };
 
   return (
@@ -80,6 +85,12 @@ function Stopwatch() {
         onClick={isTimerRunning ? handlePauseTimer : handleStartTimer}
       >
         {isTimerRunning ? "Pause" : "Start"}
+      </button>
+      <button
+        className="btn btn-danger ml-4"
+        onClick={handleResetTimer}
+      >
+        Reset
       </button>
     </div>
   );
