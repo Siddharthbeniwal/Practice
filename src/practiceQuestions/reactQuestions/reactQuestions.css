@@ -1,0 +1,9 @@
+.react-questions {
+    h1 {
+        color: darkgreen;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}

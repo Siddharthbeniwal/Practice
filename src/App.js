@@ -8,6 +8,7 @@ import CodingQuestions from "../src/practiceQuestions/codingQuestions";
 import JavascriptQuestions from "./practiceQuestions/javascriptQuestions";
 import LeetCodeQuestions from "../src/practiceQuestions/leetCodeQuestions";
 import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
+import ReactQuestions from "./practiceQuestions/reactQuestions/reactQuestions";
 import './App.css';
 
 const routes = [
@@ -19,6 +20,7 @@ const routes = [
   { path: "/certification-questions", label: "Certification Questions", component: CertificationQuestions },
   { path: "/leetcode-questions", label: "LeetCode Questions", component: LeetCodeQuestions },
   { path: "/polyfill-questions", label: "Polyfill Questions", component: PolyFillQuestions },
+  { path: "/react-questions", label: "React Questions", component: ReactQuestions },
 ];
 
 function NavigationButtons() {
@@ -40,7 +42,7 @@ function App() {
   return (
     <Router>
       <div className="main-page">
-        <h1 className="main-heading">Learning JavaScript</h1>
+        <h1 className="main-heading">Learning Frontend</h1>
 
         <NavigationButtons />
 
