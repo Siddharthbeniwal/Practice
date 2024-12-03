@@ -11,6 +11,7 @@ export default function ReactQuestions() {
       {/* <Stopwatch /> */}
       {/* <DisplayDataUsingFetch /> */}
       {/* <DisplayDataUsingAxios /> */}
+      {/* <DisplayDataWithPagination /> */}
     </div>
   );
 }
@@ -172,6 +173,68 @@ function DisplayDataUsingAxios() {
       ) : (
         <div>No data available</div>
       )}
+    </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.4 In Question 3, how can you optimize the performance?
+
+// (A) Pagination- Display data in smaller chunks by breaking it into pages.
+function DisplayDataWithPagination() {
+  const [displayData, setDisplayData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    function fetchData() {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((res) => {
+          setDisplayData(res.data);
+        })
+        .catch((err) => {
+          console.error("Error fetching data:", err);
+        });
+    }
+
+    fetchData();
+  }, []);
+
+  const paginatedData = displayData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const totalPages = Math.ceil(displayData.length / itemsPerPage);
+
+  return (
+    <div>
+      {paginatedData.map((item) => (
+        <div key={item.id}>
+          <span>ID: {item.id} - </span>
+          <span>Title: {item.title}</span>
+        </div>
+      ))}
+      <div style={{ marginTop: "20px" }}>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
