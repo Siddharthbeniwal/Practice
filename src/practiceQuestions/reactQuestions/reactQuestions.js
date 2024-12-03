@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import axios from "axios";
 import "./reactQuestions.css";
 
 const block = "react-questions";
@@ -8,7 +9,8 @@ export default function ReactQuestions() {
       <h2>Welcome to React Questions</h2>
       {/* <Counter /> */}
       {/* <Stopwatch /> */}
-      <DisplayData />
+      {/* <DisplayDataUsingFetch /> */}
+      {/* <DisplayDataUsingAxios /> */}
     </div>
   );
 }
@@ -95,9 +97,9 @@ function Stopwatch() {
 }
 
 // ***********************************************************************************************************************************************************
-// Q.3 Fetch and display data on the UI data from an API using 'fetch'.
+// Q.3(A) Fetch and display data on the UI data from a get API using 'fetch'.
 
-function DisplayData() {
+function DisplayDataUsingFetch() {
   const [displayData, setDisplayData] = useState([]);
 
   useEffect(() => {
@@ -108,8 +110,9 @@ function DisplayData() {
         );
         const data = await response.json();
         setDisplayData(data);
-      } catch (error) {
-        console.log("Error fetching data:", error);
+      } catch (err) {
+        console.log("Error fetching data:", err);
+        throw new Error(err);
       }
     }
     fetchData();
@@ -127,6 +130,47 @@ function DisplayData() {
         ))
       ) : (
         <p>No Data available</p>
+      )}
+    </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.3(B) Fetch and display data on the UI data from a get API using 'axios'.
+
+function DisplayDataUsingAxios() {
+  const [displayData, setDisplayData] = useState([]);
+
+  useEffect(() => {
+    function fetchData() {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((res) => {
+          console.log("res", res);
+          setDisplayData(res.data);
+        })
+        .catch((err) => {
+          console.log("error fethcing data", err);
+          throw new Error(err);
+        });
+    }
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {displayData?.length > 0 ? (
+        <div>
+          {displayData.map((item) => (
+            <div key={item.id}>
+              <span>ID: {item.id} - </span>
+              <span>Title: {item.title}</span>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>No data available</div>
       )}
     </div>
   );
