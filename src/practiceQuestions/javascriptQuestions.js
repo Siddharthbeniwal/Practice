@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function JavascriptQuestions() {
   return (
     <div>
       <h2>Welcome to JavaScript questions.</h2>
+      {/* <MyComponent/> */}
     </div>
   );
 }
@@ -48,3 +49,20 @@ export default function JavascriptQuestions() {
 
 // // 4.(C)
 // console.log(Reflect.get(obj, 'name'));
+
+// ***********************************************************************************************************************************************************
+// Q.2. Create a promise which is in pending state by default & it should get resolved on click of a button.
+
+function MyComponent() {
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  const myPromise = new Promise((resolve, reject) => {
+    if (isButtonClicked) resolve("promise resolved");
+  });
+
+  myPromise.then((res) => console.log(res)).catch((err) => console.log(err));
+
+  console.log("myPromise", myPromise);
+
+  return <button onClick={() => setIsButtonClicked(true)}>Click Me</button>;
+}
