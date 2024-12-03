@@ -7,7 +7,8 @@ export default function ReactQuestions() {
     <div className={block}>
       <h2>Welcome to React Questions</h2>
       {/* <Counter /> */}
-      <Stopwatch />
+      {/* <Stopwatch /> */}
+      <DisplayData />
     </div>
   );
 }
@@ -66,7 +67,7 @@ function Stopwatch() {
     setIsTimerRunning(false);
     clearInterval(intervalIdRef.current);
   };
-  
+
   const handleResetTimer = () => {
     setIsTimerRunning(false);
     clearInterval(intervalIdRef.current);
@@ -86,12 +87,47 @@ function Stopwatch() {
       >
         {isTimerRunning ? "Pause" : "Start"}
       </button>
-      <button
-        className="btn btn-danger ml-4"
-        onClick={handleResetTimer}
-      >
+      <button className="btn btn-danger ml-4" onClick={handleResetTimer}>
         Reset
       </button>
+    </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.3 Fetch and display data on the UI data from an API using 'fetch'.
+
+function DisplayData() {
+  const [displayData, setDisplayData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        const data = await response.json();
+        setDisplayData(data);
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Data:</h1>
+      {displayData?.length > 0 ? (
+        displayData.map((item) => (
+          <div key={item.id}>
+            <span>ID: {item.id} - </span>
+            <span>Title: {item.title}</span>
+          </div>
+        ))
+      ) : (
+        <p>No Data available</p>
+      )}
     </div>
   );
 }
