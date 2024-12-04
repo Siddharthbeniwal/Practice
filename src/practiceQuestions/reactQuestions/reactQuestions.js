@@ -409,14 +409,70 @@ function ShowCircleOnClick() {
   const [radius, setRadius] = useState({ r1: 0, r2: 0 });
   const [circleCount, setCircleCount] = useState(0);
 
+  // const handleClick = (e) => {
+  //   if (circleCount === 0 || circleCount === 1) {
+  //     setCircleCount((prev) => prev + 1);
+  //   } else {
+  //     setCircleCount(0);
+  //     setPosition({ x1: 0, y1: 0, x2: 0, y2: 0 });
+  //     setRadius({ r1: 0, r2: 0 });
+  //   }
+  //   const x = e.clientX;
+  //   const y = e.clientY;
+
+  //   const min = 20;
+  //   const max = 100;
+  //   const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  //   if (circleCount === 0) {
+  //     setPosition((prev) => ({ ...prev, x1: x, y1: y }));
+  //     setRadius((prev) => ({ ...prev, r1: randomNum }));
+  //   }
+
+  //   if (circleCount === 1) {
+  //     setPosition((prev) => ({ ...prev, x2: x, y2: y }));
+  //     setRadius((prev) => ({ ...prev, r2: randomNum }));
+
+  //     var distance = Math.sqrt(
+  //       (postion.x2 - postion.x1) ** 2 + (postion.y2 - postion.y1) ** 2
+  //     );
+  //     var sumOfRadii = radius.r1 + radius.r2;
+
+  //   }
+
+  //   // check if circles intersecting or not.
+  //   if (circleCount === 1) {
+  //     // Formula:
+  //     // distance between two circles = sqrt ( (x2​ − x1)^2   +  (y2 − y1​)^2 )
+  //     // where (x1,y1) & (x2,y2) are the centers of the two circles.
+
+  //     // conditon:
+  //     // 1. If the distance between centers is less than or equal to the sum of the radii, the circles intersect.
+
+  //     // distance <= r1+r2   => intersect
+
+  //     // 2. If the distance is greater than the sum of the radii, they do not intersect.
+  //     // distance > r1+r2   => do not intersect
+
+  //     // For one circle to be completely inside the other, check if:
+  //     // distance <= |r1-r2|
+
+  //     // const distance = Math.sqrt(
+  //     //   (postion.x2 - postion.x1) ** 2 + (postion.y2 - postion.y1) ** 2
+  //     // );
+  //     // const sumOfRadii = radius.r1 + radius.r2;
+
+  //     console.log(distance);
+  //     console.log(sumOfRadii);
+  //     if (distance <= sumOfRadii) {
+  //       console.log("Circles are intersecting");
+  //     } else {
+  //       console.log("Circles are NOT intersecting");
+  //     }
+  //   }
+  // };
+
   const handleClick = (e) => {
-    if (circleCount === 0 || circleCount === 1) {
-      setCircleCount((prev) => prev + 1);
-    } else {
-      setCircleCount(0);
-      setPosition({ x1: 0, y1: 0, x2: 0, y2: 0 });
-      setRadius({ r1: 0, r2: 0 });
-    }
     const x = e.clientX;
     const y = e.clientY;
 
@@ -425,13 +481,53 @@ function ShowCircleOnClick() {
     const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
     if (circleCount === 0) {
+      setCircleCount(1);
       setPosition((prev) => ({ ...prev, x1: x, y1: y }));
       setRadius((prev) => ({ ...prev, r1: randomNum }));
-    }
+    } else if (circleCount === 1) {
+      const x1 = postion.x1;
+      const y1 = postion.y1;
+      const r1 = radius.r1;
 
-    if (circleCount === 1) {
-      setPosition((prev) => ({ ...prev, x2: x, y2: y }));
-      setRadius((prev) => ({ ...prev, r2: randomNum }));
+      const x2 = x;
+      const y2 = y;
+      const r2 = randomNum;
+
+      setCircleCount(2);
+      setPosition((prev) => ({ ...prev, x2, y2 }));
+      setRadius((prev) => ({ ...prev, r2 }));
+
+      // Calculate the distance b/w circles and check intersection
+      //     // Formula:
+      //     // distance between two circles = sqrt ( (x2​ − x1)^2   +  (y2 − y1​)^2 )
+      //     // where (x1,y1) & (x2,y2) are the centers of the two circles.
+
+      //     // conditon:
+      //     // 1. If the distance between centers is less than or equal to the sum of the radii, the circles intersect.
+
+      //     // distance <= r1+r2   => intersect
+
+      //     // 2. If the distance is greater than the sum of the radii, they do not intersect.
+      //     // distance > r1+r2   => do not intersect
+
+      //     // For one circle to be completely inside the other, check if:
+      //     // distance <= |r1-r2|
+
+      const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+      const sumOfRadii = r1 + r2;
+
+      console.log("Distance between centers:", distance);
+      console.log("Sum of radii:", sumOfRadii);
+
+      if (distance <= sumOfRadii) {
+        console.log("Circles are intersecting");
+      } else {
+        console.log("Circles are NOT intersecting");
+      }
+    } else {
+      setCircleCount(0);
+      setPosition({ x1: 0, y1: 0, x2: 0, y2: 0 });
+      setRadius({ r1: 0, r2: 0 });
     }
   };
 
