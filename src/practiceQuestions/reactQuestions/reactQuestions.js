@@ -519,7 +519,9 @@ function ShowCircleOnClick() {
       console.log("Distance between centers:", distance);
       console.log("Sum of radii:", sumOfRadii);
 
-      if (distance <= sumOfRadii) {
+      if (distance <= Math.max(r1, r2) - Math.min(r1, r2)) {
+        console.log("One circle is inside another circle");
+      } else if (distance <= sumOfRadii) {
         console.log("Circles are intersecting");
       } else {
         console.log("Circles are NOT intersecting");
