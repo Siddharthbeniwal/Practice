@@ -254,8 +254,7 @@ const DisplayDataUsingMemo = () => {
       try {
         const { data } = await axios.get("https://jsonplaceholder.typicode.com/posts");
         console.log("Fetched Data:", data);
-        setDisplayData(data); // Fetch only the first 10 items
-        // setDisplayData(data.slice(0, 10)); // Fetch only the first 10 items
+        setDisplayData(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -289,28 +288,31 @@ const DisplayDataUsingMemo = () => {
 const DisplayDataWithInfiniteScroll = () => {
   const [displayData, setDisplayData] = useState([]); // Store all fetched data
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const itemsPerPage = 10; // Number of items to fetch per page
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
   const [hasMore, setHasMore] = useState(true); // Check if more data is available
 
-  // Fetch data from the API
   const fetchData = async (pageNumber) => {
     setLoading(true);
     try {
-      const { data } = await axios.get("https://jsonplaceholder.typicode.com/posts");
-      const start = (pageNumber - 1) * itemsPerPage;
-      const end = pageNumber * itemsPerPage;
+      // API request with pagination
+      const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts`, {
+        params: {
+          _start: (pageNumber - 1) * itemsPerPage, // Start index for pagination
+          _limit: itemsPerPage, // Limit number of items
+        },
+      });
 
-      const newData = data.slice(start, end);
-
-      const newItems = newData.filter(
+      // Filter out any items that are already in displayData (based on id)
+      const uniqueNewItems = data.filter(
         (item) => !displayData.some((existingItem) => existingItem.id === item.id)
       );
 
-      if (newItems.length > 0) {
-        setDisplayData((prev) => [...prev, ...newItems]); // Append new data
+      // If there are unique items, append them to displayData
+      if (uniqueNewItems.length > 0) {
+        setDisplayData((prev) => [...prev, ...uniqueNewItems]);
       } else {
-        setHasMore(false); // No more data to fetch
+        setHasMore(false); // No more unique data available
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -320,36 +322,52 @@ const DisplayDataWithInfiniteScroll = () => {
   };
 
   useEffect(() => {
-    fetchData(currentPage);
-    console.log('window.innerHeight in useEff', window.innerHeight);
-    console.log('document.documentElement.scrollTop in useEff', document.documentElement.scrollTop);
-    console.log('document.documentElement.offsetHeight in useEff', document.documentElement.offsetHeight);
+    fetchData(currentPage); // Fetch data when the component mounts or currentPage changes
   }, [currentPage]);
 
-  // Handle scroll event
-  const handleScroll = () => {
-    console.log('window.innerHeight in handleScroll', window.innerHeight);
-    console.log('document.documentElement.scrollTop in handleScroll', document.documentElement.scrollTop);
-    console.log('document.documentElement.offsetHeight in handleScroll', document.documentElement.offsetHeight);
-    if (
-      window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight - 50 && // Trigger near the bottom
-      hasMore &&
-      !loading
-    ) {
-      setCurrentPage((prev) => prev + 1); // Load the next page
+  // Handle scroll event for the scrollable container
+  const handleScroll = (event) => {
+    const bottom = event.target.scrollHeight === event.target.scrollTop + event.target.clientHeight;
+    if (bottom && hasMore && !loading) {
+      setCurrentPage((prev) => prev + 1);
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasMore, loading]);
+// handleScroll:
+
+// 1. event.target.scrollHeight
+// event.target refers to the element that is being scrolled (e.g., the container of the content).
+// scrollHeight is the total height of the content inside the scrollable container, including content that is not currently visible (i.e., the content that is scrolled out of view).
+// It includes the height of all the child elements and padding.
+// This value is fixed, regardless of the visible content or how much of the container is currently visible.
+
+// 2. event.target.scrollTop
+// scrollTop is the number of pixels that the content of the scrollable element is currently scrolled vertically from the top.
+// If the scroll position is at the very top, scrollTop is 0.
+// As you scroll down, scrollTop increases, indicating how far you've scrolled down.
+
+// 3. event.target.clientHeight
+// clientHeight is the visible height of the container.
+// This is the height of the scrollable element that is visible on the screen.
+// It excludes borders, margins, and scrollbars, showing only the visible area inside the element.
 
   return (
-    <div>
+    <div
+      style={{
+        height: "560px", // Fixed height for the scrollable area
+        overflowY: "auto", // Enable vertical scrolling
+      }}
+      onScroll={handleScroll} // Attach the scroll event listener to the scrollable container
+    >
       {displayData.map((item) => (
-        <div key={item.id} style={{ margin: "10px 0", border: "1px solid #ddd", padding: "10px" }}>
+        <div
+          key={item.id}
+          style={{
+            margin: "10px 0",
+            border: "1px solid #ddd",
+            padding: "10px",
+          }}
+        >
           <span>ID: {item.id} - </span>
           <span>Title: {item.title}</span>
         </div>
@@ -359,7 +377,6 @@ const DisplayDataWithInfiniteScroll = () => {
     </div>
   );
 };
-
 
 // Pros of Fetching in Small Batches (e.g., 10 items at a time):
 
