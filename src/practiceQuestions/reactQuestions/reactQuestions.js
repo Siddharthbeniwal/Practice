@@ -2,10 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./reactQuestions.css";
 
-const block = "react-questions";
 export default function ReactQuestions() {
   return (
-    <div className={block}>
+    <div className="react-questions">
       <h2>Welcome to React Questions</h2>
       {/* <Counter /> */}
       {/* <Stopwatch /> */}
@@ -13,7 +12,8 @@ export default function ReactQuestions() {
       {/* <DisplayDataUsingAxios /> */}
       {/* <DisplayDataWithPagination /> */}
       {/* <DisplayDataUsingMemo/> */}
-      <DisplayDataWithInfiniteScroll />
+      {/* <DisplayDataWithInfiniteScroll /> */}
+      <ShowCircleOnClick />
     </div>
   );
 }
@@ -397,3 +397,71 @@ const DisplayDataWithInfiniteScroll = () => {
 // Increased API Calls: Frequent network requests increase server load and can lead to rate-limiting or higher costs for paid APIs.
 // Latency Issues: Users might experience delays or interruptions if the next batch is slow to load.
 // Dependency on Stable Internet: If a user loses their internet connection mid-scroll, they might not be able to access more data.
+
+// ***********************************************************************************************************************************************************
+// Q.5
+// (A) WAP to generate a circle on click on the screen with a random radius & click point as center of the circle.
+// (B) On clicking 2nd time a 2nd circle should generate with random radius. On clicking 3rd  time both circles should get disappear.
+// (C) Check if both circle intersects or not.
+
+function ShowCircleOnClick() {
+  const [postion, setPosition] = useState({ x1: 0, y1: 0, x2: 0, y2: 0 });
+  const [radius, setRadius] = useState({ r1: 0, r2: 0 });
+  const [circleCount, setCircleCount] = useState(0);
+
+  const handleClick = (e) => {
+    if (circleCount === 0 || circleCount === 1) {
+      setCircleCount((prev) => prev + 1);
+    } else {
+      setCircleCount(0);
+      setPosition({ x1: 0, y1: 0, x2: 0, y2: 0 });
+      setRadius({ r1: 0, r2: 0 });
+    }
+    const x = e.clientX;
+    const y = e.clientY;
+
+    const min = 20;
+    const max = 100;
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (circleCount === 0) {
+      setPosition((prev) => ({ ...prev, x1: x, y1: y }));
+      setRadius((prev) => ({ ...prev, r1: randomNum }));
+    }
+
+    if (circleCount === 1) {
+      setPosition((prev) => ({ ...prev, x2: x, y2: y }));
+      setRadius((prev) => ({ ...prev, r2: randomNum }));
+    }
+  };
+
+  return (
+    <div className="full-screen" onClick={handleClick}>
+      <div
+        style={{
+          marginTop: `${postion.y1 - radius.r1}px`,
+          marginLeft: `${postion.x1 - radius.r1}px`,
+          height: `${radius.r1 * 2}px`,
+          width: `${radius.r1 * 2}px`,
+          border: "solid 2px black",
+          borderRadius: "50%",
+          position: "absolute",
+        }}
+      />
+
+      {(circleCount === 1 || circleCount === 2) && (
+        <div
+          style={{
+            marginTop: `${postion.y2 - radius.r2}px`,
+            marginLeft: `${postion.x2 - radius.r2}px`,
+            height: `${radius.r2 * 2}px`,
+            width: `${radius.r2 * 2}px`,
+            border: "solid 2px black",
+            borderRadius: "50%",
+            position: "absolute",
+          }}
+        />
+      )}
+    </div>
+  );
+}
