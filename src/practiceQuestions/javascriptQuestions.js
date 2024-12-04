@@ -4,7 +4,7 @@ export default function JavascriptQuestions() {
   return (
     <div>
       <h2>Welcome to JavaScript questions.</h2>
-      {/* <MyComponent/> */}
+      {/* <MyComponent1/> */}
     </div>
   );
 }
@@ -51,9 +51,9 @@ export default function JavascriptQuestions() {
 // console.log(Reflect.get(obj, 'name'));
 
 // ***********************************************************************************************************************************************************
-// Q.2. Create a promise which is in pending state by default & it should get resolved on click of a button.
+// Q.2(A) Create a promise which is in pending state by default & it should get resolved on click of a button.
 
-function MyComponent() {
+function MyComponent1() {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   const myPromise = new Promise((resolve, reject) => {
@@ -66,3 +66,11 @@ function MyComponent() {
 
   return <button onClick={() => setIsButtonClicked(true)}>Click Me</button>;
 }
+
+// logic for this question in vanilla JS:
+
+// const myPromise = new Promise((resolve, reject) => {
+//   document.getElementById('myBtn').addEventListener('click', () => {
+//     resolve('promise resolved');
+//   })
+// });
