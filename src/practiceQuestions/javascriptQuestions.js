@@ -51,7 +51,7 @@ export default function JavascriptQuestions() {
 // console.log(Reflect.get(obj, 'name'));
 
 // ***********************************************************************************************************************************************************
-// Q.2(A) Create a promise which is in pending state by default & it should get resolved on click of a button.
+// Q.2 Create a promise which is in pending state by default & it should get resolved on click of a button.
 
 function MyComponent1() {
   const [isButtonClicked, setIsButtonClicked] = useState(false);
