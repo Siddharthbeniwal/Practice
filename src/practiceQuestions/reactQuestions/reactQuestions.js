@@ -13,7 +13,7 @@ export default function ReactQuestions() {
       {/* <DisplayDataUsingAxios /> */}
       {/* <DisplayDataWithPagination /> */}
       {/* <DisplayDataUsingMemo/> */}
-      <DisplayDataWithInfiniteScroll/>
+      <DisplayDataWithInfiniteScroll />
     </div>
   );
 }
@@ -242,7 +242,6 @@ function DisplayDataWithPagination() {
   );
 }
 
-
 // (B) Use React.memo for Child Components to prevent re-renders of list items unless the data changes.
 
 const DisplayDataUsingMemo = () => {
@@ -252,7 +251,9 @@ const DisplayDataUsingMemo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("https://jsonplaceholder.typicode.com/posts");
+        const { data } = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
         console.log("Fetched Data:", data);
         setDisplayData(data);
       } catch (error) {
@@ -296,16 +297,20 @@ const DisplayDataWithInfiniteScroll = () => {
     setLoading(true);
     try {
       // API request with pagination
-      const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts`, {
-        params: {
-          _start: (pageNumber - 1) * itemsPerPage, // Start index for pagination
-          _limit: itemsPerPage, // Limit number of items
-        },
-      });
+      const { data } = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts`,
+        {
+          params: {
+            _start: (pageNumber - 1) * itemsPerPage, // Start index for pagination
+            _limit: itemsPerPage, // Limit number of items
+          },
+        }
+      );
 
       // Filter out any items that are already in displayData (based on id)
       const uniqueNewItems = data.filter(
-        (item) => !displayData.some((existingItem) => existingItem.id === item.id)
+        (item) =>
+          !displayData.some((existingItem) => existingItem.id === item.id)
       );
 
       // If there are unique items, append them to displayData
@@ -327,29 +332,31 @@ const DisplayDataWithInfiniteScroll = () => {
 
   // Handle scroll event for the scrollable container
   const handleScroll = (event) => {
-    const bottom = event.target.scrollHeight === event.target.scrollTop + event.target.clientHeight;
+    const bottom =
+      event.target.scrollHeight ===
+      event.target.scrollTop + event.target.clientHeight;
     if (bottom && hasMore && !loading) {
       setCurrentPage((prev) => prev + 1);
     }
   };
 
-// handleScroll:
+  // handleScroll:
 
-// 1. event.target.scrollHeight
-// event.target refers to the element that is being scrolled (e.g., the container of the content).
-// scrollHeight is the total height of the content inside the scrollable container, including content that is not currently visible (i.e., the content that is scrolled out of view).
-// It includes the height of all the child elements and padding.
-// This value is fixed, regardless of the visible content or how much of the container is currently visible.
+  // 1. event.target.scrollHeight
+  // event.target refers to the element that is being scrolled (e.g., the container of the content).
+  // scrollHeight is the total height of the content inside the scrollable container, including content that is not currently visible (i.e., the content that is scrolled out of view).
+  // It includes the height of all the child elements and padding.
+  // This value is fixed, regardless of the visible content or how much of the container is currently visible.
 
-// 2. event.target.scrollTop
-// scrollTop is the number of pixels that the content of the scrollable element is currently scrolled vertically from the top.
-// If the scroll position is at the very top, scrollTop is 0.
-// As you scroll down, scrollTop increases, indicating how far you've scrolled down.
+  // 2. event.target.scrollTop
+  // scrollTop is the number of pixels that the content of the scrollable element is currently scrolled vertically from the top.
+  // If the scroll position is at the very top, scrollTop is 0.
+  // As you scroll down, scrollTop increases, indicating how far you've scrolled down.
 
-// 3. event.target.clientHeight
-// clientHeight is the visible height of the container.
-// This is the height of the scrollable element that is visible on the screen.
-// It excludes borders, margins, and scrollbars, showing only the visible area inside the element.
+  // 3. event.target.clientHeight
+  // clientHeight is the visible height of the container.
+  // This is the height of the scrollable element that is visible on the screen.
+  // It excludes borders, margins, and scrollbars, showing only the visible area inside the element.
 
   return (
     <div
