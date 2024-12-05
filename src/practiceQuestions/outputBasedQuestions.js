@@ -386,7 +386,6 @@ export default function outputBasedQuestions() {
 // and all objects that have the same string representation ("[object Object]" in this case) will collide as keys, overwriting each other.
 // (By default, calling toString() on an object returns "[object Object]" (which is the default string representation of an object))
 
-
 // So, the assignment a[b] = 123 is effectively equivalent to a["[object Object]"] = 123
 // This means we're setting a property on 'a' with the key "[object Object]" and the value 123.
 
@@ -395,7 +394,6 @@ export default function outputBasedQuestions() {
 // This means we're overwriting the property "[object Object]" on 'a' with the value 456, since the key is the same ("[object Object]").
 
 // Since a[b] is equivalent to a["[object Object]"], the value of a[b] is 456 (the value that was last assigned to the "[object Object]" property).
-
 
 // ***********************************************************************************************************************************************************
 // Q.21
@@ -441,7 +439,7 @@ export default function outputBasedQuestions() {
 // Regular functions: Use the this provided by call(), allowing you to bind this to a specific object.
 
 // ***********************************************************************************************************************************************************
-// Q.25 
+// Q.25
 
 // function sum(a=5, b=7) {
 //   console.log(a+b);
@@ -452,3 +450,24 @@ export default function outputBasedQuestions() {
 
 // ***********************************************************************************************************************************************************
 // Q.26
+
+// (A)
+
+// var objA = {prop: 42};
+// var objB = objA;
+// objB.prop = 90;
+// console.log(objA);
+
+// (B)
+
+// var objA = {prop: 42};
+// var objB = objA;
+// objB = {};
+// console.log(objA);
+
+// (C)
+
+// var arrA = [0];
+// var arrB = arrA;
+// arrB[0] = 42;
+// console.log(arrA);
