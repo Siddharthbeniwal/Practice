@@ -174,7 +174,6 @@ export default function CodingQuestions() {
 // const resultC = students.filter((stu) => stu.marks < 40).map((stu) => stu.name);
 // console.log("resultC", resultC);
 
-
 // ***********************************************************************************************************************************************************
 // Q.13 Modify 'x' so that it satisfy the if condition (without modifying the condition)
 
@@ -223,3 +222,34 @@ export default function CodingQuestions() {
 // This will fail silently in non-strict mode or throw an error in strict mode
 
 // console.log(user);
+
+// ***********************************************************************************************************************************************************
+// Q.15 Find the highest odd number:
+
+// eg1- n = 5688248, o/p= 5
+// eg2- n = 61632826, o/p= 6163
+// eg3- n = 61632821, o/p= 61632821
+
+// let num = 61632826;
+
+// function findHighestOddNo(num) {
+//   let numStr = num.toString();
+
+//   for (let i = numStr.length - 1; i >= 0; i--) {
+//     let subStr = numStr.slice(0, i + 1);
+
+//     if (parseInt(subStr) % 2 !== 0) {
+//       return parseInt(subStr);
+//     }
+
+//     return -1;
+//   }
+// }
+
+// console.log(findHighestOddNo(num));
+
+// syntax for slice:
+// str.slice(startIndex, endIndex)
+
+// startIndex: The starting position (inclusive).
+// endIndex: The ending position (exclusive). If omitted, it slices until the end of the string.
