@@ -15,7 +15,7 @@ export default function ReactQuestions() {
       {/* <DisplayDataUsingMemo/> */}
       {/* <DisplayDataWithInfiniteScroll /> */}
       {/* <ShowCircleOnClick /> */}
-      <FollowingCircle />
+      {/* <FollowingCircle /> */}
     </div>
   );
 }
