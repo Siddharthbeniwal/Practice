@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { throttle } from "lodash";
 import axios from "axios";
 import "./reactQuestions.css";
 
@@ -13,7 +14,8 @@ export default function ReactQuestions() {
       {/* <DisplayDataWithPagination /> */}
       {/* <DisplayDataUsingMemo/> */}
       {/* <DisplayDataWithInfiniteScroll /> */}
-      <ShowCircleOnClick />
+      {/* <ShowCircleOnClick /> */}
+      {/* <FollowingCircle /> */}
     </div>
   );
 }
@@ -409,69 +411,6 @@ function ShowCircleOnClick() {
   const [radius, setRadius] = useState({ r1: 0, r2: 0 });
   const [circleCount, setCircleCount] = useState(0);
 
-  // const handleClick = (e) => {
-  //   if (circleCount === 0 || circleCount === 1) {
-  //     setCircleCount((prev) => prev + 1);
-  //   } else {
-  //     setCircleCount(0);
-  //     setPosition({ x1: 0, y1: 0, x2: 0, y2: 0 });
-  //     setRadius({ r1: 0, r2: 0 });
-  //   }
-  //   const x = e.clientX;
-  //   const y = e.clientY;
-
-  //   const min = 20;
-  //   const max = 100;
-  //   const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  //   if (circleCount === 0) {
-  //     setPosition((prev) => ({ ...prev, x1: x, y1: y }));
-  //     setRadius((prev) => ({ ...prev, r1: randomNum }));
-  //   }
-
-  //   if (circleCount === 1) {
-  //     setPosition((prev) => ({ ...prev, x2: x, y2: y }));
-  //     setRadius((prev) => ({ ...prev, r2: randomNum }));
-
-  //     var distance = Math.sqrt(
-  //       (postion.x2 - postion.x1) ** 2 + (postion.y2 - postion.y1) ** 2
-  //     );
-  //     var sumOfRadii = radius.r1 + radius.r2;
-
-  //   }
-
-  //   // check if circles intersecting or not.
-  //   if (circleCount === 1) {
-  //     // Formula:
-  //     // distance between two circles = sqrt ( (x2​ − x1)^2   +  (y2 − y1​)^2 )
-  //     // where (x1,y1) & (x2,y2) are the centers of the two circles.
-
-  //     // conditon:
-  //     // 1. If the distance between centers is less than or equal to the sum of the radii, the circles intersect.
-
-  //     // distance <= r1+r2   => intersect
-
-  //     // 2. If the distance is greater than the sum of the radii, they do not intersect.
-  //     // distance > r1+r2   => do not intersect
-
-  //     // For one circle to be completely inside the other, check if:
-  //     // distance <= |r1-r2|
-
-  //     // const distance = Math.sqrt(
-  //     //   (postion.x2 - postion.x1) ** 2 + (postion.y2 - postion.y1) ** 2
-  //     // );
-  //     // const sumOfRadii = radius.r1 + radius.r2;
-
-  //     console.log(distance);
-  //     console.log(sumOfRadii);
-  //     if (distance <= sumOfRadii) {
-  //       console.log("Circles are intersecting");
-  //     } else {
-  //       console.log("Circles are NOT intersecting");
-  //     }
-  //   }
-  // };
-
   const handleClick = (e) => {
     const x = e.clientX;
     const y = e.clientY;
@@ -560,6 +499,45 @@ function ShowCircleOnClick() {
           }}
         />
       )}
+    </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.6 WAP to make a circle which will follow the cursor.
+
+function FollowingCircle() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const myThrottle = (func, delay) => {
+    return function (...args) {
+      setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
+  const handlePointer = myThrottle((e) => {
+    setPosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  }, 100);
+
+  return (
+    <div className="full-screen" onMouseMove={(e) => handlePointer(e)}>
+      <div
+        style={{
+          marginTop: `${position.y}px`,
+          marginLeft: `${position.x}px`,
+          height: "36px",
+          width: "36px",
+          border: "solid 2px red",
+          backgroundColor: "red",
+          borderRadius: "50%",
+          position: "absolute",
+        }}
+      />
     </div>
   );
 }
