@@ -15,7 +15,7 @@ export default function ReactQuestions() {
       {/* <DisplayDataUsingMemo/> */}
       {/* <DisplayDataWithInfiniteScroll /> */}
       {/* <ShowCircleOnClick /> */}
-      {/* <FollowingCircle /> */}
+      <FollowingCircle />
     </div>
   );
 }
@@ -510,8 +510,10 @@ function FollowingCircle() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const myThrottle = (func, delay) => {
+    let timeout;
     return function (...args) {
-      setTimeout(() => {
+      clearTimeout(timeout);
+        timeout = setTimeout(() => {
         func(...args);
       }, delay);
     };
@@ -522,7 +524,7 @@ function FollowingCircle() {
       x: e.clientX,
       y: e.clientY,
     });
-  }, 100);
+  }, 20);
 
   return (
     <div className="full-screen" onMouseMove={(e) => handlePointer(e)}>
@@ -541,3 +543,10 @@ function FollowingCircle() {
     </div>
   );
 }
+
+// How to Implement Throttling in JavaScript:
+// Create a Throttle Function: Define a function that takes a callback and delay to control execution frequency over time.
+// Track Last Execution Time: Store the timestamp of the last function execution to calculate if the delay has passed.
+// Check Time Interval: On each trigger, compare the current time with the last execution time; only execute if sufficient time passed.
+// Return Throttled Function: Return a new function that runs the original callback only when the time interval condition is met.
+
