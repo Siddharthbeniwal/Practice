@@ -472,6 +472,22 @@ export default function outputBasedQuestions() {
 // arrB[0] = 42;
 // console.log(arrA);
 
+// (D)
+
+// var arrA = [1,2];
+// var arrB = arrA.slice();
+// arrB[0] = 42;
+// console.log(arrA);
+
+// arrA.slice():
+// The slice() method, when used without arguments, creates a new array containing all the elements of the original array (arrA).
+// It creates a shallow copy, meaning:
+// The top-level elements of the array are copied.
+// If the array contains objects or other nested data structures, the references to those objects are copied, not the actual objects themselves.
+
+// In Q.26 (D), the slice() method creates a shallow copy of arrA.
+// arrB is now a new array with the same values as arrA, but it is independent of arrA.
+
 // ***********************************************************************************************************************************************************
 // Q.27
 
@@ -519,3 +535,27 @@ export default function outputBasedQuestions() {
 
 // const result = foo();
 // console.log(result);
+
+// ***********************************************************************************************************************************************************
+// Q.31
+
+// var show = 1;
+// console.log(show);
+
+// function show() {
+//   console.log('inside fn');
+// }
+// console.log(show);
+
+// ***********************************************************************************************************************************************************
+// Q.32
+
+// const str = 'abc' + + 'def';
+// console.log(str);
+
+// eg-
+// console.log(+ '123'); // 123, because '123' can be converted into the number 123
+// console.log(+ 'abc'); // NaN, because 'abc' cannot be converted into a number
+// console.log(+ ''); // 0, because an empty string is converted to 0
+// console.log(+ true); // 1, because true is converted to 1
+// console.log(+ false); // 0, because false is converted to 0
