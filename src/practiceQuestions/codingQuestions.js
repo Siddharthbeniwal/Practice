@@ -253,3 +253,22 @@ export default function CodingQuestions() {
 
 // startIndex: The starting position (inclusive).
 // endIndex: The ending position (exclusive). If omitted, it slices until the end of the string.
+
+// ***********************************************************************************************************************************************************
+// Q.16 Flatten the array:
+// expected o/p: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+// (A)
+const arr = [
+  [1, 2],
+  [3, 4],
+  [5, 6, 7, 8, 9],
+  [10, 11, 12],
+];
+
+// using inbuilt flat method:
+console.log(arr.flat());
+
+// without using inbuilt flat method:
+let outputArr = [].concat(...arr);
+console.log(outputArr);
