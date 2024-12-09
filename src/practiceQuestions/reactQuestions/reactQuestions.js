@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { throttle } from "lodash";
 import axios from "axios";
 import "./reactQuestions.css";
 
@@ -16,6 +15,7 @@ export default function ReactQuestions() {
       {/* <DisplayDataWithInfiniteScroll /> */}
       {/* <ShowCircleOnClick /> */}
       {/* <FollowingCircle /> */}
+      {/* <DisplayDataInCard /> */}
     </div>
   );
 }
@@ -513,7 +513,7 @@ function FollowingCircle() {
     let timeout;
     return function (...args) {
       clearTimeout(timeout);
-        timeout = setTimeout(() => {
+      timeout = setTimeout(() => {
         func(...args);
       }, delay);
     };
@@ -550,3 +550,37 @@ function FollowingCircle() {
 // Check Time Interval: On each trigger, compare the current time with the last execution time; only execute if sufficient time passed.
 // Return Throttled Function: Return a new function that runs the original callback only when the time interval condition is met.
 
+// ***********************************************************************************************************************************************************
+// Q.7 Fetch data from API and display data in cards.
+// https://jsonplaceholder.org/users
+
+function DisplayDataInCard() {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    function getData() {
+      axios
+        .get("https://jsonplaceholder.org/users")
+        .then((res) => setUserData(res.data))
+        .catch((err) => console.log(err));
+    }
+    getData();
+  }, []);
+
+  return (
+    <div className="full-screen">
+      <div className="row mt-4">
+        {userData.map((data) => {
+          return (
+            <div class="card col-md-2 ml-4 mb-3">
+              <div class="card-body">
+                <h5 class="card-title">{data.firstname}</h5>
+                <p class="card-text">{data.lastname}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

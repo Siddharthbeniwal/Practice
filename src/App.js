@@ -9,6 +9,7 @@ import JavascriptQuestions from "./practiceQuestions/javascriptQuestions";
 import LeetCodeQuestions from "../src/practiceQuestions/leetCodeQuestions";
 import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
 import ReactQuestions from "./practiceQuestions/reactQuestions/reactQuestions";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 const routes = [
