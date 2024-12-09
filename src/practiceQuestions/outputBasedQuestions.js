@@ -559,3 +559,42 @@ export default function outputBasedQuestions() {
 // console.log(+ ''); // 0, because an empty string is converted to 0
 // console.log(+ true); // 1, because true is converted to 1
 // console.log(+ false); // 0, because false is converted to 0
+
+
+// ***********************************************************************************************************************************************************
+// Q.33
+
+// // (A)
+// function func1() {
+//   for(var i=0; i<3; i++) {
+//     setTimeout(() => {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
+// func1();
+
+// // (B)
+// function func2() {
+//   for(let i=0; i<3; i++) {
+//     setTimeout(() => {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+// }
+// func2();
+
+// (C) In question (C), make the output 0,1,2 without removing 'var'
+
+// function func3() {
+//   for(var i=0; i<3; i++) {
+//     function logValue (i) {
+//       setTimeout(() => {
+//         console.log(i);
+//       }, i * 1000);
+//     }
+//     logValue(i);
+//   }
+// }
+// func3();
+// using an Immediately Invoked Function Expression (IIFE) to capture the value of i in each iteration
