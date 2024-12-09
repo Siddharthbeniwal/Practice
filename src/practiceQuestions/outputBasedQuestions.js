@@ -560,7 +560,6 @@ export default function outputBasedQuestions() {
 // console.log(+ true); // 1, because true is converted to 1
 // console.log(+ false); // 0, because false is converted to 0
 
-
 // ***********************************************************************************************************************************************************
 // Q.33
 
