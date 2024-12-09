@@ -255,20 +255,46 @@ export default function CodingQuestions() {
 // endIndex: The ending position (exclusive). If omitted, it slices until the end of the string.
 
 // ***********************************************************************************************************************************************************
-// Q.16 Flatten the array:
+// Q.16(A) Flatten the array:
 // expected o/p: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-// (A)
-const arr = [
-  [1, 2],
-  [3, 4],
-  [5, 6, 7, 8, 9],
-  [10, 11, 12],
-];
+// const arr = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6, 7, 8, 9],
+//   [10, 11, 12],
+// ];
 
-// using inbuilt flat method:
-console.log(arr.flat());
+// // using inbuilt flat method:
+// console.log(arr.flat());
 
-// without using inbuilt flat method:
-let outputArr = [].concat(...arr);
-console.log(outputArr);
+// // without using inbuilt flat method:
+// let outputArr = [].concat(...arr);
+// console.log(outputArr);
+
+// ***********************************************************************************************************************************************************
+// Q.16(B) Write a customized fn to flatten a given array upto 'n' depth:
+// expected o/p: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+// const arr = [
+//   [1, 2],
+//   [3, 4],
+//   [5, [6, [7, 8]], 9],
+//   [10, 11, 12],
+// ];
+
+function customizedFlat(arr, depth = 1) {
+  let outputArr = [];
+
+  arr.forEach((element) => {
+    if (Array.isArray(element) && depth > 0) {
+      outputArr.push(...customizedFlat(element, depth - 1));
+    } else {
+      outputArr.push(element);
+    }
+  });
+
+  return outputArr;
+}
+
+// console.log(customizedFlat(arr, 3));
