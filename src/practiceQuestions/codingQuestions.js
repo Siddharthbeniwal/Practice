@@ -29,21 +29,20 @@ export default function CodingQuestions() {
 // ***********************************************************************************************************************************************************
 // Q.2 Find count of each character in a given string.
 
-// let str = 'hello world'
-// let arr = str.split('')
+const str = "hello world";
+let count = {};
 
-// let count = arr.reduce((acc, curr) => {
-//   acc[curr] = (acc[curr] || 0) + 1;
-//   return acc
-// }, {})
+for (let char of str) {
+  count[char] = (count[char] || 0) + 1;
+}
 
-// console.log('count', count)
+console.log(count);
 
 // ***********************************************************************************************************************************************************
 // Q.3 Find no. of characters in a given string.
 
 // let str = 'hello world'
-// console.log('[...str].length', [...str].length)
+// console.log([...str].length);
 
 // ***********************************************************************************************************************************************************
 // Q.4 Find output:
@@ -54,12 +53,25 @@ export default function CodingQuestions() {
 
 // ***********************************************************************************************************************************************************
 // Q.5 Find the missing no.and insert it in the array.
-// let arr = [1,2,3,5,6,7]
+// let arr = [1,2,3,5,6,7];
 
 // let missingIndex = arr.findIndex((item, i) => item !== i + 1);
 
 // arr.splice(missingIndex, 0, missingIndex + 1);
 // console.log(arr);
+
+// Difference Between splice() and slice() in JavaScript:
+// splice():
+
+// Does not return a new array but instead modifies the original array.
+// It returns the removed elements (if any).
+// It is used to add, remove, or replace elements in the array.
+
+// slice():
+
+// Returns a new array containing the selected elements.
+// It does not modify the original array.
+// It is used to extract a portion of an array.
 
 // ***********************************************************************************************************************************************************
 // Q.6 Delete '5' from the array.
@@ -283,18 +295,18 @@ export default function CodingQuestions() {
 //   [10, 11, 12],
 // ];
 
-function customizedFlat(arr, depth = 1) {
-  let outputArr = [];
+// function customizedFlat(arr, depth = 1) {
+//   let outputArr = [];
 
-  arr.forEach((element) => {
-    if (Array.isArray(element) && depth > 0) {
-      outputArr.push(...customizedFlat(element, depth - 1));
-    } else {
-      outputArr.push(element);
-    }
-  });
+//   arr.forEach((element) => {
+//     if (Array.isArray(element) && depth > 0) {
+//       outputArr.push(...customizedFlat(element, depth - 1));
+//     } else {
+//       outputArr.push(element);
+//     }
+//   });
 
-  return outputArr;
-}
+//   return outputArr;
+// }
 
 // console.log(customizedFlat(arr, 3));

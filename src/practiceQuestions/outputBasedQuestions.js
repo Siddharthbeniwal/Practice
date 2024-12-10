@@ -561,7 +561,7 @@ export default function outputBasedQuestions() {
 // console.log(+ false); // 0, because false is converted to 0
 
 // ***********************************************************************************************************************************************************
-// Q.33
+// Q.33 setTimeout o/p
 
 // // (A)
 // function func1() {
@@ -596,4 +596,4 @@ export default function outputBasedQuestions() {
 //   }
 // }
 // func3();
-// using an Immediately Invoked Function Expression (IIFE) to capture the value of i in each iteration
+// using an Immediately Invoked Function Expression (IIFE) to capture the value of 'i' in each iteration.

@@ -74,3 +74,33 @@ function MyComponent1() {
 //     resolve('promise resolved');
 //   })
 // });
+
+// ***********************************************************************************************************************************************************
+// Q.3 Explain call, apply and bind.
+
+// (A) call:
+// The call method is a built-in function available for all JavaScript functions. It allows us to invoke a function
+// with an explicit this value and pass arguments individually.
+
+// Syntax:
+// functionName.call(thisArg, arg1, arg2, ...)
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B) apply:
+// The apply method is very similar to the call method in JavaScript, but it allows us to pass arguments as an array (or array-like object)
+// instead of listing them individually. It is used to invoke a function with a specified this context.
+
+// Syntax:
+// functionName.apply(thisArg, [arg1, arg2, ...])
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (C) bind:
+// The bind method in JavaScript creates a new function that, when invoked, has its this value permanently set to the value provided, as well
+// as any arguments passed during the binding. Unlike call or apply, bind does not immediately execute the function but rather returns
+// a new function that can be invoked later.
+
+// ***********************************************************************************************************************************************************
+// Q.4 Infinite currying
+// add(1)(2)...(n)()
