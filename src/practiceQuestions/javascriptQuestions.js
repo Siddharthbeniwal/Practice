@@ -103,4 +103,33 @@ function MyComponent1() {
 
 // ***********************************************************************************************************************************************************
 // Q.4 Infinite currying
-// add(1)(2)...(n)()
+
+// (A)
+// sum(1)(2)...(n)()
+
+// function infiniteCurrySum(a) {
+// return function(b) {
+//   if(b !== undefined) {
+//     return infiniteCurrySum(a+b);
+//   }
+//   return a;
+// }
+// }
+
+// console.log(infiniteCurrySum(1)(5)(8)(10)());
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B)
+// multiply(1)(2)...(n)()
+
+// function infiniteCurryMultiply(a) {
+//   return function(b) {
+//     if(b !== undefined) {
+//       return infiniteCurryMultiply(a*b);
+//     }
+//     return a;
+//   }
+// }
+
+// console.log(infiniteCurryMultiply(2)(5)(3)(4)());
