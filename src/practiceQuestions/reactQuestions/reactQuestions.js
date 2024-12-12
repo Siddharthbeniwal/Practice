@@ -16,6 +16,7 @@ export default function ReactQuestions() {
       {/* <ShowCircleOnClick /> */}
       {/* <FollowingCircle /> */}
       {/* <DisplayDataInCard /> */}
+      {/* <FolderUI data={data} /> */}
     </div>
   );
 }
@@ -584,3 +585,87 @@ function DisplayDataInCard() {
     </div>
   );
 }
+
+// ***********************************************************************************************************************************************************
+// Q.8 Make an interactive UI to show folder structure. Prepare a JSON which will have folder structure of the data to be show on the UI.
+// The UI should be dyanmic, ie, if some folders are added or deleted in the JSON then the UI should addapt it.
+
+const data = {
+  name: "Root Folder",
+  isFolder: true,
+  items: [
+    {
+      name: "Folder 1",
+      isFolder: true,
+      items: [
+        {
+          name: "Sub Folder 1.1",
+          isFolder: true,
+          items: [
+            {
+              name: "File 1.1",
+              isFolder: false,
+            },
+            {
+              name: "File 1.2",
+              isFolder: false,
+            },
+            {
+              name: "File 1.3",
+              isFolder: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Folder 2",
+      isFolder: true,
+      items: [
+        {
+          name: "Sub Folder 2.1",
+          isFolder: true,
+          items: [
+            {
+              name: "File 2.1",
+              isFolder: false,
+            },
+            {
+              name: "File 2.2",
+              isFolder: false,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+function FolderUI({ data }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  if (data.isFolder) {
+    return (
+      <div>
+        <div onClick={() => setIsExpanded(!isExpanded)}>{data.name}</div>
+
+        <div
+          style={{
+            paddingLeft: "12px",
+            display: isExpanded ? "block" : "none",
+          }}
+        >
+          {data.items.map((item) => {
+            return <FolderUI key={item.name} data={item} />;
+          })}
+        </div>
+      </div>
+    );
+  } else
+    return (
+      <div>
+        {data.name}
+        <br />
+      </div>
+    );
+};
