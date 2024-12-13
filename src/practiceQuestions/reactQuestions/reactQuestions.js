@@ -102,6 +102,23 @@ function Stopwatch() {
   );
 }
 
+// Why Use useRef?
+
+// 1. Persistent Storage Across Renders:
+
+// Unlike regular variables, values stored in a useRef do not get reinitialized on every render.
+// This means intervalIdRef.current retains the timer ID even as the component re-renders when time or isTimerRunning changes.
+
+// 2. Avoiding Unnecessary State Updates:
+
+// If we stored the timer ID in a useState instead, updating it would trigger a re-render of the component, which is unnecessary in this case.
+// useRef allows us to hold a mutable value that doesn't trigger re-renders when updated.
+
+// 3. Accessing DOM or Timer References:
+
+// In this case, intervalIdRef is used to hold the ID of the timer created by setInterval. When handleResetTimer is called,
+// clearInterval(intervalIdRef.current) uses this reference to stop the timer.
+
 // ***********************************************************************************************************************************************************
 // Q.3(A) Fetch and display data on the UI data from a get API using 'fetch'.
 
@@ -668,4 +685,4 @@ function FolderUI({ data }) {
         <br />
       </div>
     );
-};
+}
