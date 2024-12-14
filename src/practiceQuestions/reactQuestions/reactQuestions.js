@@ -17,6 +17,7 @@ export default function ReactQuestions() {
       {/* <FollowingCircle /> */}
       {/* <DisplayDataInCard /> */}
       {/* <FolderUI data={data} /> */}
+      {/* <PollManager /> */}
     </div>
   );
 }
@@ -685,4 +686,108 @@ function FolderUI({ data }) {
         <br />
       </div>
     );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.9 Create a Poll Manager which has two options and user is allowed to vote for one of them. Display the current status of Poll and
+// show winner on click of 'Declare Winner' Button'.
+
+const poll = {
+  question: "Who is your favourite Superhero?",
+  pollOptions: ["Batman", "Superman", "Spiderman"],
+};
+
+function PollManager() {
+  const getInitialOptions = () => {
+    return poll?.pollOptions.map((option, index) => ({
+      id: index + 1,
+      name: option,
+      voteCount: 0,
+    }));
+  };
+
+  const [options, setOptions] = useState(getInitialOptions());
+
+  const [isWinnerDeclared, setIsWinnerDeclared] = useState(false);
+
+  const handleVote = (VotedOption) => {
+    const votedOptionId = VotedOption.id;
+
+    setOptions((prevOptions) =>
+      prevOptions.map((option) =>
+        option.id === votedOptionId
+          ? { ...option, voteCount: option.voteCount + 1 }
+          : option
+      )
+    );
+  };
+
+  const getpollStatus = () => {
+    const highestVoteCount = Math.max(...options.map((opt) => opt.voteCount));
+
+    const highestVoteCountOptions = options.filter(
+      (opt) => opt.voteCount === highestVoteCount
+    );
+
+    if (highestVoteCountOptions?.length === 1) {
+      return isWinnerDeclared
+        ? `${highestVoteCountOptions[0].name} won!!!`
+        : `${highestVoteCountOptions[0].name} is winning!`;
+    } else {
+      return `Its a tie between ${highestVoteCountOptions
+        .map((opt) => opt.name)
+        .slice(0, -1)} and ${
+        highestVoteCountOptions[highestVoteCountOptions.length - 1].name
+      }`;
+    }
+  };
+
+  return (
+    <div>
+      <h1>Poll Manager</h1>
+      <h2>{poll.question}</h2>
+
+      {options?.length > 0 &&
+        options.map((option) => {
+          return (
+            <div>
+              <div className="d-flex mt-4">
+                <h2>{option.name}</h2>
+                <button
+                  className="btn btn-primary ml-2"
+                  onClick={() => handleVote(option)}
+                >
+                  Vote
+                </button>
+              </div>
+            </div>
+          );
+        })}
+
+      {!isWinnerDeclared ? (
+        <div>
+          <h3>Poll status: {getpollStatus()}</h3>
+          <button
+            className="btn btn-success fs-5"
+            onClick={() => setIsWinnerDeclared(true)}
+          >
+            Declare Winner
+          </button>
+        </div>
+      ) : (
+        <div>
+          <h3>Poll Winner: {getpollStatus()}</h3>
+          <button
+            className="btn btn-danger fs-5"
+            onClick={() => {
+              setOptions(getInitialOptions());
+              setIsWinnerDeclared(false);
+            }}
+          >
+            Reset Poll
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }

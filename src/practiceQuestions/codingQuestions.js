@@ -73,6 +73,12 @@ export default function CodingQuestions() {
 // It does not modify the original array.
 // It is used to extract a portion of an array.
 
+// syntax for slice:
+// arr.slice(startIndex, endIndex)
+
+// startIndex: The starting position (inclusive).
+// endIndex: The ending position (exclusive). If omitted, it slices until the end of the string.
+
 // **********************************************************************************************************************************************
 // Q.6 Delete '5' from the array.
 // let arr = [1,2,3,5,6,7]
