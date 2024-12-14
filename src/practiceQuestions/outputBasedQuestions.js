@@ -583,7 +583,7 @@ export default function outputBasedQuestions() {
 // }
 // func2();
 
-// (C) In question (C), make the output 0,1,2 without removing 'var'
+// (C) In question (A), make the output 0,1,2 without removing 'var'
 
 // function func3() {
 //   for(var i=0; i<3; i++) {

@@ -18,6 +18,7 @@ export default function ReactQuestions() {
       {/* <DisplayDataInCard /> */}
       {/* <FolderUI data={data} /> */}
       {/* <PollManager /> */}
+      {/* <ToDo /> */}
     </div>
   );
 }
@@ -692,102 +693,182 @@ function FolderUI({ data }) {
 // Q.9 Create a Poll Manager which has two options and user is allowed to vote for one of them. Display the current status of Poll and
 // show winner on click of 'Declare Winner' Button'.
 
-const poll = {
-  question: "Who is your favourite Superhero?",
-  pollOptions: ["Batman", "Superman", "Spiderman"],
-};
+// const poll = {
+//   question: "Who is your favourite Superhero?",
+//   pollOptions: ["Batman", "Superman", "Spiderman"],
+// };
 
-function PollManager() {
-  const getInitialOptions = () => {
-    return poll?.pollOptions.map((option, index) => ({
-      id: index + 1,
-      name: option,
-      voteCount: 0,
-    }));
-  };
+// function PollManager() {
+//   const getInitialOptions = () => {
+//     return poll?.pollOptions.map((option, index) => ({
+//       id: index + 1,
+//       name: option,
+//       voteCount: 0,
+//     }));
+//   };
 
-  const [options, setOptions] = useState(getInitialOptions());
+//   const [options, setOptions] = useState(getInitialOptions());
 
-  const [isWinnerDeclared, setIsWinnerDeclared] = useState(false);
+//   const [isWinnerDeclared, setIsWinnerDeclared] = useState(false);
 
-  const handleVote = (VotedOption) => {
-    const votedOptionId = VotedOption.id;
+//   const handleVote = (VotedOption) => {
+//     const votedOptionId = VotedOption.id;
 
-    setOptions((prevOptions) =>
-      prevOptions.map((option) =>
-        option.id === votedOptionId
-          ? { ...option, voteCount: option.voteCount + 1 }
-          : option
+//     setOptions((prevOptions) =>
+//       prevOptions.map((option) =>
+//         option.id === votedOptionId
+//           ? { ...option, voteCount: option.voteCount + 1 }
+//           : option
+//       )
+//     );
+//   };
+
+//   const getpollStatus = () => {
+//     const highestVoteCount = Math.max(...options.map((opt) => opt.voteCount));
+
+//     const highestVoteCountOptions = options.filter(
+//       (opt) => opt.voteCount === highestVoteCount
+//     );
+
+//     if (highestVoteCountOptions?.length === 1) {
+//       return isWinnerDeclared
+//         ? `${highestVoteCountOptions[0].name} won!!!`
+//         : `${highestVoteCountOptions[0].name} is winning!`;
+//     } else {
+//       return `Its a tie between ${highestVoteCountOptions
+//         .map((opt) => opt.name)
+//         .slice(0, -1)} and ${
+//         highestVoteCountOptions[highestVoteCountOptions.length - 1].name
+//       }`;
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h1>Poll Manager</h1>
+//       <h2>{poll.question}</h2>
+
+//       {options?.length > 0 &&
+//         options.map((option) => {
+//           return (
+//             <div>
+//               <div className="d-flex mt-4">
+//                 <h2>{option.name}</h2>
+//                 <button
+//                   className="btn btn-primary ml-2"
+//                   onClick={() => handleVote(option)}
+//                 >
+//                   Vote
+//                 </button>
+//               </div>
+//             </div>
+//           );
+//         })}
+
+//       {!isWinnerDeclared ? (
+//         <div>
+//           <h3>Poll status: {getpollStatus()}</h3>
+//           <button
+//             className="btn btn-success fs-5"
+//             onClick={() => setIsWinnerDeclared(true)}
+//           >
+//             Declare Winner
+//           </button>
+//         </div>
+//       ) : (
+//         <div>
+//           <h3>Poll Winner: {getpollStatus()}</h3>
+//           <button
+//             className="btn btn-danger fs-5"
+//             onClick={() => {
+//               setOptions(getInitialOptions());
+//               setIsWinnerDeclared(false);
+//             }}
+//           >
+//             Reset Poll
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// ***********************************************************************************************************************************************************
+// Q.10 Simple example of Routing.
+
+// import React from "react";
+// import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+// function Home() {
+//   return <h1>Home Page</h1>;
+// }
+
+// function About() {
+//   return <h1>About Page</h1>;
+// }
+
+// function MyComponent() {
+//   return <h1>My Component</h1>;
+// }
+
+// function App() {
+//   return (
+//     <Router>
+//       <nav>
+//         <Link to="/">Home</Link> |<Link to="/about">About</Link> |
+//         <Link to="/myComponent">My Component</Link>
+//       </nav>
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/myComponent" element={<MyComponent />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+// ***********************************************************************************************************************************************************
+// Q.11 Create a To-Do using API
+
+function ToDo() {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("https://dummyjson.com/todos");
+      const data = await response.json();
+      setTodos(data.todos);
+    }
+    fetchData();
+  }, []);
+
+  const handleCheckbox = (id) => {
+    setTodos((prevTodo) =>
+      prevTodo.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
-  const getpollStatus = () => {
-    const highestVoteCount = Math.max(...options.map((opt) => opt.voteCount));
-
-    const highestVoteCountOptions = options.filter(
-      (opt) => opt.voteCount === highestVoteCount
-    );
-
-    if (highestVoteCountOptions?.length === 1) {
-      return isWinnerDeclared
-        ? `${highestVoteCountOptions[0].name} won!!!`
-        : `${highestVoteCountOptions[0].name} is winning!`;
-    } else {
-      return `Its a tie between ${highestVoteCountOptions
-        .map((opt) => opt.name)
-        .slice(0, -1)} and ${
-        highestVoteCountOptions[highestVoteCountOptions.length - 1].name
-      }`;
-    }
-  };
-
   return (
-    <div>
-      <h1>Poll Manager</h1>
-      <h2>{poll.question}</h2>
+    <>
+      <h1>To-Do Lists</h1>
 
-      {options?.length > 0 &&
-        options.map((option) => {
-          return (
-            <div>
-              <div className="d-flex mt-4">
-                <h2>{option.name}</h2>
-                <button
-                  className="btn btn-primary ml-2"
-                  onClick={() => handleVote(option)}
-                >
-                  Vote
-                </button>
-              </div>
-            </div>
-          );
-        })}
-
-      {!isWinnerDeclared ? (
-        <div>
-          <h3>Poll status: {getpollStatus()}</h3>
-          <button
-            className="btn btn-success fs-5"
-            onClick={() => setIsWinnerDeclared(true)}
-          >
-            Declare Winner
-          </button>
-        </div>
-      ) : (
-        <div>
-          <h3>Poll Winner: {getpollStatus()}</h3>
-          <button
-            className="btn btn-danger fs-5"
-            onClick={() => {
-              setOptions(getInitialOptions());
-              setIsWinnerDeclared(false);
-            }}
-          >
-            Reset Poll
-          </button>
-        </div>
-      )}
-    </div>
+      <ol>
+        {todos?.map((todo) => (
+          <div className="d-flex">
+            <li key={todo.id}>{todo.todo}</li>
+            <input
+              type={"checkbox"}
+              className="ml-2"
+              checked={todo.completed}
+              onChange={() => handleCheckbox(todo.id)}
+            />
+          </div>
+        ))}
+      </ol>
+    </>
   );
 }
