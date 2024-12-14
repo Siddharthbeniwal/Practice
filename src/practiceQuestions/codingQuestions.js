@@ -61,13 +61,24 @@ export default function CodingQuestions() {
 // console.log(arr);
 
 // Difference Between splice() and slice() in JavaScript:
-// splice():
+
+// 1. splice():
 
 // Does not return a new array but instead modifies the original array.
 // It returns the removed elements (if any).
 // It is used to add, remove, or replace elements in the array.
 
-// slice():
+// syntax for splice:
+// array.splice(start, deleteCount, item1, item2, ...);
+
+// Key Points:
+// splice() modifies the original array in place.
+// It returns a new array containing the removed elements.
+// If no elements are removed (e.g., deleteCount is 0), it returns an empty array.
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// 2. slice():
 
 // Returns a new array containing the selected elements.
 // It does not modify the original array.
@@ -77,7 +88,17 @@ export default function CodingQuestions() {
 // arr.slice(startIndex, endIndex)
 
 // startIndex: The starting position (inclusive).
-// endIndex: The ending position (exclusive). If omitted, it slices until the end of the string.
+// endIndex: The index at which to end extraction (exclusive). If not specified, it extracts until the end of the array.
+// If negative, it counts from the end of the array.The index at which to end extraction (exclusive). If not specified,
+// it extracts until the end of the array. If negative, it counts from the end of the array.
+
+// Key Points:
+// Does not modify the original array: Unlike splice(), slice() does not alter the original array but instead returns a new array.
+// Creates a shallow copy: If we use slice() on an array containing objects, the copied array will still reference the same objects.
+// It does not perform a deep copy.
+// Negative indices: We can use negative numbers to start or end the slice counting from the end of the array.
+
+// Example: arr.slice(-2) will return the last two elements of the array.
 
 // **********************************************************************************************************************************************
 // Q.6 Delete '5' from the array.
