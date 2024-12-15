@@ -337,3 +337,42 @@ export default function CodingQuestions() {
 // }
 
 // console.log(customizedFlat(arr, 3));
+
+// **********************************************************************************************************************************************
+// Q.17 Implement a  'Method Chaining' fucntion which will return the sum as per the below eg-
+
+// i/p- computeAmount().lacs(15).crore(5).crore(2).lacs(20).thousand(45).crore(7).value())
+// expected o/p- 143545000
+
+// function computeAmount() {
+//   let totalValue = 0;
+
+//   return {
+//     lacs: function (n) {
+//       totalValue += n * 100000;
+//       return this; // Returns the current object (enabling method chaining)
+//     },
+//     crore: function (n) {
+//       totalValue += n * 10000000;
+//       return this;
+//     },
+//     thousand: function (n) {
+//       totalValue += n * 1000;
+//       return this;
+//     },
+//     value: function () {
+//       return totalValue;
+//     },
+//   };
+// }
+
+// console.log(
+//   computeAmount()
+//     .lacs(15)
+//     .crore(5)
+//     .crore(2)
+//     .lacs(20)
+//     .thousand(45)
+//     .crore(7)
+//     .value()
+// );
