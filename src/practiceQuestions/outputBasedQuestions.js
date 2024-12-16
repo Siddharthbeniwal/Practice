@@ -599,7 +599,7 @@ export default function outputBasedQuestions() {
 // using an Immediately Invoked Function Expression (IIFE) to capture the value of 'i' in each iteration.
 
 // ***********************************************************************************************************************************************************
-// Q.34 
+// Q.34 Understanding shadowing
 
 // let a = 10;
 
@@ -630,5 +630,87 @@ export default function outputBasedQuestions() {
 // console.log(a);
 // console.log(b);
 
+// ***********************************************************************************************************************************************************
+// Q.37
+
+// function func() {
+//   x = 10;
+//   console.log(x);
+// }
+// console.log(x);
+// func();
+
+// ***********************************************************************************************************************************************************
+// Q.38 Understanding hoisting
+
+// (A)
+
+// console.log(a); // ReferenceError (a is in the TDZ)
+// let a;          // TDZ ends here
+// console.log(a); // undefined (a is declared but not initialized)
+// a = 10;         
+// console.log(a); // 10 (a is now initialized with the value 10)
+
+// The Temporal Dead Zone (TDZ) ends exactly when the variable's declaration is encountered in the code during execution.
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B)
+
+// foo();
+// var foo = 20;
+
+// function foo() {
+//   console.log('calling foo');
+// }
+// foo();
 
 
+// ................................................
+// Key Concepts =>
+// Hoisting:
+
+// 1. Function declarations are hoisted entirely (both name and body) to the top of their scope.
+// var declarations are hoisted, but only the declaration, not the initialization. The variable is initialized to undefined during
+// the creation phase of the execution context.
+// When both a function declaration and a var declaration share the same name:
+
+// 2. The function declaration takes precedence during hoisting.
+// However, once the var assignment is encountered during execution, it overwrites the function with the new value.
+
+
+// ................................................
+// Hoisted Version of the Code =>
+// When the code is hoisted, it effectively looks like this:
+
+// function foo() {                // The function declaration is hoisted first.
+//   console.log('calling foo');
+// }
+
+// var foo;                        // The `var foo` declaration is hoisted but initialized to `undefined`.
+
+// // During execution:
+// // Step 1: `foo` initially refers to the function declaration.
+// // Step 2: `foo` gets reassigned to `20` when `var foo = 20` executes.
+
+
+// ................................................
+// Final Output =>
+
+// First foo(): calling foo
+// Second foo(): TypeError: foo is not a function
+
+
+// ................................................
+// Note =>
+// In older versions of JavaScript (or in non-strict mode), function declarations and var declarations could coexist,
+// with function declarations taking precedence during hoisting.
+
+// However, modern JavaScript environments (e.g., ES6 or newer, which many tools like Babel or TypeScript enforce by default) treat this
+// as a conflict because both var and function declarations attempt to declare the same identifier in the same scope.
+// So in modern JavaScript environments, declaring a function and a variable with the same name in the same scope is not allowed.
+
+// This results in a SyntaxError when running in modern environments like:
+
+// Node.js (ES6+ version).
+// Browsers with strict mode enabled.
