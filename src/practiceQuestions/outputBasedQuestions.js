@@ -597,3 +597,38 @@ export default function outputBasedQuestions() {
 // }
 // func3();
 // using an Immediately Invoked Function Expression (IIFE) to capture the value of 'i' in each iteration.
+
+// ***********************************************************************************************************************************************************
+// Q.34 
+
+// let a = 10;
+
+// (function() {
+//   console.log(a);
+//   let a = 20;
+//   console.log(a);
+// })();
+
+// ***********************************************************************************************************************************************************
+// Q.35 Understanding type coercion in javascript
+
+// console.log(5 + [8] - 10);
+// console.log(5 + [8, 2] - 10);
+// console.log(4 + ["25"] - 5);
+// console.log(4 + ["5" + "10"] - 2);
+
+// ***********************************************************************************************************************************************************
+// Q.36 Understanding block scope
+
+// {
+//   let a = 1;
+//   let b = 2;
+
+//   console.log(a);
+//   console.log(b);
+// }
+// console.log(a);
+// console.log(b);
+
+
+
