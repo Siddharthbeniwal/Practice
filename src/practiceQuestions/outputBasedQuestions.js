@@ -648,7 +648,7 @@ export default function outputBasedQuestions() {
 // console.log(a); // ReferenceError (a is in the TDZ)
 // let a;          // TDZ ends here
 // console.log(a); // undefined (a is declared but not initialized)
-// a = 10;         
+// a = 10;
 // console.log(a); // 10 (a is now initialized with the value 10)
 
 // The Temporal Dead Zone (TDZ) ends exactly when the variable's declaration is encountered in the code during execution.
@@ -665,7 +665,6 @@ export default function outputBasedQuestions() {
 // }
 // foo();
 
-
 // ................................................
 // Key Concepts =>
 // Hoisting:
@@ -677,7 +676,6 @@ export default function outputBasedQuestions() {
 
 // 2. The function declaration takes precedence during hoisting.
 // However, once the var assignment is encountered during execution, it overwrites the function with the new value.
-
 
 // ................................................
 // Hoisted Version of the Code =>
@@ -693,13 +691,11 @@ export default function outputBasedQuestions() {
 // // Step 1: `foo` initially refers to the function declaration.
 // // Step 2: `foo` gets reassigned to `20` when `var foo = 20` executes.
 
-
 // ................................................
 // Final Output =>
 
 // First foo(): calling foo
 // Second foo(): TypeError: foo is not a function
-
 
 // ................................................
 // Note =>
@@ -714,3 +710,19 @@ export default function outputBasedQuestions() {
 
 // Node.js (ES6+ version).
 // Browsers with strict mode enabled.
+
+// ***********************************************************************************************************************************************************
+// Q.39 Understanding Closures
+
+// function outer() {
+//   function inner() {
+//     console.log(x);
+//   }
+//   const x = 5;
+//   return inner;
+// }
+
+// const inner = outer();
+// console.dir(inner); //outputs the object's properties in a tree-like structure.
+
+// inner();
