@@ -726,3 +726,21 @@ export default function outputBasedQuestions() {
 // console.dir(inner); //outputs the object's properties in a tree-like structure.
 
 // inner();
+
+
+// ***********************************************************************************************************************************************************
+// Q.40 
+
+// let a = {
+//   myName: 99,
+//   getX() {
+//     return this.myName;
+//   }
+// };
+
+// let x = a.myName;
+
+// let y = { myName: 42 };
+
+// console.log(a.getX());
+// console.log(a.getX.apply(y));

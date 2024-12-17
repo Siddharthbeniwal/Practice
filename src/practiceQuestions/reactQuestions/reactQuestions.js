@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import axios from "axios";
+import Dropdown from "react-dropdown";
 import "./reactQuestions.css";
 
 export default function ReactQuestions() {
@@ -19,6 +20,7 @@ export default function ReactQuestions() {
       {/* <FolderUI data={data} /> */}
       {/* <PollManager /> */}
       {/* <ToDo /> */}
+      {/* <DependentDropdown /> */}
     </div>
   );
 }
@@ -870,5 +872,51 @@ function ToDo() {
         ))}
       </ol>
     </>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.12 Create two dropdowns- one will have country list another should have the states List based on the selected country.
+
+function DependentDropdown() {
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+
+  const countryOptions = ["India", "USA", "Canada"];
+
+  const stateOptions = useMemo(
+    () => ({
+      India: ["Delhi", "Mumbai", "Kolkata"],
+      USA: ["New York", "California", "Texas"],
+      Canada: ["Toronto", "Vancouver", "Montreal"],
+    }),
+    []
+  );
+
+  const availableStates = selectedCountry ? stateOptions[selectedCountry] : [];
+
+  function handleCountryChange(selected) {
+    setSelectedCountry(selected.value);
+    setSelectedState(null);
+  }
+
+  return (
+    <div className="container d-flex">
+      <Dropdown
+        className="form-control"
+        options={countryOptions}
+        onChange={(e) => handleCountryChange(e)}
+        value={selectedCountry}
+        placeholder="Select a Country"
+      />
+
+      <Dropdown
+        className="form-control ml-2"
+        options={availableStates}
+        onChange={(selected) => setSelectedState(selected.value)}
+        value={selectedState}
+        placeholder="Select a State"
+      />
+    </div>
   );
 }
