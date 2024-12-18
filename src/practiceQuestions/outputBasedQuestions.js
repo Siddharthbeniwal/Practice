@@ -727,9 +727,8 @@ export default function outputBasedQuestions() {
 
 // inner();
 
-
 // ***********************************************************************************************************************************************************
-// Q.40 
+// Q.40
 
 // let a = {
 //   myName: 99,
@@ -744,3 +743,26 @@ export default function outputBasedQuestions() {
 
 // console.log(a.getX());
 // console.log(a.getX.apply(y));
+
+// ***********************************************************************************************************************************************************
+// Q.41 Comparing non-primitive values
+
+// (A)
+// const obj1 = {name: 'xyz'};
+// const obj2 = {name: 'xyz'};
+// console.log(obj1 == obj2);
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B)
+// const arr1 = [1, 2, 3, 4];
+// const arr2 = [1, 2, 3, 4];
+// console.log(arr1 == arr2);
+
+// // Key Point:
+// // Primitive values (like numbers, strings, and booleans) are compared by their values.
+// // Objects and arrays are compared by their references
+
+// // How to Compare the content of Two non-primitive values (Arrays & objects)?
+
+// console.log(JSON.stringify(arr1) === JSON.stringify(arr2));

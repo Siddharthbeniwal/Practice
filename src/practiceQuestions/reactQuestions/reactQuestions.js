@@ -884,14 +884,11 @@ function DependentDropdown() {
 
   const countryOptions = ["India", "USA", "Canada"];
 
-  const stateOptions = useMemo(
-    () => ({
+  const stateOptions = useMemo(() => ({
       India: ["Delhi", "Mumbai", "Kolkata"],
       USA: ["New York", "California", "Texas"],
       Canada: ["Toronto", "Vancouver", "Montreal"],
-    }),
-    []
-  );
+    }), []);
 
   const availableStates = selectedCountry ? stateOptions[selectedCountry] : [];
 
