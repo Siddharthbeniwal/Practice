@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import axios from "axios";
 import Dropdown from "react-dropdown";
 import "./reactQuestions.css";
+import { clear } from "@testing-library/user-event/dist/clear";
 
 export default function ReactQuestions() {
   return (
@@ -21,6 +22,7 @@ export default function ReactQuestions() {
       {/* <PollManager /> */}
       {/* <ToDo /> */}
       {/* <DependentDropdown /> */}
+      {/* <TypeWriterEffect /> */}
     </div>
   );
 }
@@ -884,11 +886,14 @@ function DependentDropdown() {
 
   const countryOptions = ["India", "USA", "Canada"];
 
-  const stateOptions = useMemo(() => ({
+  const stateOptions = useMemo(
+    () => ({
       India: ["Delhi", "Mumbai", "Kolkata"],
       USA: ["New York", "California", "Texas"],
       Canada: ["Toronto", "Vancouver", "Montreal"],
-    }), []);
+    }),
+    []
+  );
 
   const availableStates = selectedCountry ? stateOptions[selectedCountry] : [];
 
@@ -914,6 +919,39 @@ function DependentDropdown() {
         value={selectedState}
         placeholder="Select a State"
       />
+    </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.13 Create an input feld. When we click on button then it should show entered text in typewriter style.
+
+function TypeWriterEffect() {
+  const [value, setValue] = useState("");
+  const [printText, setPrintText] = useState("");
+
+  const handlePrint = () => {
+    let index = 0;
+    const typeWriter = () => {
+      if (index <= value.length) {
+        setPrintText(value.slice(0, index));
+        index++;
+        setTimeout(typeWriter, 400);
+      }
+    };
+    typeWriter();
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <button onClick={handlePrint}>Print text</button>
+      {printText}
     </div>
   );
 }
