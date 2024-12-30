@@ -376,3 +376,44 @@ export default function CodingQuestions() {
 //     .crore(7)
 //     .value()
 // );
+
+// **********************************************************************************************************************************************
+// Q.18
+
+// const obj = {
+//   s: 5,
+//   z:7,
+//   a:1,
+//   i: 2,
+// };
+
+// (A) Sort the given object in alphabetical order of keys:
+
+// const sortedByKeys = Object.keys(obj).sort().reduce((acc, key) => {
+//   acc[key] = obj[key];
+//   return acc;
+// }, {});
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B) Sort the given object in ascending order of values:
+
+// const sortedByValues = Object.entries(obj).sort().reduce((acc, [key, value]) => {
+//   acc[key] = value;
+//   return acc;
+// }, {});
+
+// console.log(sortedByValues);
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (C) Sort by their marks in ascending order:
+
+// const students = [
+//   { name: "Jenny", rollNo: 101, marks: 80 },
+//   { name: "Alex", rollNo: 102, marks: 45 },
+//   { name: "David", rollNo: 103, marks: 62 },
+//   { name: "Sam", rollNo: 104, marks: 36 }
+// ];
+
+// const sortedStudents = students.sort((a, b) => a.marks - b.marks);
