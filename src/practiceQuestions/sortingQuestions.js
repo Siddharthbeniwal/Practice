@@ -8,22 +8,30 @@ export default function SortingQuestions() {
   );
 }
 
-const arr = [64, 34, 25, 12, 78, 90];
-    //index   0   1   2   3   4   5
+const arr = [64, 25, 12, 22, 11];
+    //index   0   1   2   3   4
 
 
 // **********************************************************************************************************************************************
 // Q.1 Bubble Sort
 
+// Steps:
+// 1: Compare the first element with the second element. If the first is greater, swap them.
+// 2: Move to the next pair of adjacent elements (second and third). If the second is greater, swap them.
+// 3: Continue comparing and swapping adjacent elements across the entire array until the end.
+// 4: After each pass, the largest unsorted element is moved to the correct position at the end of the array.
+// 5: Repeat the process for the remaining unsorted elements, each time ignoring the already sorted elements at the end.
+// 6: Continue until no more swaps are needed, which means the array is sorted.
+
 function bubbleSort(arr) {
     let n = arr.length;
 
-    for(let i = 0; i<n-1; i++) {
-        for(let j = i+1; j<n-1; j++) {
-            if(arr[i] > arr[j]) {
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+    for(let i = 0; i < n-1; i++) {
+        for(let j = i; j < n-1; j++) {
+            if(arr[j] > arr[j+1]) {
+                let temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
             }
         }
     }
@@ -31,3 +39,46 @@ function bubbleSort(arr) {
 }
 
 // console.log(bubbleSort(arr));
+
+// Case	Time      Complexity	Space Complexity
+// Best Case   	   O(n)	          O(1)
+// Worst Case	   O(n²)	      O(1)
+// Average Case    O(n²)	      O(1)
+
+
+// **********************************************************************************************************************************************
+// Q.2 Selection Sort
+
+// Steps:
+// 1: Find the smallest element in the entire array and swap it with the first element.
+// 2: Find the smallest element in the remaining unsorted portion and swap it with the second element.
+// 3: Repeat this process until the array is sorted.
+
+function selectionSort(arr) {
+    let n = arr.length;
+
+    for(let i = 0; i < n-1; i++) {
+        let minIndex = i;                   // Assume the current element is the minimum
+
+        for(let j = i+1; j < n; j++) {    // Find the index of the smallest element in the remaining array
+            if(arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        if(minIndex !==i) {
+            let temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+    return arr;
+}
+
+// console.log(selectionSort(arr));
+
+// Case	Time      Complexity	Space Complexity
+// Best Case   	   O(n²)	      O(1)
+// Worst Case	   O(n²)	      O(1)
+// Average Case    O(n²)	      O(1)
+
