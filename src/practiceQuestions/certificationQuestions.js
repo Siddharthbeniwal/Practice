@@ -1,9 +1,5 @@
 import React from "react";
 
-// import { render } from "@testing-library/react";
-// import React, { useState } from "react";
-// import { useParams } from "react-router";
-
 export default function CertificationQuestions() {
   return (
     <div>

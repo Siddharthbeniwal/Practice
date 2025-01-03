@@ -209,7 +209,7 @@ export default function practiceQuestions() {
 // ________________________________________________________________________________________________
 // Q.11. To find 2nd largest no. (Assume no number is repeating)
 
-// let arr = [2, 11, 78, 45, 18, 92]
+let arr = [2, 11, 78, 45, 18, 92]
 
 // arr.sort((a,b) => a-b);
 // console.log('2nd largest no is ', arr[arr.length-2]);
@@ -227,20 +227,23 @@ export default function practiceQuestions() {
 // console.log('2nd largest no is ', arr[arr.length-2]);
 
 // // without using built in functions (Method 2 Optimized):
-// let largestNo = -Infinity;
-// let secondLargestNo = -Infinity;
+// function getSecondMax(arr) {
+//   let max = -Infinity;
+//   let secondMax = -Infinity;
 
-// for (let i = 0; i < arr.length; i++) {
-//   if (arr[i] > largestNo) {
-//     secondLargestNo = largestNo;
-//     largestNo = arr[i];
-//   }
-//   if (arr[i] < largestNo && arr[i] > secondLargestNo) {
-//     secondLargestNo = arr[i];
-//   }
+//   arr.forEach((num) => {
+//     if (num > max) {
+//       secondMax = max;   // If num is greater than max, update secondMax first, then max (bcoz the current max becomes secondMax now)
+//       max = num;
+//     } else if (num > secondMax) { // If num is not greater than max but greater than secondMax, update secondMax
+//       secondMax = num;
+//     }
+//   });
+
+//   return secondMax;
 // }
-// console.log('secondLargestNo', secondLargestNo);
 
+// console.log(getSecondMax(arr));
 
 // Note- This logic gets complex if we need to find 10th largest no,
 // So in that case we can sort the array in descending order (like quick sort, bubble sort etc)

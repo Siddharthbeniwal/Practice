@@ -9,6 +9,7 @@ import JavascriptQuestions from "./practiceQuestions/javascriptQuestions";
 import LeetCodeQuestions from "../src/practiceQuestions/leetCodeQuestions";
 import PolyFillQuestions from "../src/practiceQuestions/polyfillQuestions";
 import ReactQuestions from "./practiceQuestions/reactQuestions/reactQuestions";
+import SortingQuestions from "./practiceQuestions/sortingQuestions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -22,6 +23,7 @@ const routes = [
   { path: "/leetcode-questions", label: "LeetCode Questions", component: LeetCodeQuestions },
   { path: "/polyfill-questions", label: "Polyfill Questions", component: PolyFillQuestions },
   { path: "/react-questions", label: "React Questions", component: ReactQuestions },
+  { path: "/sorting-questions", label: "Sorting Questions", component: SortingQuestions },
 ];
 
 function NavigationButtons() {
