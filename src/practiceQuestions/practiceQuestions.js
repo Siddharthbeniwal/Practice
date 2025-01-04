@@ -209,7 +209,7 @@ export default function practiceQuestions() {
 // ________________________________________________________________________________________________
 // Q.11. To find 2nd largest no. (Assume no number is repeating)
 
-let arr = [2, 11, 78, 45, 18, 92]
+// let arr = [2, 11, 78, 45, 18, 92]
 
 // arr.sort((a,b) => a-b);
 // console.log('2nd largest no is ', arr[arr.length-2]);
@@ -372,5 +372,18 @@ let arr = [2, 11, 78, 45, 18, 92]
 
 // console.log(fullName)
 
+// ________________________________________________________________________________________________
+// Q.16. Capitalize first letter of each word in a given string.
+
+// let str = 'this is a sample string';
+
+function capitalizeFirstLetterOfEachWord(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// console.log(capitalizeFirstLetterOfEachWord(str));
 
 

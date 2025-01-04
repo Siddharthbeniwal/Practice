@@ -617,6 +617,20 @@ export default function outputBasedQuestions() {
 // console.log(4 + ["25"] - 5);
 // console.log(4 + ["5" + "10"] - 2);
 
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log([2]=='2');  //true
+
+// When a non-primitive (like an array) is compared using ==, JavaScript tries to convert it to a primitive value.
+// For an array, this involves calling its toString() method, which returns a string representation of the array's elements.
+// For [2], toString() returns '2'.
+
+
+// console.log([2]==[2]);  //false
+
+// Unlike the case where [2] == '2', type coercion isn't applied to both [2] and [2] because both operands are objects.
+// Instead, their references are compared.
+
 // ***********************************************************************************************************************************************************
 // Q.36 Understanding block scope
 

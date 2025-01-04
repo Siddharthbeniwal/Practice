@@ -82,3 +82,13 @@ function selectionSort(arr) {
 // Worst Case	   O(n²)	      O(1)
 // Average Case    O(n²)	      O(1)
 
+// **********************************************************************************************************************************************
+// Q.3 Insertion Sort
+
+// Steps:
+// 1: Start with the second element (index 1) because the first element is already considered sorted.
+// 2: Compare the current element with the element before it. If the current element is smaller, move the larger element one position to the right.
+// 3: Continue shifting elements to the right until the correct position for the current element is found.
+// 4: Insert the current element into its correct position in the sorted portion of the array.
+// 5: Move to the next element and repeat the process until the entire array is sorted.
+
