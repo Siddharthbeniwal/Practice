@@ -85,6 +85,17 @@ function MyComponent1() {
 // Syntax:
 // functionName.call(thisArg, arg1, arg2, ...)
 
+// const obj1 = {
+//   name: "John",
+//   sayHello: function () {
+//     console.log(`Hello, ${this.name}`);
+//   },
+// };
+
+// const obj2 = { name: "Jane" };
+
+// obj1.sayHello.call(obj2); // Output: "Hello, Jane"
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // (B) apply:
@@ -94,12 +105,39 @@ function MyComponent1() {
 // Syntax:
 // functionName.apply(thisArg, [arg1, arg2, ...])
 
+// const obj1 = {
+//   name: "John",
+//   sayHello: function (greeting, punctuation) {
+//     console.log(`${greeting}, ${this.name} ${punctuation}`);
+//   },
+// };
+
+// const obj2 = { name: "Jane" };
+
+// obj1.sayHello.apply(obj2, ["Hi", "Whats up?"]); // Output: "Hi, Jane Whats up?"
+
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // (C) bind:
-// The bind method in JavaScript creates a new function that, when invoked, has its this value permanently set to the value provided, as well
-// as any arguments passed during the binding. Unlike call or apply, bind does not immediately execute the function but rather returns
-// a new function that can be invoked later.
+// The bind method does not execute the function immediately. Instead, it returns a new function where the this context is permanently bound to the
+// object we pass as the first argument to bind.
+// We can then invoke the new function whenever we want, and it will always use the context we initially set.
+
+
+// Syntax:
+// const newFunction = originalFunction.bind(thisArg[, arg1[, arg2[, ...]]]);
+
+// const person = { name: 'John'};
+
+// function greet(greeting) {
+//   console.log(`${greeting}, ${this.name}`);
+// }
+
+// const greetJohn = greet.bind(person);  // bind 'this' to 'person', returns new fn but doesn't invoke immediately
+
+// greetJohn('Hello'); // we can this whenever we want an it will always have 'this' context as 'person' bcoz we initially set that.
+
 
 // ***********************************************************************************************************************************************************
 // Q.4 Infinite currying
