@@ -417,3 +417,11 @@ export default function CodingQuestions() {
 // ];
 
 // const sortedStudents = students.sort((a, b) => a.marks - b.marks);
+
+// **********************************************************************************************************************************************
+// Q.19 Concatenat two strings without using + operator;
+
+// const str1 = 'Java';
+// const str2 = 'Script';
+// console.log(`${str1}${str2}`);
+// console.log(str1.concat(str2));

@@ -780,3 +780,9 @@ export default function outputBasedQuestions() {
 // // How to Compare the content of Two non-primitive values (Arrays & objects)?
 
 // console.log(JSON.stringify(arr1) === JSON.stringify(arr2));
+
+// ***********************************************************************************************************************************************************
+// Q.42 Understanding inbuilt methods
+
+// let {length} = 'hello';
+// console.log(length);
