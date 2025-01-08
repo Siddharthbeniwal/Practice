@@ -625,11 +625,34 @@ export default function outputBasedQuestions() {
 // For an array, this involves calling its toString() method, which returns a string representation of the array's elements.
 // For [2], toString() returns '2'.
 
-
 // console.log([2]==[2]);  //false
 
 // Unlike the case where [2] == '2', type coercion isn't applied to both [2] and [2] because both operands are objects.
 // Instead, their references are compared.
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log([1,2]=='1,2');
+
+// The loose equality operator (==) allows type coercion, so JavaScript tries to convert the array to a string to perform the comparison.
+// When an array is converted to a string, its elements are joined by commas (,) using the toString() method.
+
+// For the array [1, 2], the toString() method returns the string '1,2'.
+// After conversion, the comparison becomes:
+// '1,2' == '1,2'; // true
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log({a:1,b:2}=='a:1,b:2');
+
+// The loose equality operator (==) tries to convert the object into a primitive value (usually a string) to compare it with the string.
+// When an object is converted to a string, JavaScript calls the toString() method of the object.
+
+// The default toString() method for plain objects (created with {}) returns "[object Object]", which is not related to the keys or values of the object.
+// After conversion, the comparison becomes:
+// "[object Object]" == "a:1,b:2"; //false
+
+// console.log({a:1,b:2}=='[object Object]'); // this will be true
 
 // ***********************************************************************************************************************************************************
 // Q.36 Understanding block scope
@@ -786,3 +809,5 @@ export default function outputBasedQuestions() {
 
 // let {length} = 'hello';
 // console.log(length);
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
