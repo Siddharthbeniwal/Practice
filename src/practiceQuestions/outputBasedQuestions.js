@@ -618,6 +618,23 @@ export default function outputBasedQuestions() {
 // console.log(4 + ["5" + "10"] - 2);
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Understanding type coercion with Unary Operators
+
+// console.log('1'+ +'2');  //12
+// console.log(1+ +2);  //3
+
+// console.log(1+ +'2');  //3
+// console.log('1'+ +2);  12
+
+// console.log(1+ '2' + '2');  //122
+// console.log(1+ + '2' + '2');  //32
+
+// console.log(1+ + [2]);  //3
+// console.log(1+ + [2,3]);  //NaN
+
+// The unary plus (+) converts an operand into a number, if possible. It is commonly used to ensure numerical operations on variables that may contain numeric strings. If the operand is a string that represents a valid number, it will be converted to a number. Otherwise, it will evaluate to NaN (Not-a-Number).
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // console.log([2]=='2');  //true
 
