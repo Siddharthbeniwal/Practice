@@ -904,3 +904,27 @@ export default function outputBasedQuestions() {
 // The first truthy value stops the evaluation and is returned.
 // If all operands are falsy, the last value is returned.
 
+// ***********************************************************************************************************************************************************
+// Q.44 Understanding fn based o/p
+
+// function func1() {
+//   return {
+//     language: 'JavaScript'
+//   }
+// }
+// console.log(func1());
+
+// function func2() {
+//   return
+//   {
+//     language: 'JavaScript'
+//   }
+// }
+// console.log(func2());
+
+// function func3() {
+//   return (
+//     'JavaScript'
+//   )
+// }
+// console.log(func3());
