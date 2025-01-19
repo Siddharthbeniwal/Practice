@@ -340,14 +340,16 @@ export default function outputBasedQuestions() {
 // ***********************************************************************************************************************************************************
 // Q.18
 
-// console.log(typeof null);
-// console.log(typeof undefined);
-// console.log(typeof NaN);
+// console.log(typeof null);  // object
+// console.log(typeof undefined); // undefined
+// console.log(typeof NaN); // number
 
 // Even though NaN means "Not-a-Number," it is still classified as a number type because it is part of the numeric system used in JavaScript.
 // NaN is the only value in JavaScript that is not equal to itself:
 
-// console.log(NaN === NaN);
+// console.log(NaN === NaN);  // false
+// console.log(null === null);  // true
+// console.log(undefined === undefined);  // true
 
 // console.log(0 / 0);
 // console.log(Math.sqrt(-1));
@@ -670,6 +672,18 @@ export default function outputBasedQuestions() {
 // "[object Object]" == "a:1,b:2"; //false
 
 // console.log({a:1,b:2}=='[object Object]'); // this will be true
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log(!!{}); //true
+// console.log(!![]); //true
+
+// {} is an empty object. In JavaScript, all objects (including empty ones) are truthy.
+// [] is an empty array. Like objects, arrays are also truthy, even if they are empty.
+
+// The !! operator is a double negation. It converts a value into its corresponding boolean value:
+// The first ! negates the truthiness of the value.
+// The second ! negates it again, effectively returning the boolean equivalent of the original value.
 
 // ***********************************************************************************************************************************************************
 // Q.36 Understanding block scope

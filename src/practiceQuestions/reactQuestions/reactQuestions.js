@@ -92,7 +92,8 @@ function Stopwatch() {
     <div>
       <h1>Stopwatch</h1>
       <h2>
-        {String(time.hr).padStart(2, "0")}:{String(time.min).padStart(2, "0")}:
+        {String(time.hr).padStart(2, "0")}:
+        {String(time.min).padStart(2, "0")}:
         {String(time.sec).padStart(2, "0")}
       </h2>
       <button
