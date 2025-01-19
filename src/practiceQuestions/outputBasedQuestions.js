@@ -841,4 +841,66 @@ export default function outputBasedQuestions() {
 // let {length} = 'hello';
 // console.log(length);
 
+// ***********************************************************************************************************************************************************
+// Q.43 Understanding operator precedence and short-circuit evaluation
+
+// let x = 2 || 3 && 4;
+// console.log(x);
+
+// Operator Precedence:
+// The && (logical AND) operator has higher precedence than || (logical OR).
+
+// This means the 3 && 4 part is evaluated first, and then its result is used with 2 ||.
+
+// Step-by-Step Evaluation:
+// step1- 
+
+// 3 && 4:
+// Logical AND (&&) evaluates to the second operand if the first operand is truthy.
+// Since 3 is truthy, 3 && 4 evaluates to 4.
+
+//  step2-
+
+//  2 || 4:
+// Logical OR (||) evaluates to the first operand if it is truthy; otherwise, it evaluates to the second operand.
+// Since 2 is truthy, 2 || 4 evaluates to 2.
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// let y = 2 && 3 || 4;
+// console.log(y);
+
+// Operator Precedence:
+// Again, && has higher precedence than ||, so 2 && 3 is evaluated first, and its result is used with || 4.
+
+
+// Step-by-Step Evaluation:
+// step1- 
+
+// 2 && 3:
+// Logical AND (&&) evaluates to the second operand if the first operand is truthy.
+// Since 2 is truthy, 2 && 3 evaluates to 3.
+
+//  step2-
+
+// 3 || 4:
+// Logical OR (||) evaluates to the first operand if it is truthy; otherwise, it evaluates to the second operand.
+// Since 3 is truthy, 3 || 4 evaluates to 3.
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// let z = 3 && 2 || 4;
+// console.log(z);  // 2
+
+// A General Rule for logical AND (&&) operator:
+
+// It evaluates from left to right.
+// The first falsy value stops the evaluation and is returned.
+// If all operands are truthy, the last value is returned.
+
+// A General Rule for the Logical OR (||) Operator:
+
+// It evaluates from left to right.
+// The first truthy value stops the evaluation and is returned.
+// If all operands are falsy, the last value is returned.
+
