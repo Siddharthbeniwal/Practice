@@ -432,9 +432,46 @@ export default function CodingQuestions() {
 // const root = ["file1", "file2", ["file44", ["file20", "file21", "file22"]]];
 // let fileName = "file22";
 
+// (A) Using inbuilt fn
+
 // function findFile(root, fileName) {
 //   let isPresent = false;
 //   let flatRoot = root.flat(Infinity);
+
+//   if (flatRoot.includes(fileName)) isPresent = true;
+
+//   return isPresent;
+// }
+
+// console.log(findFile(root, fileName));
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B) Without using inbuilt fn
+
+// const root = ["file1", "file2", ["file44", ["file20", "file21", "file22"]]];
+// let fileName = "file22";
+
+// function flattenArr(arr) {
+//   let stack = [...arr]; // Create a copy of the input array to act as the stack
+//   let flattendArr = [];
+
+//   while (stack.length > 0) {
+//     let lastItem = stack.pop(); // Take the last element from the stack
+
+//     if (Array.isArray(lastItem)) {
+//       stack.push(...lastItem); // If the item is an array, push its elements back onto the stack
+//     } else {
+//       flattendArr.push(lastItem);
+//     }
+//   }
+
+//   return flattendArr;
+// }
+
+// function findFile(root, fileName) {
+//   let isPresent = false;
+//   let flatRoot = flattenArr(root);
 
 //   if (flatRoot.includes(fileName)) isPresent = true;
 
