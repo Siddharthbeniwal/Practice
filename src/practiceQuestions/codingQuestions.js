@@ -425,3 +425,20 @@ export default function CodingQuestions() {
 // const str2 = 'Script';
 // console.log(`${str1}${str2}`);
 // console.log(str1.concat(str2));
+
+// **********************************************************************************************************************************************
+// Q.20 WAP to find if a file is present in a given folder.
+
+// const root = ["file1", "file2", ["file44", ["file20", "file21", "file22"]]];
+// let fileName = "file22";
+
+// function findFile(root, fileName) {
+//   let isPresent = false;
+//   let flatRoot = root.flat(Infinity);
+
+//   if (flatRoot.includes(fileName)) isPresent = true;
+
+//   return isPresent;
+// }
+
+// console.log(findFile(root, fileName));
