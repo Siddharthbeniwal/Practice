@@ -853,7 +853,7 @@ export default function outputBasedQuestions() {
 // This means the 3 && 4 part is evaluated first, and then its result is used with 2 ||.
 
 // Step-by-Step Evaluation:
-// step1- 
+// step1-
 
 // 3 && 4:
 // Logical AND (&&) evaluates to the second operand if the first operand is truthy.
@@ -873,9 +873,8 @@ export default function outputBasedQuestions() {
 // Operator Precedence:
 // Again, && has higher precedence than ||, so 2 && 3 is evaluated first, and its result is used with || 4.
 
-
 // Step-by-Step Evaluation:
-// step1- 
+// step1-
 
 // 2 && 3:
 // Logical AND (&&) evaluates to the second operand if the first operand is truthy.
@@ -927,4 +926,26 @@ export default function outputBasedQuestions() {
 //     'JavaScript'
 //   )
 // }
-// console.log(func3());
+
+// ***********************************************************************************************************************************************************
+// Q.45 Understanding Data Types and data Manipulation
+
+// let str = "Hello";
+// console.log(str[0]); // "H"
+
+// Accessing Characters in a String:
+
+// In JavaScript, strings behave like arrays of characters. We can access individual characters in a string using bracket notation,
+// e.g., str[0], where 0 is the index of the character.
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// let name = "Hello";
+// name[0] = "T";
+// console.log(name); //"Hello"
+
+// Key Points:
+
+// Strings are immutable in JavaScript, so we can read characters using str[index], but we cannot modify them directly
+// (e.g., str[0] = 'J' will have no effect).
+// To manipulate strings, we need to create a new string.
