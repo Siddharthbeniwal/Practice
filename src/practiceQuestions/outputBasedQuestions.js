@@ -338,7 +338,7 @@ export default function outputBasedQuestions() {
 // Any comparison involving NaN directly returns false, so undefined <= 0 evaluates to false.
 
 // ***********************************************************************************************************************************************************
-// Q.18
+// Q.18 Understanding typeof operator
 
 // console.log(typeof null);  // object
 // console.log(typeof undefined); // undefined
@@ -633,6 +633,14 @@ export default function outputBasedQuestions() {
 
 // console.log(1+ + [2]);  //3
 // console.log(1+ + [2,3]);  //NaN
+
+
+// console.log(+'123');  //123
+// console.log(+true);   //1
+// console.log(+false);  //0
+// console.log(+null);   //0
+// console.log(+undefined); //NaN
+
 
 // The unary plus (+) converts an operand into a number, if possible. It is commonly used to ensure numerical operations on variables that may contain numeric strings. If the operand is a string that represents a valid number, it will be converted to a number. Otherwise, it will evaluate to NaN (Not-a-Number).
 
