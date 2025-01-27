@@ -693,6 +693,53 @@ export default function outputBasedQuestions() {
 // The first ! negates the truthiness of the value.
 // The second ! negates it again, effectively returning the boolean equivalent of the original value.
 
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// let x = 123;
+// let y = new Number(123);  // An object created using the Number constructor with the numeric value 123
+// let z = new Number('123'); // An object created using the Number constructor with the string '123', which is converted to the numeric value 123.
+
+// console.log(typeof y);
+// console.log(typeof z);
+
+// console.log(y==z);  // false
+// console.log(y===z); // false
+
+// console.log(x === y); // false
+// Here, no type coercion occurs, and the comparison recognizes the difference between a primitive (123) and an object (Number {123}).
+
+
+// console.log(x == y); // true
+
+// The reason x == y evaluates to true is due to type coercion in JavaScript when using the == operator (loose equality).
+
+// What Happens Internally in x == y:
+// 1.
+// x is a primitive number:
+// x = 123 is a primitive value of type number.
+
+// 2.
+// y is a Number object:
+// y = new Number(123) is an object, not a primitive value.
+// Internally, the Number object wraps the primitive value 123.
+
+// 3.
+// == triggers type coercion:
+// The == operator compares values after attempting to convert them to a common type.
+// When comparing a primitive (x) with an object (y), JavaScript attempts to convert the object (y) into its primitive value by calling the object's valueOf method.
+
+// 4.
+// y.valueOf() is called:
+// The Number object has a valueOf method that returns its underlying primitive value (123).
+// So, y.valueOf() produces 123.
+
+// 5.
+// Comparison after coercion:
+// 123 == 123 // true
+console.log(y.valueOf()); // 123
+
+
 // ***********************************************************************************************************************************************************
 // Q.36 Understanding block scope
 
@@ -958,20 +1005,4 @@ export default function outputBasedQuestions() {
 // (e.g., str[0] = 'J' will have no effect).
 // To manipulate strings, we need to create a new string.
 
-
-// -----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-// let x = 123;
-// let y = new Number(123);  // An object created using the Number constructor with the numeric value 123
-// let z = new Number('123'); // An object created using the Number constructor with the string '123', which is converted to the numeric value 123.
-
-// console.log(typeof y);
-// console.log(typeof z);
-
-// console.log(y==z);  // false
-// console.log(y===z); // false
-
-// console.log(x == y); // true
-// console.log(x === y); // false
 
