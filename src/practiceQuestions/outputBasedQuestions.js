@@ -957,3 +957,21 @@ export default function outputBasedQuestions() {
 // Strings are immutable in JavaScript, so we can read characters using str[index], but we cannot modify them directly
 // (e.g., str[0] = 'J' will have no effect).
 // To manipulate strings, we need to create a new string.
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// let x = 123;
+// let y = new Number(123);  // An object created using the Number constructor with the numeric value 123
+// let z = new Number('123'); // An object created using the Number constructor with the string '123', which is converted to the numeric value 123.
+
+// console.log(typeof y);
+// console.log(typeof z);
+
+// console.log(y==z);  // false
+// console.log(y===z); // false
+
+// console.log(x == y); // true
+// console.log(x === y); // false
+
