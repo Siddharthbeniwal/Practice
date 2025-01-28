@@ -693,6 +693,18 @@ export default function outputBasedQuestions() {
 // {} (empty object) is converted to its string representation "[object Object]".
 // The + operator concatenates these two strings: "" + "[object Object]" results in "[object Object]".
 
+
+// In JavaScript, an empty object {} is converted to its string representation "[object Object]" because of the following reasons:
+
+// 1. Default Conversion Using toString
+// All objects in JavaScript inherit the toString() method from Object.prototype.
+// The default implementation of toString() for objects returns the string "[object Object]".
+// Here, "object" indicates the type, and "Object" is the internal class of the object.
+
+// 2. Type Coercion Rules
+// When an object is used in a string context (e.g., concatenation with + or logging), JavaScript automatically calls the toString() method to convert the object into a string.
+// For an empty object {}, toString() returns the default string representation: "[object Object]".
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // console.log(!!{}); //true
@@ -708,25 +720,33 @@ export default function outputBasedQuestions() {
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// const a = [2];
+// const a = [5];
 // const b = [3];
 
-// console.log(a+b); // 23
+// console.log(a+b); // 53
 // console.log(typeof (a+b)); // string
 
-// // The + operator converts arrays to strings ("2" and "3") and concatenates them.
+// console.log(a-b); // 2
+// console.log(typeof (a-b)); // number
+
+// // The + operator converts arrays to strings ("5" and "3") and concatenates them.
 
 // // If we intended to add the numerical values in the arrays, we would need to extract the elements explicitly and add them, like this:
-// console.log(a[0] + b[0]); // 5
+// console.log(a[0] + b[0]); // 8
 
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// const a = [2];
-// const b = [3];
 
-// console.log(a+b); // 23
-// console.log(typeof (a+b)); // string
+// console.log('5' + 1); // 51
+// console.log('5' - 1); // 4
+
+// console.log([4] + [2]);  // 42
+// console.log([4] - [2]);  // 2
+
+// console.log([10] + [20] + "30");  // 102030
+
+// console.log([1, 2] + 3); // 1,23
 
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
