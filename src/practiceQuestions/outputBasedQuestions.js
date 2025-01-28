@@ -683,6 +683,18 @@ export default function outputBasedQuestions() {
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+// console.log(typeof []); // object
+// console.log(typeof {}); // object
+
+// console.log([] + {});   // [object Object]
+// console.log({} + []);   // [object Object]
+
+// [] (empty array) is converted to an empty string "".
+// {} (empty object) is converted to its string representation "[object Object]".
+// The + operator concatenates these two strings: "" + "[object Object]" results in "[object Object]".
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // console.log(!!{}); //true
 // console.log(!![]); //true
 
@@ -692,6 +704,29 @@ export default function outputBasedQuestions() {
 // The !! operator is a double negation. It converts a value into its corresponding boolean value:
 // The first ! negates the truthiness of the value.
 // The second ! negates it again, effectively returning the boolean equivalent of the original value.
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const a = [2];
+// const b = [3];
+
+// console.log(a+b); // 23
+// console.log(typeof (a+b)); // string
+
+// // The + operator converts arrays to strings ("2" and "3") and concatenates them.
+
+// // If we intended to add the numerical values in the arrays, we would need to extract the elements explicitly and add them, like this:
+// console.log(a[0] + b[0]); // 5
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const a = [2];
+// const b = [3];
+
+// console.log(a+b); // 23
+// console.log(typeof (a+b)); // string
 
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -737,7 +772,7 @@ export default function outputBasedQuestions() {
 // 5.
 // Comparison after coercion:
 // 123 == 123 // true
-console.log(y.valueOf()); // 123
+// console.log(y.valueOf()); // 123
 
 
 // ***********************************************************************************************************************************************************
