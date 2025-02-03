@@ -339,7 +339,7 @@ export default function CodingQuestions() {
 // console.log(customizedFlat(arr, 3));
 
 // **********************************************************************************************************************************************
-// Q.17 Implement a  'Method Chaining' fucntion which will return the sum as per the below eg-
+// Q.17 Implement a  'Method Chaining' function which will return the sum as per the below eg-
 
 // i/p- computeAmount().lacs(15).crore(5).crore(2).lacs(20).thousand(45).crore(7).value())
 // expected o/p- 143545000
@@ -394,13 +394,15 @@ export default function CodingQuestions() {
 //   return acc;
 // }, {});
 
+// console.log(sortedByKeys);
+
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // (B) Sort the given object in ascending order of values:
 
 // const sortedByValues = Object.entries(obj).sort().reduce((acc, [key, value]) => {
 //   acc[key] = value;
-//   return acc;
+//   return acc; 
 // }, {});
 
 // console.log(sortedByValues);
