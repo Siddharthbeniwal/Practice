@@ -24,6 +24,7 @@ export default function ReactQuestions() {
       {/* <DependentDropdown /> */}
       {/* <TypeWriterEffect /> */}
       {/* <ModalPopup /> */}
+      {/* <Debouncing /> */}
     </div>
   );
 }
@@ -972,12 +973,43 @@ function ModalPopup() {
           <div className="my-modal">
             <div className="modal-header">
               Modal Title
-              <span className="close" onClick={() => setShowPopup(false)}>X</span>
+              <span className="close" onClick={() => setShowPopup(false)}>
+                X
+              </span>
             </div>
             <p>Modal content</p>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.15 Understanding Debouncing
+
+function Debouncing() {
+  const [inputValue, setInputValue] = useState("");
+  const [debouncedValue, setDebouncedValue] = useState("");
+
+  useEffect(() => {
+    let timerId = setTimeout(() => {
+      setDebouncedValue(inputValue);
+    }, 500);
+
+    // Cleanup: Clear the timer if inputValue changes before 500ms
+    return () => clearTimeout(timerId);
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (debouncedValue) console.log("Call API");
+  }, [debouncedValue]);
+
+  return (
+    <input
+      placeholder="Type here"
+      value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)}
+    />
   );
 }
