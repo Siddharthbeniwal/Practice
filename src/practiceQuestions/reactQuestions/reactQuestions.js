@@ -23,6 +23,7 @@ export default function ReactQuestions() {
       {/* <ToDo /> */}
       {/* <DependentDropdown /> */}
       {/* <TypeWriterEffect /> */}
+      {/* <ModalPopup /> */}
     </div>
   );
 }
@@ -92,8 +93,7 @@ function Stopwatch() {
     <div>
       <h1>Stopwatch</h1>
       <h2>
-        {String(time.hr).padStart(2, "0")}:
-        {String(time.min).padStart(2, "0")}:
+        {String(time.hr).padStart(2, "0")}:{String(time.min).padStart(2, "0")}:
         {String(time.sec).padStart(2, "0")}
       </h2>
       <button
@@ -954,5 +954,30 @@ function TypeWriterEffect() {
       <button onClick={handlePrint}>Print text</button>
       {printText}
     </div>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.14 Create a Modal popup which should appear on click of button and close on click of close button.
+
+function ModalPopup() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setShowPopup(true)}>Open Modal</button>
+
+      {showPopup && (
+        <div className="overlay">
+          <div className="my-modal">
+            <div className="modal-header">
+              Modal Title
+              <span className="close" onClick={() => setShowPopup(false)}>X</span>
+            </div>
+            <p>Modal content</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
