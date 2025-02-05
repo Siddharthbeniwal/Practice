@@ -25,6 +25,7 @@ export default function ReactQuestions() {
       {/* <TypeWriterEffect /> */}
       {/* <ModalPopup /> */}
       {/* <Debouncing /> */}
+      {/* <Throttling /> */}
     </div>
   );
 }
@@ -988,6 +989,23 @@ function ModalPopup() {
 // ***********************************************************************************************************************************************************
 // Q.15 Understanding Debouncing
 
+// Debouncing is a technique used to limit the frequency of function execution by ensuring that the function is only called after
+// a specific delay has passed without the event being triggered again.
+
+// In simple terms, debouncing makes sure that a function is only called once after a period of inactivity (i.e., after the event stops
+// being triggered for a certain period of time).
+
+// Debouncing is commonly used to optimize performance in situations where frequent events are triggered rapidly, and you don’t want the
+// function to execute every time. A common use case is handling user input in search boxes, where you don't want an API call to be
+// made with every keystroke.
+
+// How Does Debouncing Work?
+// When a debounced function is invoked, it starts a timer (set by a delay). If the function is called again before the timer expires
+// (i.e., the event is triggered again), the timer is reset. The function is only executed when the event stops for the specified delay time.
+
+// For example, if a user is typing in a search box and pressing keys rapidly, a debounced function will only run after the user stops typing
+// for a set period of time, instead of running every time a key is pressed.
+
 function Debouncing() {
   const [inputValue, setInputValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
@@ -1012,4 +1030,39 @@ function Debouncing() {
       onChange={(e) => setInputValue(e.target.value)}
     />
   );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.16 Understanding Throttling
+
+// Throttling is a technique used to limit the number of times a function can be executed over a period of time. It ensures that a
+// function is called only once every X milliseconds, even if the event (like a button click or scroll) is triggered multiple times
+// during that period.
+
+// How Does Throttling Work?
+// When throttling is applied to a function, it restricts the function to only be called once within a specific time interval, regardless 
+// of how many times the event that triggers the function occurs. If the event is triggered multiple times within the delay period, the
+// function will only run once.
+
+function Throttling() {
+  const [lastCalled, setLastCalled] = useState(0);
+
+  function myThrottle(func, delay) {
+    return () => {
+      let now = Date.now();
+
+      if (now - lastCalled > delay) {
+        func();
+        setLastCalled(now);
+      }
+    };
+  }
+
+  const handleApiCall = () => {
+    console.log("call API");
+  };
+
+  const thorttledApiCall = myThrottle(handleApiCall, 5000);
+
+  return <button onClick={thorttledApiCall}>Call API</button>;
 }
