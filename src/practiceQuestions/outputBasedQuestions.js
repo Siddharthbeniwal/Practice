@@ -1085,3 +1085,35 @@ export default function outputBasedQuestions() {
 // To manipulate strings, we need to create a new string.
 
 
+// ***********************************************************************************************************************************************************
+// Q.46 Understanding Primitive Wrapping and Immutability in JavaScript
+
+// const str = 'hello';
+// str.data = 'val';
+// console.log(str.data); // undefined (Note- in strict mode it will give TypeError)
+
+// What Happens Here?
+// Primitive Type (string) is Immutable
+
+// The variable str holds a primitive string ('hello').
+// In JavaScript, primitives (strings, numbers, booleans, null, undefined, symbols, and bigints) are immutable and do not support adding properties.
+// Attempt to Add a Property (str.data = 'val')
+
+// JavaScript temporarily wraps primitive values in an object wrapper (i.e., String object) when accessing properties.
+// However, this temporary object is discarded immediately after execution.
+// So, str.data = 'val' has no lasting effect.
+// Accessing str.data
+
+// Since str.data was never actually stored, console.log(str.data); returns undefined.
+
+
+// Key Takeaways:
+// Primitives are immutable and cannot have properties added to them.
+// JavaScript wraps primitives in temporary objects, but they do not retain new properties.
+
+// If you need an object with properties, use an explicit object:
+// const strObj = new String('hello');
+// strObj.data = 'val';
+// console.log(strObj.data); // 'val'
+// However, note that new String() creates an object, not a primitive string, which can have unexpected behaviors in comparisons.
+
