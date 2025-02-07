@@ -717,6 +717,30 @@ export default function outputBasedQuestions() {
 // The first ! negates the truthiness of the value.
 // The second ! negates it again, effectively returning the boolean equivalent of the original value.
 
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// console.log(true + 1); // 2
+// console.log(true + '1'); // true1
+
+// In JavaScript, true is treated as 1 when used in arithmetic operations.
+// (true is converted to number 1 when used with number) => so the 1st expression becomes => 1 + 1 = 2
+
+// The + operator, when used with a string and a non-string, converts the non-string to a string.
+// (true is converted to string 'true' when used with string) => so the 2nd expression becomes => 'true' + '1' = 'true1'
+
+// ..................................
+
+// console.log(true - 1); // 0
+// console.log(true - '1'); // 0
+
+// In JavaScript, when using - (subtraction), JavaScript tries to convert both operands to numbers.
+
+// => so the 1st expression becomes 1 - 1 = 0
+// => so the 2nd expression becomes 1 - 1 = 0
+
+// true is converted to 1.
+// '1' (a string) is converted to 1 (a number).
+
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
