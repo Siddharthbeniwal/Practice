@@ -23,6 +23,7 @@ export default function ReactQuestions() {
       {/* <ToDo /> */}
       {/* <ToDoList /> */}
       {/* <DependentDropdown /> */}
+      {/* <DependentDropdownUsingSelect /> */}
       {/* <TypeWriterEffect /> */}
       {/* <ModalPopup /> */}
       {/* <Debouncing /> */}
@@ -930,51 +931,109 @@ function ToDoList() {
 }
 
 // ***********************************************************************************************************************************************************
-// Q.12 Create two dropdowns- one will have country list another should have the states List based on the selected country.
+// Q.12 (A) Create two dropdowns- one will have country list another should have the states List based on the selected country.
 
-function DependentDropdown() {
-  const [selectedCountry, setSelectedCountry] = useState(null);
-  const [selectedState, setSelectedState] = useState(null);
+// function DependentDropdown() {
+//   const [selectedCountry, setSelectedCountry] = useState(null);
+//   const [selectedState, setSelectedState] = useState(null);
+
+//   const countryOptions = ["India", "USA", "Canada"];
+
+//   // If stateOptions is constant and does not depend on component props/state → Move it outside the component.
+//   const stateOptions = {
+//     India: ["Delhi", "Mumbai", "Kolkata"],
+//     USA: ["New York", "California", "Texas"],
+//     Canada: ["Toronto", "Vancouver", "Montreal"],
+//   };
+
+//   // If stateOptions is computed dynamically (e.g., fetched from an API or based on props/state) → Keep useMemo to optimize performance.
+
+//   // const stateOptions = useMemo(() => ({
+//   //   India: ["Delhi", "Mumbai", "Kolkata"],
+//   //   USA: ["New York", "California", "Texas"],
+//   //   Canada: ["Toronto", "Vancouver", "Montreal"],
+//   // }), []);
+
+
+//   const availableStates = selectedCountry ? stateOptions[selectedCountry] : [];
+
+//   function handleCountryChange(selected) {
+//     setSelectedCountry(selected.value);
+//     setSelectedState(null);
+//   }
+
+//   return (
+//     // <div>
+//     <div className="d-flex">
+//       <Dropdown
+//         className="form-control"
+//         options={countryOptions}
+//         onChange={(e) => handleCountryChange(e)}
+//         value={selectedCountry}
+//         placeholder="Select a Country"
+//       />
+
+//       <Dropdown
+//         className="form-control ml-2"
+//         options={availableStates}
+//         onChange={(selected) => setSelectedState(selected.value)}
+//         value={selectedState}
+//         placeholder="Select a State"
+//       />
+//     </div>
+//   );
+// }
+
+// ***********************************************************************************************************************************************************
+// Q.12 (B) Create two dropdowns- one will have country list another should have the states List based on the selected country -without using external library
+
+function DependentDropdownUsingSelect() {
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [stateOptions, setStateOptions] = useState([]);
 
   const countryOptions = ["India", "USA", "Canada"];
 
-  const stateOptions = useMemo(
-    () => ({
-      India: ["Delhi", "Mumbai", "Kolkata"],
-      USA: ["New York", "California", "Texas"],
-      Canada: ["Toronto", "Vancouver", "Montreal"],
-    }),
-    []
-  );
+  const allStateOptions = {
+    India: ["Delhi", "Mumbai", "Kolkata"],
+    USA: ["New York", "California", "Texas"],
+    Canada: ["Toronto", "Vancouver", "Montreal"],
+  };
 
-  const availableStates = selectedCountry ? stateOptions[selectedCountry] : [];
-
-  function handleCountryChange(selected) {
-    setSelectedCountry(selected.value);
-    setSelectedState(null);
-  }
+  const handleCountryChange = (value) => {
+    setSelectedCountry(value);
+    setStateOptions(allStateOptions[value] || ["No State available"]);
+  };
 
   return (
-    <div className="container d-flex">
-      <Dropdown
-        className="form-control"
-        options={countryOptions}
-        onChange={(e) => handleCountryChange(e)}
+    <div className="App">
+      <select
         value={selectedCountry}
-        placeholder="Select a Country"
-      />
+        onChange={(e) => handleCountryChange(e.target.value)}
+      >
+        <option value="" disabled>
+          Select a Country
+        </option>
+        {countryOptions?.map((country) => (
+          <option value={country}>{country}</option>
+        ))}
+      </select>
 
-      <Dropdown
-        className="form-control ml-2"
-        options={availableStates}
-        onChange={(selected) => setSelectedState(selected.value)}
+      <select
         value={selectedState}
-        placeholder="Select a State"
-      />
+        onChange={(e) => setSelectedState(e.target.value)}
+      >
+        <option value="" disabled>
+          Select a State
+        </option>
+        {stateOptions?.map((state) => (
+          <option value={state}>{state}</option>
+        ))}
+      </select>
     </div>
   );
-}
 
+}
 // ***********************************************************************************************************************************************************
 // Q.13 Create an input feld. When we click on button then it should show entered text in typewriter style.
 
