@@ -21,6 +21,7 @@ export default function ReactQuestions() {
       {/* <FolderUI data={data} /> */}
       {/* <PollManager /> */}
       {/* <ToDo /> */}
+      {/* <ToDoList /> */}
       {/* <DependentDropdown /> */}
       {/* <TypeWriterEffect /> */}
       {/* <ModalPopup /> */}
@@ -837,7 +838,7 @@ function FolderUI({ data }) {
 // export default App;
 
 // ***********************************************************************************************************************************************************
-// Q.11 Create a To-Do using API
+// Q.11 (A) Create a To-Do using API
 
 function ToDo() {
   const [todos, setTodos] = useState([]);
@@ -846,7 +847,7 @@ function ToDo() {
     async function fetchData() {
       const response = await fetch("https://dummyjson.com/todos");
       const data = await response.json();
-      setTodos(data.todos);
+      setTodos(data.todos.splice(0, 10));
     }
     fetchData();
   }, []);
@@ -877,6 +878,54 @@ function ToDo() {
         ))}
       </ol>
     </>
+  );
+}
+
+// ***********************************************************************************************************************************************************
+// Q.11 (B) Create a static To-Do List with add and remove taks functionality
+
+function ToDoList() {
+  const [inputText, setInputText] = useState("");
+  const [toDoList, setToDoList] = useState([
+    { text: "abc", inProgress: false },
+  ]);
+
+  const handleAddTask = () => {
+    if (inputText) {
+      setToDoList([...toDoList, { text: inputText, inProgress: false }]);
+      setInputText("");
+    }
+  };
+
+  const handleRemove = (index) => {
+    const updatedToDoList = toDoList?.filter((_, i) => index !== i);
+    setToDoList(updatedToDoList);
+  };
+
+  const handleCheckbox = (index) => {
+    const updatedToDoList = toDoList?.map((todo, i) =>
+      i === index ? { ...todo, inProgress: !toDoList.inProgress } : todo
+    );
+    setToDoList(updatedToDoList);
+  };
+
+  return (
+    <div>
+      <input value={inputText} onChange={(e) => setInputText(e.target.value)} />
+      <button onClick={handleAddTask}>Add task</button>
+
+      <ol>
+        {toDoList?.map((todo, index) => {
+          return (
+            <li>
+              {todo.text}
+              <input type="checkbox" onChange={() => handleCheckbox(index)} />
+              <button onClick={() => handleRemove(index)}>Romove</button>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 }
 
@@ -1040,7 +1089,7 @@ function Debouncing() {
 // during that period.
 
 // How Does Throttling Work?
-// When throttling is applied to a function, it restricts the function to only be called once within a specific time interval, regardless 
+// When throttling is applied to a function, it restricts the function to only be called once within a specific time interval, regardless
 // of how many times the event that triggers the function occurs. If the event is triggered multiple times within the delay period, the
 // function will only run once.
 
