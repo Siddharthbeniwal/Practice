@@ -1002,7 +1002,7 @@ function DependentDropdownUsingSelect() {
 
   const handleCountryChange = (value) => {
     setSelectedCountry(value);
-    setStateOptions(allStateOptions[value] || ["No State available"]);
+    setStateOptions(allStateOptions[value]);
   };
 
   return (
@@ -1038,19 +1038,20 @@ function DependentDropdownUsingSelect() {
 // Q.13 Create an input feld. When we click on button then it should show entered text in typewriter style.
 
 function TypeWriterEffect() {
-  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [printText, setPrintText] = useState("");
 
   const handlePrint = () => {
     let index = 0;
-    const typeWriter = () => {
-      if (index <= value.length) {
-        setPrintText(value.slice(0, index));
+
+    const intervalId = setInterval(() => {
+      if (index <= inputValue.length) {
+        setPrintText(inputValue.slice(0, index));
         index++;
-        setTimeout(typeWriter, 400);
+      } else {
+        clearInterval(intervalId);
       }
-    };
-    typeWriter();
+    }, 400);
   };
 
   return (
@@ -1058,8 +1059,8 @@ function TypeWriterEffect() {
       <input
         type="text"
         placeholder="Enter"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button onClick={handlePrint}>Print text</button>
       {printText}
