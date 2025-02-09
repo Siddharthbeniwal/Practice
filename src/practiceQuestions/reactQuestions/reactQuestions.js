@@ -18,7 +18,7 @@ export default function ReactQuestions() {
       {/* <ShowCircleOnClick /> */}
       {/* <FollowingCircle /> */}
       {/* <DisplayDataInCard /> */}
-      {/* <FolderUI data={data} /> */}
+      <FolderUI data={folderStructure} />
       {/* <PollManager /> */}
       {/* <ToDo /> */}
       {/* <ToDoList /> */}
@@ -618,7 +618,7 @@ function DisplayDataInCard() {
 // Q.8 Make an interactive UI to show folder structure. Prepare a JSON which will have folder structure of the data to be show on the UI.
 // The UI should be dyanmic, ie, if some folders are added or deleted in the JSON then the UI should addapt it.
 
-const data = {
+const folderStructure = {
   name: "Root Folder",
   isFolder: true,
   items: [
@@ -626,43 +626,21 @@ const data = {
       name: "Folder 1",
       isFolder: true,
       items: [
-        {
-          name: "Sub Folder 1.1",
-          isFolder: true,
-          items: [
-            {
-              name: "File 1.1",
-              isFolder: false,
-            },
-            {
-              name: "File 1.2",
-              isFolder: false,
-            },
-            {
-              name: "File 1.3",
-              isFolder: false,
-            },
-          ],
-        },
+        { name: "File 1.1", isFolder: false },
+        { name: "File 1.2", isFolder: false },
+        { name: "File 1.3", isFolder: false },
       ],
     },
     {
       name: "Folder 2",
       isFolder: true,
       items: [
+        { name: "File 2.1", isFolder: false },
+        { name: "File 2.2", isFolder: false },
         {
-          name: "Sub Folder 2.1",
+          name: "Folder 2.1",
           isFolder: true,
-          items: [
-            {
-              name: "File 2.1",
-              isFolder: false,
-            },
-            {
-              name: "File 2.2",
-              isFolder: false,
-            },
-          ],
+          items: [{ name: "File 2.1.1", isFolder: false }],
         },
       ],
     },
@@ -672,30 +650,28 @@ const data = {
 function FolderUI({ data }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  if (data.isFolder) {
-    return (
-      <div>
-        <div onClick={() => setIsExpanded(!isExpanded)}>{data.name}</div>
-
+  return (
+    <div>
+      {data.isFolder ? (
         <div
-          style={{
-            paddingLeft: "12px",
-            display: isExpanded ? "block" : "none",
-          }}
+          onClick={() => setIsExpanded(!isExpanded)}
+          style={{ cursor: "pointer", fontWeight: "bold" }}
         >
-          {data.items.map((item) => {
-            return <FolderUI key={item.name} data={item} />;
-          })}
+          {data.name}
         </div>
-      </div>
-    );
-  } else
-    return (
-      <div>
-        {data.name}
-        <br />
-      </div>
-    );
+      ) : (
+        <div> {data.name}</div>
+      )}
+
+      {data.isFolder && isExpanded && (
+        <div style={{ marginLeft: "15px" }}>
+          {data.items.map((item, index) => (
+            <FolderUI key={index} data={item} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 // ***********************************************************************************************************************************************************
