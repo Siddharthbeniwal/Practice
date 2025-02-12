@@ -490,6 +490,15 @@ export default function outputBasedQuestions() {
 // In Q.26 (D), the slice() method creates a shallow copy of arrA.
 // arrB is now a new array with the same values as arrA, but it is independent of arrA.
 
+
+// ------------------------------------------------------------
+
+// const array = Array(10)
+// const array = [...Array(10)]
+// const array = [...Array(10).keys()]
+// console.log(array); 
+// console.log(typeof array); 
+
 // ***********************************************************************************************************************************************************
 // Q.27
 

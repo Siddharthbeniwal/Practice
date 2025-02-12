@@ -20,6 +20,8 @@
   color: white;
 }
 
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */ */
+
 /* Q14. ModalPopup CSS starts*/
 
 .overlay {
@@ -63,5 +65,59 @@ In CSS, when we apply 'position: absolute' to an element, it will position itsel
 
 */
 
-
 /* Q14. ModalPopup CSS ends*/
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */ */
+
+/* Q.4 (B) DisplayDataWithNumberedPagination CSS starts */
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  border: 2px solid black;
+  margin: 8px;
+  height: 190px;
+  width: 200px;
+}
+
+.pages-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pages {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 2px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pages:hover {
+  background-color: rgba(0, 128, 0, 0.667);
+}
+
+.pages-active {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 2px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+}
+
+/* Q.4 (B) DisplayDataWithNumberedPagination CSS ends */
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */

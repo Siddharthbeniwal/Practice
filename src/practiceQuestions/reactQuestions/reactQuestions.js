@@ -13,12 +13,13 @@ export default function ReactQuestions() {
       {/* <DisplayDataUsingFetch /> */}
       {/* <DisplayDataUsingAxios /> */}
       {/* <DisplayDataWithPagination /> */}
+      {/* <DisplayDataWithNumberedPagination /> */}
       {/* <DisplayDataUsingMemo/> */}
       {/* <DisplayDataWithInfiniteScroll /> */}
       {/* <ShowCircleOnClick /> */}
       {/* <FollowingCircle /> */}
       {/* <DisplayDataInCard /> */}
-      <FolderUI data={folderStructure} />
+      {/* <FolderUI data={folderStructure} /> */}
       {/* <PollManager /> */}
       {/* <ToDo /> */}
       {/* <ToDoList /> */}
@@ -213,7 +214,7 @@ function DisplayDataUsingAxios() {
 // ***********************************************************************************************************************************************************
 // Q.4 In Question 3, how can you optimize the performance?
 
-// (A) Pagination- Display data in smaller chunks by breaking it into pages.
+// (A) Pagination- Display data in smaller chunks by breaking it into pages and using previous & next buttons to change page.
 
 function DisplayDataWithPagination() {
   const [displayData, setDisplayData] = useState([]);
@@ -273,7 +274,82 @@ function DisplayDataWithPagination() {
   );
 }
 
-// (B) Use React.memo for Child Components to prevent re-renders of list items unless the data changes.
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (B) Numbered Pagination- Display data in smaller chunks by breaking it into pages and using numbered pagination to change page.
+
+const DisplayDataWithNumberedPagination = () => {
+  const [data, setData] = useState([]);
+  const [currentPageData, setCurrentPageData] = useState([]);
+  const [currentPageNo, setCurrentPageNo] = useState(0);
+  const CONSTANTS = {
+    ITEMS_PER_PAGE: 6,
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://fakestoreapi.com/products");
+        const response = await res.json();
+        const displayData = [
+          ...response,
+          ...response,
+          ...response,
+          ...response,
+        ];
+        setData(displayData);
+      } catch (err) {
+        console.log("err", err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    let start = currentPageNo * CONSTANTS.ITEMS_PER_PAGE;
+    let end = start + CONSTANTS.ITEMS_PER_PAGE;
+
+    setCurrentPageData(data.slice(start, end));
+  }, [currentPageNo]);
+
+  const totalNoOfPages = Math.ceil(data.length / CONSTANTS.ITEMS_PER_PAGE);
+  const totalPagesArr = [...Array(totalNoOfPages).keys()];
+
+  return (
+    <div className="App">
+      <h1>Pagination</h1>
+
+      <div className="pages-container">
+        <button onClick={() => setCurrentPageNo((prev) => prev - 1)} disabled={currentPageNo === 0}>prev</button>
+        {totalPagesArr.map((pg, i) => (
+          <span className={`pages${pg === currentPageNo ? '-active' : ''}`} key={i} onClick={() => setCurrentPageNo(pg)}>{pg + 1}</span>
+        ))}
+        <button onClick={() => setCurrentPageNo((prev) => prev + 1)} disabled={currentPageNo === totalNoOfPages - 1}>next</button>
+      </div>
+
+      <div className="product-container">
+        {currentPageData?.map((item, index) => (
+          <ProductCard key={index} title={item.title} image={item.image} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+//ProductCard component
+const ProductCard = ({ title, image }) => {
+  return (
+    <div className="product-card">
+      <p>{title.length > 40 ? `${title.slice(0, 40)}...` : title}</p>
+      <img src={image} alt={image} width="110" height="100" />
+    </div>
+  );
+};
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (C) Use React.memo for Child Components to prevent re-renders of list items unless the data changes.
 
 const DisplayDataUsingMemo = () => {
   const [displayData, setDisplayData] = useState([]);
@@ -315,7 +391,9 @@ const DisplayDataUsingMemo = () => {
   return <DataList items={displayData} />;
 };
 
-// (C) Infinite Scrolling With Scrolling Behavior
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// (D) Infinite Scrolling With Scrolling Behavior
 
 const DisplayDataWithInfiniteScroll = () => {
   const [displayData, setDisplayData] = useState([]); // Store all fetched data
