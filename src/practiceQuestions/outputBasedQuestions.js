@@ -829,7 +829,7 @@ export default function outputBasedQuestions() {
 
 
 // ***********************************************************************************************************************************************************
-// Q.36 Understanding block scope
+// Q.36 Understanding hoisting and scope behavior.
 
 // {
 //   let a = 1;
@@ -840,6 +840,37 @@ export default function outputBasedQuestions() {
 // }
 // console.log(a);
 // console.log(b);
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// var x = 1;
+
+// function outer() {
+//     console.log(x); // undefined
+    
+//     function inner() {
+//         console.log(x); // undefined
+//     }    
+//     inner();
+    
+//     var x = 2;
+// };
+// outer();
+
+// Explaination:
+// 1. Hoisting:
+// In JavaScript, variable declarations (with var) are hoisted to the top of their scope. This means that the declaration (var x;) 
+// is moved to the top, but the assignment (x = 2;) happens at its original position in the code.
+
+// 2. Scope:
+// The x inside the outer function is hoisted and set to undefined at the start of the function. Even though there’s a global x = 1,
+// the outer function has its own scope for x, and it starts as undefined inside outer.
+
+// 3. Execution:
+// The first console.log(x) inside outer() prints undefined because x is hoisted but not yet assigned a value (it's still undefined).
+// The inner() function also logs undefined because it inherits the same hoisted x from outer.
+// The assignment x = 2 happens after the logging, so it does not affect the output.
 
 // ***********************************************************************************************************************************************************
 // Q.37
@@ -933,10 +964,10 @@ export default function outputBasedQuestions() {
 //   return inner;
 // }
 
-// const inner = outer();
-// console.dir(inner); //outputs the object's properties in a tree-like structure.
+// const innerFn = outer();
+// // console.dir(inner); //outputs the object's properties in a tree-like structure.
 
-// inner();
+// innerFn();
 
 // ***********************************************************************************************************************************************************
 // Q.40
