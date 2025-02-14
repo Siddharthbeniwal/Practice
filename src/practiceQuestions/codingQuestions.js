@@ -402,7 +402,7 @@ export default function CodingQuestions() {
 
 // const sortedByValues = Object.entries(obj).sort().reduce((acc, [key, value]) => {
 //   acc[key] = value;
-//   return acc; 
+//   return acc;
 // }, {});
 
 // console.log(sortedByValues);
@@ -481,3 +481,29 @@ export default function CodingQuestions() {
 // }
 
 // console.log(findFile(root, fileName));
+
+
+// **********************************************************************************************************************************************
+// Q.21 Find the pair whose sum is equal to the target.
+
+// const arr = [5, 3, 7, 11];
+// const target = 14;
+// // expected o/p- [3, 11 ]
+
+// function findPair(arr, target) {
+
+//   const seenValues = new Set();
+
+//   for (let value of arr) {
+//     let complement = target - value;
+
+//     if (seenValues.has(complement)) {
+//       return [complement, value];
+//     }
+//     seenValues.add(value);
+//   }
+//   return 'No such pair found';
+// };
+
+// console.log(findPair(arr, target));
+
