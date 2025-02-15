@@ -523,3 +523,20 @@ export default function CodingQuestions() {
 // }
 
 // console.log(findDistinctElements(arr1, arr2));
+
+
+// **********************************************************************************************************************************************
+// Q.23 WAP to generate the Fibonacci series.
+
+// function getFibonacci(n) {
+//   let fibonacciArr = [0, 1];
+
+//   for (let i = 2; i < n; i++) {
+//     fibonacciArr.push(fibonacciArr[i - 1] + fibonacciArr[i - 2]);
+//   }
+
+//   return fibonacciArr.slice(0, n);
+// }
+
+// console.log(getFibonacci(10).toString());
+
