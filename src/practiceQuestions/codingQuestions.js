@@ -488,7 +488,7 @@ export default function CodingQuestions() {
 
 // const arr = [5, 3, 7, 11];
 // const target = 14;
-// // expected o/p- [3, 11 ]
+// // expected o/p- [3, 11]
 
 // function findPair(arr, target) {
 
@@ -507,3 +507,19 @@ export default function CodingQuestions() {
 
 // console.log(findPair(arr, target));
 
+
+// **********************************************************************************************************************************************
+// Q.22 Given two arrays. Find distint elemments.
+
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [1, 2, 3];
+// // expected Output: [4, 5]
+
+// function findDistinctElements(arr1, arr2) {
+//   const uniqueInArr1 = arr1.filter(item => !arr2.includes(item));
+//   const uniqueInArr2 = arr2.filter(item => !arr1.includes(item));
+
+//   return [...uniqueInArr1, ...uniqueInArr2];
+// }
+
+// console.log(findDistinctElements(arr1, arr2));
