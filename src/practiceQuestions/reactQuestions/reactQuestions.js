@@ -43,8 +43,8 @@ function Counter() {
     <div>
       <h1>Counter</h1>
       <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <button onClick={() => setCount(prev => prev + 1)}>Increment</button>
+      <button onClick={() => setCount(prev => prev - 1)}>Decrement</button>
     </div>
   );
 }
@@ -1171,20 +1171,15 @@ function ModalPopup() {
 
 function Debouncing() {
   const [inputValue, setInputValue] = useState("");
-  const [debouncedValue, setDebouncedValue] = useState("");
 
   useEffect(() => {
     let timerId = setTimeout(() => {
-      setDebouncedValue(inputValue);
+      console.log("Call API")
     }, 500);
 
     // Cleanup: Clear the timer if inputValue changes before 500ms
     return () => clearTimeout(timerId);
   }, [inputValue]);
-
-  useEffect(() => {
-    if (debouncedValue) console.log("Call API");
-  }, [debouncedValue]);
 
   return (
     <input

@@ -472,13 +472,12 @@ export default function CodingQuestions() {
 // }
 
 // function findFile(root, fileName) {
-//   let isPresent = false;
+
 //   let flatRoot = flattenArr(root);
+//   const flatRootSet = new Set(flatRoot);
 
-//   if (flatRoot.includes(fileName)) isPresent = true;
-
-//   return isPresent;
-// }
+//   return flatRootSet.has(fileName);
+// };
 
 // console.log(findFile(root, fileName));
 
