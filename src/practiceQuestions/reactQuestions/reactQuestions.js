@@ -140,9 +140,7 @@ function DisplayDataUsingFetch() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
-        );
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         const data = await response.json();
         setDisplayData(data);
       } catch (err) {
@@ -178,8 +176,7 @@ function DisplayDataUsingAxios() {
 
   useEffect(() => {
     function fetchData() {
-      axios
-        .get("https://jsonplaceholder.typicode.com/posts")
+      axios.get("https://jsonplaceholder.typicode.com/posts")
         .then((res) => {
           console.log("res", res);
           setDisplayData(res.data);

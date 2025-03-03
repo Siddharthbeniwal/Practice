@@ -102,13 +102,19 @@ export default function practiceQuestions() {
 
 
 // //without using built in functions:
-// let reverseString = '';
 
-// for (let i = 0; i < string.length; i++) {
-//   reverseString = string[i] + reverseString;
+// function reverseStr(str) {
+
+//   let reverseString = '';
+  
+//   for(let i=str.length-1; i>=0; i--) {
+//     reverseString += str[i];
+//   }
+  
+//   return reverseString;
 // }
 
-// console.log('reversed String without using builtin fn', reverseString);
+// console.log(reverseStr(string));
 
 
 // ________________________________________________________________________________________________
