@@ -267,68 +267,32 @@ export default function practiceQuestions() {
 // eg- str = 'hi hello'
 // o/p-> h-2, i=1, e-1, l-2, o-1
 
-// let str = 'abbccc dee fff zzzz'
-// let alphabets = {
-//   'a' : 0,
-//   'b' : 0,
-//   'c' : 0,
-//   'd' : 0,
-//   'e' : 0,
-//   'f' : 0,
-//   'g' : 0,
-//   'h' : 0,
-//   'i' : 0,
-//   'j' : 0,
-//   'k' : 0,
-//   'l' : 0,
-//   'm' : 0,
-//   'n' : 0,
-//   'o' : 0,
-//   'p' : 0,
-//   'q' : 0,
-//   'r' : 0,
-//   's' : 0,
-//   't' : 0,
-//   'u' : 0,
-//   'v' : 0,
-//   'w' : 0,
-//   'x' : 0,
-//   'y' : 0,
-//   'z' : 0,
+// let count = {};
+
+// for (let char of str) {
+//   count[char] = (count[char] || 0) + 1;
 // }
-
-// console.log('str: ', str);
-// str = str.split('');
-
-// for (const key in alphabets) {
-//   // console.log(`${key}: ${alphabets[key]}`);
-//   str.map((ch) => {
-//     if (ch === key) {
-//       alphabets[key] += 1
-//     }
-//   })
-// }
-
-// console.log('alphabets frequency: ', alphabets);
-
-
 
 // ________________________________________________________________________________________________
 // Q.13. Remove all vowels in a given string.
 
 // let str = "Learning javaScript"
 
-// let newStr = str.split('');
-// let output = newStr.filter((item) => {
-//   if(!item.match(/[aeiou]/gi)) {
-//     return true;
-//   }
-//   return false;
-// })
+// function removeVowels(str) {
+    
+//     let strArr = str.split('');
+//     let outputStr = '';
+    
+//     strArr.forEach((char) => {
+//         if(!char.match(/[aeiou]/gi)) {
+//             outputStr += char;
+//         }
+//     })
+    
+//     return outputStr;
+// }
 
-// console.log('string', str);
-// console.log('output', output.join(''));
-
+// console.log(removeVowels(str));
 
 // OR
 

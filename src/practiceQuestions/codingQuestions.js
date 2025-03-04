@@ -26,6 +26,13 @@ export default function CodingQuestions() {
 // console.log('output', output);
 // console.log('count', count);
 
+// -----------------------------------
+//for only removing duplicate:
+// function removeDuplicate(arr) {
+//   return [...new Set(arr)]  
+// }
+
+
 // **********************************************************************************************************************************************
 // Q.2 Find count of each character in a given string.
 
