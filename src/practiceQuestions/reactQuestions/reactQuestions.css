@@ -121,3 +121,22 @@ In CSS, when we apply 'position: absolute' to an element, it will position itsel
 /* Q.4 (B) DisplayDataWithNumberedPagination CSS ends */
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Q17. ProgressBar starts*/
+
+.progress-box-container {
+  border: solid black 2px;
+  height: 25px;
+  overflow: hidden;
+}
+
+.progress-box {
+  background-color: green;
+  height: 25px;
+  text-align: right;
+}
+
+/* Q17. ProgressBar ends*/
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */

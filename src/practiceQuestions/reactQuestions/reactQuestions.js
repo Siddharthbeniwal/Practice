@@ -29,6 +29,7 @@ export default function ReactQuestions() {
       {/* <ModalPopup /> */}
       {/* <Debouncing /> */}
       {/* <Throttling /> */}
+      {/* <ProgressBar /> */}
     </div>
   );
 }
@@ -1221,3 +1222,32 @@ function Throttling() {
 
   return <button onClick={thorttledApiCall}>Call API</button>;
 }
+
+// ***********************************************************************************************************************************************************
+// Q.17 Make a Progress Bar
+
+
+function ProgressBar({ progress = 70 }) {
+
+  const [animatedProgress, setAnimatedProgress] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimatedProgress(progress);
+    }, 100);
+  }, [progress]);
+
+  return (
+    <div className="progress-box-container" >
+      <div
+        className="progress-box"
+        style={{
+          transform: `translateX(${animatedProgress - 100}%)`,
+          transition: "0.3s ease-in",
+        }}
+      >
+        {animatedProgress}%
+      </div>
+    </div>
+  );
+};
