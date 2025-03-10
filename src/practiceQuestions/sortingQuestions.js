@@ -1,19 +1,20 @@
 import React from "react";
 
 export default function SortingQuestions() {
-  return (
-    <div>
-      <h2>Welcome to sorting questions.</h2>
-    </div>
-  );
+    return (
+        <div>
+            <h2>Welcome to sorting questions.</h2>
+        </div>
+    );
 }
 
 const arr = [64, 25, 12, 22, 11];
-    //index   0   1   2   3   4
+//index   0   1   2   3   4
 
 
 // **********************************************************************************************************************************************
 // Q.1 Bubble Sort
+// => Sorting algorithm where the largest values bubbles up at the top.
 
 // Steps:
 // 1: Compare the first element with the second element. If the first is greater, swap them.
@@ -24,15 +25,22 @@ const arr = [64, 25, 12, 22, 11];
 // 6: Continue until no more swaps are needed, which means the array is sorted.
 
 function bubbleSort(arr) {
-    let n = arr.length;
+    let swapped;
 
-    for(let i = 0; i < n-1; i++) {
-        for(let j = i; j < n-1; j++) {
-            if(arr[j] > arr[j+1]) {
-                let temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+    for (let i = 0; i < arr.length; i++) {
+        swapped = false;
+
+        for (let j = 0; j < arr.length - i - 1; j++) {
+
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                swapped = true;
             }
+        }
+
+        // If no elements were swapped in the inner loop, the array is sorted
+        if (!swapped) {
+            break;  // Break early if the array is already sorted
         }
     }
     return arr;
@@ -57,16 +65,16 @@ function bubbleSort(arr) {
 function selectionSort(arr) {
     let n = arr.length;
 
-    for(let i = 0; i < n-1; i++) {
+    for (let i = 0; i < n - 1; i++) {
         let minIndex = i;                   // Assume the current element is the minimum
 
-        for(let j = i+1; j < n; j++) {    // Find the index of the smallest element in the remaining array
-            if(arr[j] < arr[minIndex]) {
+        for (let j = i + 1; j < n; j++) {    // Find the index of the smallest element in the remaining array
+            if (arr[j] < arr[minIndex]) {
                 minIndex = j;
             }
         }
 
-        if(minIndex !==i) {
+        if (minIndex !== i) {
             let temp = arr[i];
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
