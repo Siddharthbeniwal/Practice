@@ -56,6 +56,8 @@ function bubbleSort(arr) {
 
 // **********************************************************************************************************************************************
 // Q.2 Selection Sort
+// => Sorting algorithm that repeatedly selects the smallest element from the unsorted part of the list
+// and swaps it with the first unsorted element, effectively sorting the entire array step by step.
 
 // Steps:
 // 1: Find the smallest element in the entire array and swap it with the first element.
@@ -63,12 +65,11 @@ function bubbleSort(arr) {
 // 3: Repeat this process until the array is sorted.
 
 function selectionSort(arr) {
-    let n = arr.length;
 
-    for (let i = 0; i < n - 1; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         let minIndex = i;                   // Assume the current element is the minimum
 
-        for (let j = i + 1; j < n; j++) {    // Find the index of the smallest element in the remaining array
+        for (let j = i + 1; j < arr.length; j++) {    // Find the index of the smallest element in the remaining array
             if (arr[j] < arr[minIndex]) {
                 minIndex = j;
             }
