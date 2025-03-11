@@ -546,3 +546,17 @@ export default function CodingQuestions() {
 
 // console.log(getFibonacci(10).toString());
 
+// **********************************************************************************************************************************************
+// Q.24 Get array of those elements whose frequency is only one in the given array.
+
+// const arr = [1,1,2,3,2,3,5,6,6,6,7];
+// // Expected output = [5,7]
+
+// const count = arr.reduce((acc, curr) => {
+//     acc[curr] = (acc[curr] || 0) + 1;    
+//     return acc;
+// }, {});
+
+// const outputArr = arr.filter((num) => count[num] === 1);
+
+// console.log(outputArr);

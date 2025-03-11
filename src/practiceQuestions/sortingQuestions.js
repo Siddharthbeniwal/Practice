@@ -56,7 +56,7 @@ function bubbleSort(arr) {
 
 // **********************************************************************************************************************************************
 // Q.2 Selection Sort
-// => Sorting algorithm that repeatedly selects the smallest element from the unsorted part of the list
+// => Sorting algorithm that repeatedly selects the smallest(or largest) element from the unsorted part of the list
 // and swaps it with the first unsorted element, effectively sorting the entire array step by step.
 
 // Steps:
