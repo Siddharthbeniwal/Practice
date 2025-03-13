@@ -106,11 +106,11 @@ export default function practiceQuestions() {
 // function reverseStr(str) {
 
 //   let reverseString = '';
-  
+
 //   for(let i=str.length-1; i>=0; i--) {
 //     reverseString += str[i];
 //   }
-  
+
 //   return reverseString;
 // }
 
@@ -118,7 +118,7 @@ export default function practiceQuestions() {
 
 
 // ________________________________________________________________________________________________
-// Q.8. Reverse words of a string.
+// Q.8.(A) Reverse words of a string.
 // eg- i/p = Hello World
 //     o/p = World Hello
 
@@ -162,6 +162,27 @@ export default function practiceQuestions() {
 
 // console.log(reverseWordsWithoutInbuilt(string));
 
+// ________________________________________________________________________________________________
+// Q.8.(B) Reverse letters of each word.
+// eg- i/p = Hello World
+//     o/p = olleH dlroW
+
+// function reverseWords(str) {
+//   let outputArr = [];
+//   let wordStart = 0;
+
+//   for(let i=0; i<=str.length; i++) {
+//     if(str[i] === ' ' || i===str.length) {
+//       outputArr.push(str.slice(wordStart, i).split('').reverse().join(''));
+//       wordStart = i+1;
+//     }
+//   }
+
+//   return outputArr.join(' ');
+// }
+
+// const str = 'Hello World';
+// console.log(reverseWords(str));
 
 // ________________________________________________________________________________________________
 // Q.9. Find palindrome.
@@ -233,7 +254,8 @@ export default function practiceQuestions() {
 // console.log('2nd largest no is ', arr[arr.length-2]);
 
 // // without using built in functions (Method 2 Optimized):
-// function getSecondMax(arr) {
+// function getSecondMax(array) {
+//   let arr = [...new Set(array)];
 //   let max = -Infinity;
 //   let secondMax = -Infinity;
 
@@ -279,16 +301,16 @@ export default function practiceQuestions() {
 // let str = "Learning javaScript"
 
 // function removeVowels(str) {
-    
+
 //     let strArr = str.split('');
 //     let outputStr = '';
-    
+
 //     strArr.forEach((char) => {
 //         if(!char.match(/[aeiou]/gi)) {
 //             outputStr += char;
 //         }
 //     })
-    
+
 //     return outputStr;
 // }
 
@@ -315,7 +337,7 @@ export default function practiceQuestions() {
 //   {name:"John",rollNumber:16,marks:35},
 //   {name:"Tiger",rollNumber:7,marks:55}
 //  ];
- 
+
 //  const sum = student.marks.reduce((accumulator, currentValue) => {
 //   return accumulator + currentValue;
 // }, 0);
