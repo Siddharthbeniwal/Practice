@@ -1157,3 +1157,20 @@ export default function outputBasedQuestions() {
 // console.log(strObj.data); // 'val'
 // However, note that new String() creates an object, not a primitive string, which can have unexpected behaviors in comparisons.
 
+
+// ***********************************************************************************************************************************************************
+// Q.47 Understanding Promise and async await in JavaScript
+
+// new Promise((resolve) => {
+//   resolve(1);
+//   Promise.resolve().then(() => {
+//       console.log(2);
+//   });
+// }).then((data) => {
+//   console.log(data);
+// })
+// console.log(3);
+
+//321
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
