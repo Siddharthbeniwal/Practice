@@ -848,12 +848,12 @@ export default function outputBasedQuestions() {
 
 // function outer() {
 //     console.log(x); // undefined
-    
+
 //     function inner() {
 //         console.log(x); // undefined
 //     }    
 //     inner();
-    
+
 //     var x = 2;
 // };
 // outer();
@@ -1164,7 +1164,7 @@ export default function outputBasedQuestions() {
 // new Promise((resolve) => {
 //   resolve(1);
 //   Promise.resolve().then(() => {
-//       console.log(2);
+//     console.log(2);
 //   });
 // }).then((data) => {
 //   console.log(data);
@@ -1174,3 +1174,14 @@ export default function outputBasedQuestions() {
 //321
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// new Promise((resolve) => {
+//   Promise.resolve().then(() => {
+//     resolve(1);
+//     Promise.resolve().then(() => console.log(2));
+//   });
+// }).then((data) => console.log(data));
+
+// console.log(3);
+
+// 312
