@@ -378,4 +378,16 @@ function capitalizeFirstLetterOfEachWord(str) {
 
 // console.log(capitalizeFirstLetterOfEachWord(str));
 
+// ________________________________________________________________________________________________
+// Q.17. Get the expected output from the given object.
 
+const obj = [{ name: "A1", sal: "20" }, { name: "A2", sal: "40" }, { name: "A5", sal: "70" }];
+
+// expected output = { A1: '20', A2: '40', A5: '70' }
+
+const output = obj.reduce((acc, { name, sal }) => {
+  acc[name] = sal;
+  return acc;
+}, {});
+
+console.log(output);

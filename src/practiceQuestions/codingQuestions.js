@@ -560,3 +560,44 @@ export default function CodingQuestions() {
 // const outputArr = arr.filter((num) => count[num] === 1);
 
 // console.log(outputArr);
+
+
+// **********************************************************************************************************************************************
+// Q.25 Remove duplicate characters in the given string.
+
+function removeDuplicates(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+      if (!result.includes(str[i])) {
+          result += str[i];
+      }
+  }
+  return result;
+}
+
+let inputString = "hello world";
+console.log(removeDuplicates(inputString));
+
+
+// **********************************************************************************************************************************************
+// Q.26 count the number of pairs in the array where the sum of the pair exists as an element in the array.
+
+let arr = [1, 5, 3, 2];
+
+function getPairCount(arr) {
+    let count = 0;
+    let seen = new Set(arr);
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            let sumOfPair = arr[i] + arr[j];
+            if (seen.has(sumOfPair)) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+console.log(getPairCount(arr));
