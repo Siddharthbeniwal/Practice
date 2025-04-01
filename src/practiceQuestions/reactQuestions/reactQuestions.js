@@ -728,16 +728,13 @@ function FolderUI({ data }) {
 
   return (
     <div>
-      {data.isFolder ? (
-        <div
-          onClick={() => setIsExpanded(!isExpanded)}
-          style={{ cursor: "pointer", fontWeight: "bold" }}
-        >
-          {data.name}
-        </div>
-      ) : (
-        <div> {data.name}</div>
-      )}
+
+      <div
+        onClick={() => (data.isFolder ? setIsExpanded(!isExpanded) : {})}
+        style={data.isFolder ? { cursor: "pointer", fontWeight: "bold" } : {}}
+      >
+        {data.name}
+      </div>
 
       {data.isFolder && isExpanded && (
         <div style={{ marginLeft: "15px" }}>
