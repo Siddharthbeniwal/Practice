@@ -140,3 +140,23 @@ In CSS, when we apply 'position: absolute' to an element, it will position itsel
 /* Q17. ProgressBar ends*/
 
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Q18. DisplayDataInTable starts*/
+
+.DisplayDataInTable {
+  .main-table {
+    border: solid #000000 2px;
+    border-collapse: collapse;
+  }
+  
+  .table-row td {
+    border: solid black 2px;
+    padding: 0;
+    margin: 0;
+    padding: 0.5rem;
+  }
+   
+}
+/* Q18. DisplayDataInTable ends*/
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */

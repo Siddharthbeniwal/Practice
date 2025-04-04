@@ -30,6 +30,7 @@ export default function ReactQuestions() {
       {/* <Debouncing /> */}
       {/* <Throttling /> */}
       {/* <ProgressBar /> */}
+      <DisplayDataInTable />
     </div>
   );
 }
@@ -1245,5 +1246,47 @@ function ProgressBar({ progress = 70 }) {
         {animatedProgress}%
       </div>
     </div>
+  );
+};
+
+// ***********************************************************************************************************************************************************
+// Q.18 Fetch data from API and display it in a table.
+
+function DisplayDataInTable() {
+
+  const [displayData, setDisplayData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data = await res.json();
+      setDisplayData(data);
+    }
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="DisplayDataInTable">
+      <table className="main-table">
+        <thead>
+          <tr className="table-row">
+            <td>ID</td>
+            <td>Title</td>
+            <td>Body</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          {displayData.map((item) => (
+            <tr className="table-row">
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.body}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      </div>
   );
 };
