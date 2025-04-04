@@ -30,7 +30,7 @@ export default function ReactQuestions() {
       {/* <Debouncing /> */}
       {/* <Throttling /> */}
       {/* <ProgressBar /> */}
-      <DisplayDataInTable />
+      {/* <DisplayDataInTable /> */}
     </div>
   );
 }
