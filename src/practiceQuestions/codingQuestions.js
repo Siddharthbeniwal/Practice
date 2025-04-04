@@ -575,29 +575,29 @@ function removeDuplicates(str) {
   return result;
 }
 
-let inputString = "hello world";
-console.log(removeDuplicates(inputString));
+// let inputString = "hello world";
+// console.log(removeDuplicates(inputString));
 
 
 // **********************************************************************************************************************************************
 // Q.26 count the number of pairs in the array where the sum of the pair exists as an element in the array.
 
-let arr = [1, 5, 3, 2];
+// let arr = [1, 5, 3, 2];
 
-function getPairCount(arr) {
-    let count = 0;
-    let seen = new Set(arr);
+// function getPairCount(arr) {
+//     let count = 0;
+//     let seen = new Set(arr);
 
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            let sumOfPair = arr[i] + arr[j];
-            if (seen.has(sumOfPair)) {
-                count++;
-            }
-        }
-    }
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             let sumOfPair = arr[i] + arr[j];
+//             if (seen.has(sumOfPair)) {
+//                 count++;
+//             }
+//         }
+//     }
 
-    return count;
-}
+//     return count;
+// }
 
-console.log(getPairCount(arr));
+// console.log(getPairCount(arr));

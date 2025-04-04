@@ -1215,9 +1215,8 @@ function Throttling() {
     console.log("call API");
   };
 
-  const thorttledApiCall = myThrottle(handleApiCall, 5000);
+  return <button onClick={myThrottle(handleApiCall, 5000)}>Call API</button>;
 
-  return <button onClick={thorttledApiCall}>Call API</button>;
 }
 
 // ***********************************************************************************************************************************************************
