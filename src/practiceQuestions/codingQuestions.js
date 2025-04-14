@@ -568,9 +568,9 @@ export default function CodingQuestions() {
 function removeDuplicates(str) {
   let result = '';
   for (let i = 0; i < str.length; i++) {
-      if (!result.includes(str[i])) {
-          result += str[i];
-      }
+    if (!result.includes(str[i])) {
+      result += str[i];
+    }
   }
   return result;
 }
@@ -601,3 +601,33 @@ function removeDuplicates(str) {
 // }
 
 // console.log(getPairCount(arr));
+
+
+// **********************************************************************************************************************************************
+// Q.27 Remove duplicate objects in the given array of objects.
+
+const arr = [
+  {
+    name: 'xyz',
+    id: 1
+  },
+  {
+    name: 'abc',
+    id: 2
+  },
+  {
+    name: 'xyz',
+    id: 1
+  },
+  {
+    name: 'xyz',
+    id: 2
+  },
+];
+
+// transform each object in the original array into a key-value pair
+
+const objArr = arr.map(obj => [JSON.stringify(obj), obj]);
+
+const uniqueObj = [...new Map(objArr).values()];
+console.log(uniqueObj);
