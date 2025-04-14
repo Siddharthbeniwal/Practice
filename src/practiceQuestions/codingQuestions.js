@@ -604,7 +604,7 @@ function removeDuplicates(str) {
 
 
 // **********************************************************************************************************************************************
-// Q.27 Remove duplicate objects in the given array of objects.
+// Q.27
 
 const arr = [
   {
@@ -625,9 +625,18 @@ const arr = [
   },
 ];
 
+//  (A) Remove duplicate objects in the given array of objects.
+
 // transform each object in the original array into a key-value pair
 
-const objArr = arr.map(obj => [JSON.stringify(obj), obj]);
+// const objArr = arr.map(obj => [JSON.stringify(obj), obj]);
 
-const uniqueObj = [...new Map(objArr).values()];
-console.log(uniqueObj);
+// const uniqueObj = [...new Map(objArr).values()];
+// console.log(uniqueObj);
+
+// **********************************************************************************************************************************************
+
+//  (B) Add one more object in the given array of objects.
+
+// arr.push({name: 'abc', id: 5});
+// console.log(arr);
