@@ -606,24 +606,24 @@ function removeDuplicates(str) {
 // **********************************************************************************************************************************************
 // Q.27
 
-const arr = [
-  {
-    name: 'xyz',
-    id: 1
-  },
-  {
-    name: 'abc',
-    id: 2
-  },
-  {
-    name: 'xyz',
-    id: 1
-  },
-  {
-    name: 'xyz',
-    id: 2
-  },
-];
+// const arr = [
+//   {
+//     name: 'xyz',
+//     id: 1
+//   },
+//   {
+//     name: 'abc',
+//     id: 2
+//   },
+//   {
+//     name: 'xyz',
+//     id: 1
+//   },
+//   {
+//     name: 'xyz',
+//     id: 2
+//   },
+// ];
 
 //  (A) Remove duplicate objects in the given array of objects.
 
@@ -640,3 +640,22 @@ const arr = [
 
 // arr.push({name: 'abc', id: 5});
 // console.log(arr);
+
+// **********************************************************************************************************************************************
+// Q.28 Given an integer array nums, find the subarray with the largest sum, and return its sum.
+
+// const nums = [-2,1,-3,4,-1,2,1,-5,4]
+
+function maxSubarray(arr) {
+    let currentSum = arr[0];
+    let maxSum = arr[0];
+    
+    for(let i=1; i<arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+        maxSum = Math.max(currentSum, maxSum);
+    }
+    
+    return maxSum;
+}
+
+// console.log(maxSubarray(nums));
