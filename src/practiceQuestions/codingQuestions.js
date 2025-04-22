@@ -647,15 +647,53 @@ function removeDuplicates(str) {
 // const nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 function maxSubarray(arr) {
-    let currentSum = arr[0];
-    let maxSum = arr[0];
-    
-    for(let i=1; i<arr.length; i++) {
-        currentSum = Math.max(arr[i], currentSum + arr[i]);
-        maxSum = Math.max(currentSum, maxSum);
-    }
-    
-    return maxSum;
-}
+  let currentSum = arr[0];
+  let maxSum = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    currentSum = Math.max(arr[i], currentSum + arr[i]);
+    maxSum = Math.max(currentSum, maxSum);
+  }
+
+  return maxSum;
+};
 
 // console.log(maxSubarray(nums));
+
+// **********************************************************************************************************************************************
+// Q.29 Valid Parentheses
+
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Every close bracket has a corresponding open bracket of the same type.
+
+// const str = '([])';
+
+function isBalanced(str) {
+  const map = {
+    '{': '}',
+    '(': ')',
+    '[': ']'
+  };
+
+  let stack = [];
+
+  for (let char of str) {
+    if (map[char]) {
+      stack.push(char);
+    } else {
+      let lastChar = stack.pop();
+      if (map[lastChar] !== char) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+};
+
+// console.log(isBalanced(str));
